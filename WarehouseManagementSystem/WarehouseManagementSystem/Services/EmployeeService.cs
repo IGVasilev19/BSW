@@ -1,5 +1,6 @@
 ﻿using WarehouseManagementSystem.Core;
 using WarehouseManagementSystem.Models;
+using WarehouseManagementSystem.Models.Enums;
 
 namespace WarehouseManagementSystem.Services
 {
@@ -18,7 +19,7 @@ namespace WarehouseManagementSystem.Services
 
         public void CreateEmployee(Employee employee) => _repo.Add(employee);
 
-        public void UpdateEmployee(Employee employee) => _repo.Update(employee);
+        public void UpdateEmployeeRole(int id, Role role) => _repo.UpdateRole(id, role);
 
         public void DeleteEmployee(int id) => _repo.Delete(id);
     }

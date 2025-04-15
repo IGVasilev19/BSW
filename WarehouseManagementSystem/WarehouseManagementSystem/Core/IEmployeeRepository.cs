@@ -1,4 +1,5 @@
 ﻿using WarehouseManagementSystem.Models;
+using WarehouseManagementSystem.Models.Enums;
 
 namespace WarehouseManagementSystem.Core
 {
@@ -7,7 +8,7 @@ namespace WarehouseManagementSystem.Core
         IEnumerable<Employee> GetAll();
         Employee GetById(int id);
         void Add(Employee employee);
-        void Update(Employee employee);
+        void UpdateRole(int id, Role role);
         void Delete(int id);
     }
 }

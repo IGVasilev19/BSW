@@ -1,21 +1,35 @@
 ﻿using WarehouseManagementSystem.Core;
 using WarehouseManagementSystem.Data;
 using WarehouseManagementSystem.Models;
+using WarehouseManagementSystem.Models.Enums;
 
 namespace WarehouseManagementSystem.Repositories
 {
     public class EmployeeRepository : IEmployeeRepository
     {
-        private readonly DBHelper _db;
+        private readonly DbHelper _db;
 
-        public EmployeeRepository(DBHelper db)
+        public EmployeeRepository(DbHelper db)
         {
             _db = db;
         }
 
         public void Add(Employee employee)
         {
-            throw new NotImplementedException();
+            using var conn = _db.GetConnection();
+            conn.Open();
+
+            var cmd = _db.CreateCommand(@"INSERT INTO Employee (Name, Email, Password, PhoneNumber, Role, EmployeeStatus, WarehouseId) VALUES (@Name, @Email, @Password, @PhoneNumber, @Role, @EmployeeStatus, @WarehouseId)", conn);
+
+            cmd.Parameters.AddWithValue("@Name", employee.Name);
+            cmd.Parameters.AddWithValue("@Email", employee.Email);
+            cmd.Parameters.AddWithValue("@Password", employee.Password);
+            cmd.Parameters.AddWithValue("@PhoneNumber", employee.PhoneNumber);
+            cmd.Parameters.AddWithValue("@Role", (int)employee.Role);
+            cmd.Parameters.AddWithValue("@EmployeeStatus", (int)employee.EmployeeStatus);
+            cmd.Parameters.AddWithValue("@WarehouseId", employee.WarehouseId);
+
+            cmd.ExecuteNonQuery();
         }
 
         public void Delete(int id)
@@ -26,19 +40,24 @@ namespace WarehouseManagementSystem.Repositories
         public IEnumerable<Employee> GetAll()
         {
             var list = new List<Employee>();
+
             using var conn = _db.GetConnection();
             conn.Open();
             var cmd = _db.CreateCommand("SELECT * FROM Employees", conn);
             using var reader = cmd.ExecuteReader();
+
             while (reader.Read())
             {
-                list.Add(new Employee
-                {
-                    Id = (int)reader["EmloyeeId"],
-                    Name = reader["Name"].ToString() ?? "",
-                    Email = reader["Email"].ToString() ?? "",
-                    Role = (int)reader["Role"]
-                });
+                list.Add(new Employee(
+                    (int)reader["EmployeeId"],
+                    reader["Name"].ToString(),
+                    reader["Email"].ToString(),
+                    reader["Password"].ToString(),
+                    reader["PhoneNumber"].ToString(),
+                    (Models.Enums.Role)reader["Role"],
+                    (Models.Enums.EmployeeStatus)reader["EmployeeStatus"],
+                    (int)reader["WarehouseId"]
+                ));
             }
             return list;
         }
@@ -48,7 +67,7 @@ namespace WarehouseManagementSystem.Repositories
             throw new NotImplementedException();
         }
 
-        public void Update(Employee employee)
+        public void UpdateRole(int id, Role role)
         {
             throw new NotImplementedException();
         }
