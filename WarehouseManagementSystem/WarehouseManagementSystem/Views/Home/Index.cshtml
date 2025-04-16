@@ -2,34 +2,57 @@
     ViewData["Title"] = "Landing page";
 }
 
-<div class="h-full w-full flex flex-col">
-    <div class="w-full flex justify-between p-4">
-        <img src="../images/logo-nobg-min.png" class="max-w-[140px]"/>
-        <button class="bg-slate-800 w-[125px] h-[45px] mt-4 hover:bg-slate-700 flex justify-center items-center">
-            <p class="text-white text-xl font-semibold m-0">
-                Sign in
-            </p>
-        </button>
-    </div>
-    <div class="w-full h-full flex pl-10">
-        <div class="h-full flex flex-col justify-between pb-20">
-            <div class="flex flex-col max-w-xl gap-3">
-                <p class="max-sm:text-2xl text-5xl font-bold text-slate-800 leading-tight animate-fade-in-up">MANAGE YOUR <br /> WAREHOUSE <br /> WITH EASE</p>
-                <p class="text-slate-800 max-sm:text-lg text-2xl font-semibold max-sm:max-w-[224px] max-w-md text-justify animate-fade-in-up-delayed">SW – The Business Warehouse Solution empowers you to manage inventory, track stock levels, and streamline operations all from one simple, secure platform.</p>
-            </div>
-            <button onmouseover="hoverArrow(true)" onmouseout="hoverArrow(false)" class="group w-[500px] h-[60px] border-4 border-slate-800 flex justify-center items-center rounded gap-3 hover:bg-slate-800 hover:scale-[1.05]">
-                <p class="text-slate-800 font-bold text-2xl m-0 group-hover:text-white">Smart Warehousing Starts Here!</p>
-                <img id="arrowIcon" src="../images/Arrow 1.svg" class="h-[30px]"/>
+<section id="hero" class="h-screen w-full bg-slate-100 flex flex-col items-center justify-center text-center px-4 ">
+    <p id="typewriter" class="h-fit text-4xl md:text-7xl font-bold text-slate-800 whitespace-nowrap border-r-4 border-slate-800 animate-typewriter overflow-hidden w-[0ch] p-4">
+        Welcome into the world of warehouse management.
+    </p>
+
+    <button onClick="redirectFunction()" class="group absolute bottom-10 animate-bounce text-slate-800 text-9xl hover:text-slate-600 transition-colors duration-700">
+        <img src="../images/arrowdown2.svg" class="w-[80px] transition-transform duration-500 group-hover:translate-y-2"/>
+    </button>
+</section>
+<section id="main" class="h-full w-full">
+    <div class="h-full w-full flex flex-col">
+        <div class="w-full flex justify-between p-4">
+            <img src="../images/logo-nobg-min.png" class="max-w-[140px] fade-on-scroll opacity-0 translate-y-5 transition-all duration-1000"/>
+            <button class="bg-slate-800 w-[125px] h-[45px] mt-4 hover:bg-slate-700 hover:duration-0 flex justify-center items-center fade-on-scroll opacity-0 translate-y-5 transition-all duration-1000">
+                <p class="text-white text-xl font-semibold m-0">
+                    Sign in
+                </p>
             </button>
-            <script>
-                function hoverArrow(isHover) {
-                    const img = document.getElementById("arrowIcon");
-                    img.src = isHover ? "../images/Arrow 2.svg" : "../images/Arrow 1.svg";
-                }
-            </script>
         </div>
-        <div class="w-full">
-            <img src="../images/Landing page illustration3.svg" class="w-full h-[800px] animate-float"/>
+        <div class="w-full h-full flex pl-10">
+            <div class="h-full flex flex-col justify-between pb-20">
+                <div class="flex flex-col max-w-xl gap-3">
+                    <p class="max-sm:text-2xl text-5xl font-bold text-slate-800 leading-tight fade-on-scroll opacity-0 translate-y-5 transition-all duration-1000">MANAGE YOUR <br /> WAREHOUSE <br /> WITH EASE</p>
+                    <p class="text-slate-800 max-sm:text-lg text-2xl font-semibold max-sm:max-w-[224px] max-w-md text-justify fade-on-scroll opacity-0 translate-y-5 transition-all duration-1000">SW – The Business Warehouse Solution empowers you to manage inventory, track stock levels, and streamline operations all from one simple, secure platform.</p>
+                </div>
+                <button onmouseover="hoverArrow(true)" onmouseout="hoverArrow(false)" class="group w-[500px] h-[60px] border-4 border-slate-800 flex justify-center items-center rounded gap-3 fade-on-scroll opacity-0 translate-y-5 transition-all duration-1000 hover:bg-slate-800 hover:scale-[1.05] hover:duration-0">
+                    <p class="text-slate-800 font-bold text-2xl m-0 group-hover:text-white">Smart Warehousing Starts Here!</p>
+                    <button>
+                        <img id="arrowIcon" src="../images/Arrow 1.svg" class="h-[30px] z-20"/>
+                    </button>
+                </button>
+            </div>
+            <div class="w-full">
+                <img src="../images/Landing page illustration3.svg" class="w-full h-[800px] fade-on-scroll opacity-0 translate-y-5 transition-all duration-1000"/>
+            </div>
         </div>
     </div>
-</div>
+</section>
+<section id="Details" class="h-full w-full">
+    <div class="h-full w-full flex flex-col items-center pt-15">
+        <div class="bg-[#76B5C5] w-[700px] h-[80px] rounded-2xl flex items-center p-5">
+            <img src="../images/Arrow 1.svg" class="h-[30px]"/>
+            <p class="text-slate-800 font-semibold text-2xl m-0 group-hover:text-white pl-20">Real-Time Inventory Tracking</p>
+        </div>
+        <div>
+        </div>
+        <div>
+        </div>
+        <div>
+        </div>
+        <div>
+        </div>
+    </div>
+</section>
