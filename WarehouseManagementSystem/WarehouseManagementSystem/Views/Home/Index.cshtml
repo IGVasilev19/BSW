@@ -2,16 +2,15 @@
     ViewData["Title"] = "Landing page";
 }
 
-<section id="hero" class="h-screen w-full bg-slate-100 flex flex-col items-center justify-center text-center px-4 ">
+<section id="hero" class="h-screen w-full bg-slate-100 flex flex-col items-center justify-center text-center px-4 snap-start relative">
     <p id="typewriter" class="h-fit text-4xl md:text-7xl font-bold text-slate-800 whitespace-nowrap border-r-4 border-slate-800 animate-typewriter overflow-hidden w-[0ch] p-4">
         Welcome into the world of warehouse management.
     </p>
-
-    <button onClick="redirectFunction()" class="group absolute bottom-10 animate-bounce text-slate-800 text-9xl hover:text-slate-600 transition-colors duration-700">
+    <button onClick="redirectFunction()" class="group pt-80 sticky animate-bounce text-slate-800 text-9xl hover:text-slate-600 transition-colors duration-700">
         <img src="../images/arrowdown2.svg" class="w-[80px] transition-transform duration-500 group-hover:translate-y-2"/>
     </button>
 </section>
-<section id="main" class="h-full w-full">
+<section id="main" class="h-screen w-full snap-start">
     <div class="h-full w-full flex flex-col">
         <div class="w-full flex justify-between p-4">
             <img src="../images/logo-nobg-min.png" class="max-w-[140px] fade-on-scroll opacity-0 translate-y-5 transition-all duration-1000"/>
@@ -22,16 +21,14 @@
             </button>
         </div>
         <div class="w-full h-full flex pl-10">
-            <div class="h-full flex flex-col justify-between pb-20">
+            <div class="h-full flex flex-col justify-between pb-40">
                 <div class="flex flex-col max-w-xl gap-3">
                     <p class="max-sm:text-2xl text-5xl font-bold text-slate-800 leading-tight fade-on-scroll opacity-0 translate-y-5 transition-all duration-1000">MANAGE YOUR <br /> WAREHOUSE <br /> WITH EASE</p>
                     <p class="text-slate-800 max-sm:text-lg text-2xl font-semibold max-sm:max-w-[224px] max-w-md text-justify fade-on-scroll opacity-0 translate-y-5 transition-all duration-1000">SW – The Business Warehouse Solution empowers you to manage inventory, track stock levels, and streamline operations all from one simple, secure platform.</p>
                 </div>
                 <button onmouseover="hoverArrow(true)" onmouseout="hoverArrow(false)" class="group w-[500px] h-[60px] border-4 border-slate-800 flex justify-center items-center rounded gap-3 fade-on-scroll opacity-0 translate-y-5 transition-all duration-1000 hover:bg-slate-800 hover:scale-[1.05] hover:duration-0">
                     <p class="text-slate-800 font-bold text-2xl m-0 group-hover:text-white">Smart Warehousing Starts Here!</p>
-                    <button>
-                        <img id="arrowIcon" src="../images/Arrow 1.svg" class="h-[30px] z-20"/>
-                    </button>
+                    <img id="arrowIcon" src="../images/Arrow 1.svg" class="h-[30px]"/>
                 </button>
             </div>
             <div class="w-full">
@@ -40,19 +37,30 @@
         </div>
     </div>
 </section>
-<section id="Details" class="h-full w-full">
-    <div class="h-full w-full flex flex-col items-center pt-15">
-        <div class="bg-[#76B5C5] w-[700px] h-[80px] rounded-2xl flex items-center p-5">
+<section id="Details" class="h-screen w-full bg-slate-100 snap-start">
+    <div class="h-full w-full flex flex-col items-center justify-center gap-20">
+        <div class="bg-[#76B5C5] w-[700px] h-[80px] rounded-2xl flex items-center justify-around pr-30">
             <img src="../images/Arrow 1.svg" class="h-[30px]"/>
-            <p class="text-slate-800 font-semibold text-2xl m-0 group-hover:text-white pl-20">Real-Time Inventory Tracking</p>
+            <p class="text-slate-800 font-semibold text-2xl m-0 group-hover:text-white">Real-Time Inventory Tracking</p>
         </div>
-        <div>
+        <div class="bg-[#76B5C5] w-[700px] h-[80px] rounded-2xl flex items-center justify-around pr-[140px]">
+            <img src="../images/Arrow 1.svg" class="h-[30px]"/>
+            <p class="text-slate-800 font-semibold text-2xl m-0 group-hover:text-white">Effortless Order Processing</p>
         </div>
-        <div>
+        <div class="bg-[#76B5C5] w-[700px] h-[80px] rounded-2xl flex items-center justify-around pr-[170px]">
+            <img src="../images/Arrow 1.svg" class="h-[30px]"/>
+            <p class="text-slate-800 font-semibold text-2xl m-0 group-hover:text-white">Dashboard & Analytics</p>
         </div>
-        <div>
+        <div class="bg-[#76B5C5] w-[700px] h-[80px] rounded-2xl flex items-center justify-around pr-40">
+            <img src="../images/Arrow 1.svg" class="h-[30px]"/>
+            <p class="text-slate-800 font-semibold text-2xl m-0 group-hover:text-white">Smart Notifications</p>
         </div>
-        <div>
+        <div class="bg-[#76B5C5] w-[700px] h-[80px] rounded-2xl flex items-center justify-around pr-42">
+            <img src="../images/Arrow 1.svg" class="h-[30px]"/>
+            <p class="text-slate-800 font-semibold text-2xl m-0 group-hover:text-white">Role-Based Access</p>
         </div>
+    </div>
+    <div class="w-full bg-slate-800">
+        <p class="text-white text-2xl font-bold">Contact & Support section</p>
     </div>
 </section>
