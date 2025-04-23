@@ -30,3 +30,26 @@ function redirectFunction() {
     behavior: "smooth",
   });
 }
+
+const paragraphText = `Welcome into the world of warehouse management.`;
+const typewriterEl = document.getElementById("typewriter");
+
+let index = 0;
+let isDeleting = false;
+
+function typeWriterEffect() {
+  if (!isDeleting && index <= paragraphText.length) {
+    typewriterEl.innerHTML = paragraphText.substring(0, index);
+    index++;
+    setTimeout(typeWriterEffect, 50);
+  } else if (isDeleting && index >= 0) {
+    typewriterEl.innerHTML = paragraphText.substring(0, index);
+    index--;
+    setTimeout(typeWriterEffect, 45);
+  } else {
+    isDeleting = !isDeleting;
+    setTimeout(typeWriterEffect, 2000);
+  }
+}
+
+typeWriterEffect();
