@@ -1,4 +1,4 @@
-﻿namespace WarehouseManagementSystem.Models
+﻿namespace BLL
 {
     public class Product
     {

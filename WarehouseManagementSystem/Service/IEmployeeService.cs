@@ -1,7 +1,6 @@
-﻿using WarehouseManagementSystem.Models;
-using WarehouseManagementSystem.Models.Enums;
+﻿using BLL;
 
-namespace WarehouseManagementSystem.Core
+namespace Service
 {
     public interface IEmployeeService
     {

@@ -1,7 +1,4 @@
-﻿using System.Security.Cryptography.Pkcs;
-using WarehouseManagementSystem.Models.Enums;
-
-namespace WarehouseManagementSystem.Models
+﻿namespace BLL
 {
     public class OrderProduct
     {

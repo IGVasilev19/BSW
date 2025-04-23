@@ -1,15 +1,10 @@
-using WarehouseManagementSystem.Core;
-using WarehouseManagementSystem.Data;
-using WarehouseManagementSystem.Repositories;
-using WarehouseManagementSystem.Services;
+using BLL;
+using Service;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
-builder.Services.AddSingleton<DbHelper>();
-builder.Services.AddScoped<IEmployeeRepository, EmployeeRepository>();
-builder.Services.AddScoped<IEmployeeService, EmployeeService>();
 
 var app = builder.Build();
 

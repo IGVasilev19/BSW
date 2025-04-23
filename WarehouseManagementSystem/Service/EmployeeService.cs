@@ -1,8 +1,7 @@
-﻿using WarehouseManagementSystem.Core;
-using WarehouseManagementSystem.Models;
-using WarehouseManagementSystem.Models.Enums;
+﻿using BLL;
+using DAL;
 
-namespace WarehouseManagementSystem.Services
+namespace Service
 {
     public class EmployeeService : IEmployeeService
     {

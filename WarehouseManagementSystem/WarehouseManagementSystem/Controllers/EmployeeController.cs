@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using WarehouseManagementSystem.Core;
-using WarehouseManagementSystem.Models;
+using BLL;
+using Service;
 
 namespace WarehouseManagementSystem.Controllers
 {

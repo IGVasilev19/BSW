@@ -1,6 +1,4 @@
-﻿using WarehouseManagementSystem.Models.Enums;
-
-namespace WarehouseManagementSystem.Models
+﻿namespace BLL
 {
     public class Employee
     {
@@ -13,7 +11,7 @@ namespace WarehouseManagementSystem.Models
         public EmployeeStatus EmployeeStatus { get; private set; }
         public int WarehouseId { get; private set; }
 
-        public Employee(int employeeId, string name, string email, string password,string phoneNumber, Role role, EmployeeStatus employeeStatus, int warehouseId)
+        public Employee(int employeeId, string name, string email, string password, string phoneNumber, Role role, EmployeeStatus employeeStatus, int warehouseId)
         {
             this.EmployeeId = employeeId;
             this.Name = name;

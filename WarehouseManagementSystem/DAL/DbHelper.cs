@@ -1,7 +1,7 @@
 ﻿using Microsoft.Data.SqlClient;
-using System.Data;
+using Microsoft.Extensions.Configuration;
 
-namespace WarehouseManagementSystem.Data
+namespace DAL
 {
     public class DbHelper
     {

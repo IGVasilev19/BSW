@@ -1,9 +1,6 @@
-﻿using WarehouseManagementSystem.Core;
-using WarehouseManagementSystem.Data;
-using WarehouseManagementSystem.Models;
-using WarehouseManagementSystem.Models.Enums;
+﻿using BLL;
 
-namespace WarehouseManagementSystem.Repositories
+namespace DAL
 {
     public class EmployeeRepository : IEmployeeRepository
     {
@@ -54,8 +51,8 @@ namespace WarehouseManagementSystem.Repositories
                     reader["Email"].ToString(),
                     reader["Password"].ToString(),
                     reader["PhoneNumber"].ToString(),
-                    (Models.Enums.Role)reader["Role"],
-                    (Models.Enums.EmployeeStatus)reader["EmployeeStatus"],
+                    (Role)reader["Role"],
+                    (EmployeeStatus)reader["EmployeeStatus"],
                     (int)reader["WarehouseId"]
                 ));
             }
