@@ -1,13 +1,14 @@
 ﻿using BLL;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace Service
 {
-    public interface IEmployeeService
+    public interface IEmployeeService : Service<Employee>
     {
-        IEnumerable<Employee> GetAllEmployees();
-        Employee GetEmployeeById(int Id);
-        void CreateEmployee(Employee employee);
-        void UpdateEmployeeRole(int id, Role role);
-        void DeleteEmployee(int id);
+        public void UpdateRole(int id, Role role);
     }
 }

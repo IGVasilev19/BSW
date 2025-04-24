@@ -3,7 +3,7 @@ using DAL;
 
 namespace Service
 {
-    public class EmployeeService : IEmployeeService
+    public class EmployeeService : Service<Employee>
     {
         private readonly IEmployeeRepository _repo;
 
@@ -12,14 +12,16 @@ namespace Service
             _repo = repo;
         }
 
-        public IEnumerable<Employee> GetAllEmployees() => _repo.GetAll();
+        public IEnumerable<Employee> GetAll() => _repo.GetAll();
 
-        public Employee? GetEmployeeById(int id) => _repo.GetById(id);
+        public Employee? GetById(int id) => _repo.GetById(id);
 
-        public void CreateEmployee(Employee employee) => _repo.Add(employee);
+        public void Create(Employee employee) => _repo.Add(employee);
 
-        public void UpdateEmployeeRole(int id, Role role) => _repo.UpdateRole(id, role);
+        public void Update(Employee employee) => _repo.Update(employee);
 
-        public void DeleteEmployee(int id) => _repo.Delete(id);
+        public void DeleteById(int id) => _repo.DeleteById(id);
+
+        public void UpdateRole(int id, Role role) => _repo.UpdateRole(id, role);
     }
 }

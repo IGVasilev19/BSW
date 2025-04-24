@@ -15,7 +15,7 @@ namespace WarehouseManagementSystem.Controllers
 
         public IActionResult Index()
         {
-            var data = _service.GetAllEmployees();
+            var data = _service.GetAll();
             return View(data);
         }
 
@@ -26,7 +26,7 @@ namespace WarehouseManagementSystem.Controllers
         {
             if (ModelState.IsValid)
             {
-                _service.CreateEmployee(emp);
+                _service.Create(emp);
                 return RedirectToAction("Index");
             }
             return View(emp);

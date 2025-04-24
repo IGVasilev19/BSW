@@ -29,7 +29,7 @@ namespace DAL
             cmd.ExecuteNonQuery();
         }
 
-        public void Delete(int id)
+        public void DeleteById(int id)
         {
             throw new NotImplementedException();
         }
@@ -64,7 +64,12 @@ namespace DAL
             throw new NotImplementedException();
         }
 
-        public void UpdateRole(int id, Role role)
+        public void UpdateRole (int id, Role role)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Update (Employee employee)
         {
             throw new NotImplementedException();
         }
