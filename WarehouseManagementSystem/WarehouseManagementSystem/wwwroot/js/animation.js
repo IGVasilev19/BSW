@@ -25,6 +25,11 @@ function hoverArrow(isHover) {
   img.src = isHover ? "../images/Arrow 2.svg" : "../images/Arrow 1.svg";
 }
 
+function hoverArrow2(isHover) {
+  const img = document.getElementById("arrow2Icon");
+  img.src = isHover ? "../images/Arrow 3.svg" : "../images/Arrow 2.svg";
+}
+
 function redirectFunction() {
   document.getElementById("main").scrollIntoView({
     behavior: "smooth",
@@ -53,3 +58,11 @@ function typeWriterEffect() {
 }
 
 typeWriterEffect();
+
+function flipCardNext() {
+  document.getElementById("flip-card").classList.add("rotate-y-180");
+}
+
+function flipCardBack() {
+  document.getElementById("flip-card").classList.remove("rotate-y-180");
+}

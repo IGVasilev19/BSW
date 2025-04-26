@@ -31,7 +31,14 @@ namespace DAL
 
         public void DeleteById(int id)
         {
-            throw new NotImplementedException();
+            using var conn = _db.GetConnection();
+            conn.Open();
+
+            var cmd = _db.CreateCommand(@"DELETE FROM Address WHERE AddressId = @AddressId", conn);
+
+            cmd.Parameters.AddWithValue("@AddressId", id);
+
+            cmd.ExecuteNonQuery();
         }
 
         public IEnumerable<Employee> GetAll()

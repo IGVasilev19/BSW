@@ -2,117 +2,119 @@
     ViewData["Title"] = "Landing page";
 }
 
-<section id="hero" class="h-screen w-full bg-slate-100 flex flex-col items-center justify-center text-center px-4 snap-start">
-    <p id="typewriter" class="h-fit max-md:text-4xl text-7xl font-bold text-slate-800 max-w-full container p-4"></p>
-    <button onClick="redirectFunction()" class="group pt-80 sticky animate-bounce text-slate-800 text-9xl hover:text-slate-600 transition-colors duration-700">
-        <img src="../images/arrowdown2.svg" class="w-[80px] transition-transform duration-500 group-hover:translate-y-2"/>
-    </button>
-</section>
-<section id="main" class="h-screen w-full snap-start">
-    <div class="h-full w-full flex flex-col">
-        <div class="w-full flex justify-between px-4">
-            <img src="../images/logo-nobg-min.png" class="max-w-[140px] fade-on-scroll opacity-0 translate-y-5 transition-all duration-1000"/>
-            <button class="bg-slate-800 w-[125px] h-[45px] mt-4 hover:bg-slate-700 hover:duration-0 flex justify-center items-center fade-on-scroll opacity-0 translate-y-5 transition-all duration-1000">
-                <p class="text-white text-xl font-semibold m-0">
-                    Sign in
-                </p>
-            </button>
-        </div>
-        <div class="w-full h-full flex pl-10">
-            <div class="h-full flex flex-col justify-between pb-40">
-                <div class="flex flex-col max-w-xl gap-3">
-                    <p class="max-sm:text-2xl text-5xl font-bold text-slate-800 leading-tight fade-on-scroll opacity-0 translate-y-5 transition-all duration-1000">MANAGE YOUR <br /> WAREHOUSE <br /> WITH EASE</p>
-                    <p class="text-slate-800 max-sm:text-lg text-2xl font-semibold max-sm:max-w-[224px] max-w-md text-justify fade-on-scroll opacity-0 translate-y-5 transition-all duration-1000">SW – The Business Warehouse Solution empowers you to manage inventory, track stock levels, and streamline operations all from one simple, secure platform.</p>
-                </div>
-                <button onmouseover="hoverArrow(true)" onmouseout="hoverArrow(false)" class="group w-[500px] h-[60px] border-4 border-slate-800 flex justify-center items-center rounded gap-3 fade-on-scroll opacity-0 translate-y-5 transition-all duration-1000 hover:bg-slate-800 hover:scale-[1.05] hover:duration-0">
-                    <p class="text-slate-800 font-bold text-2xl m-0 group-hover:text-white">Smart Warehousing Starts Here!</p>
-                    <img id="arrowIcon" src="../images/Arrow 1.svg" class="h-[30px]"/>
+<div class="h-screen overflow-y-auto snap-y snap-mandatory">
+    <section id="hero" class="h-screen w-full bg-slate-100 flex flex-col items-center justify-center text-center px-4 snap-start">
+        <p id="typewriter" class="h-fit max-md:text-4xl text-7xl font-bold text-slate-800 max-w-full container p-4"></p>
+        <button onClick="redirectFunction()" class="group pt-80 sticky animate-bounce text-slate-800 text-9xl hover:text-slate-600 transition-colors duration-700">
+            <img src="../images/arrowdown2.svg" class="w-[80px] transition-transform duration-500 group-hover:translate-y-2"/>
+        </button>
+    </section>
+    <section id="main" class="h-screen w-full snap-start">
+        <div class="h-full w-full flex flex-col">
+            <div class="w-full flex justify-between px-4">
+                <img src="../images/logo-nobg-min.png" class="max-w-[140px] fade-on-scroll opacity-0 translate-y-5 transition-all duration-1000"/>
+                <button onclick="window.location.href='access/sign-in'" class="bg-slate-800 w-[125px] h-[45px] mt-4 hover:bg-slate-700 hover:duration-0 flex justify-center items-center fade-on-scroll opacity-0 translate-y-5 transition-all duration-1000">
+                    <p class="text-white text-xl font-semibold m-0">
+                        Sign in
+                    </p>
                 </button>
             </div>
-            <div class="w-full flex justify-center">
-                <img src="../images/Landing page illustration3.svg" class="w-fit h-fit fade-on-scroll opacity-0 translate-y-5 transition-all duration-1000"/>
-            </div>
-        </div>
-    </div>
-</section>
-<section id="Details" class="h-screen w-full bg-slate-100 snap-start">
-    <div class="w-full h-full flex flex-col">
-        <div class="h-full w-full flex flex-col items-center justify-center gap-10">
-            <div class="relative dropdown-group">
-                <div onclick="toggleDropdown()" class="dropdown-toggle select-none bg-[#76B5C5] w-[700px] h-[80px] rounded-2xl flex items-center justify-around pr-30 cursor-pointer transition-transform duration-300">
-                    <img src="../images/Arrow 1.svg" class="div-arrow-icon h-[30px] transition-transform duration-100 rotate-0"/>
-                    <p class="text-slate-800 font-semibold text-2xl m-0 group-hover:text-white">Real-Time Inventory Tracking</p>
+            <div class="w-full h-full flex pl-10">
+                <div class="h-full flex flex-col justify-between pb-40">
+                    <div class="flex flex-col max-w-xl gap-3">
+                        <p class="max-sm:text-2xl text-5xl font-bold text-slate-800 leading-tight fade-on-scroll opacity-0 translate-y-5 transition-all duration-1000">MANAGE YOUR <br /> WAREHOUSE <br /> WITH EASE</p>
+                        <p class="text-slate-800 max-sm:text-lg text-2xl font-semibold max-sm:max-w-[224px] max-w-md text-justify fade-on-scroll opacity-0 translate-y-5 transition-all duration-1000">SW – The Business Warehouse Solution empowers you to manage inventory, track stock levels, and streamline operations all from one simple, secure platform.</p>
+                    </div>
+                    <button onclick="window.location.href='access/sign-up'" onmouseover="hoverArrow(true)" onmouseout="hoverArrow(false)" class="group w-[500px] h-[60px] border-4 border-slate-800 flex justify-center items-center rounded gap-3 fade-on-scroll opacity-0 translate-y-5 transition-all duration-1000 hover:bg-slate-800 hover:scale-[1.05] hover:duration-0">
+                        <p class="text-slate-800 font-bold text-2xl m-0 group-hover:text-white">Smart Warehousing Starts Here!</p>
+                        <img id="arrowIcon" src="../images/Arrow 1.svg" class="h-[30px]"/>
+                    </button>
                 </div>
-                <div class="dropdown-content absolute left-0 top-full mt-2 w-[700px] bg-[#76B5C5] rounded-xl shadow-lg hidden z-50 transform transition-all duration-1000 scale-105">
-                    <p class="p-4 text-slate-700 text-xl font-semibold leading-relaxed">
-                        Stay ahead with real-time insights into your inventory. 
-                        Identify trends, prevent overstocking or shortages, and make data-driven restocking decisions. 
-                        Designed for fast-moving operations, this tool provides visibility and control when you need it most.
-                    </p>
-                </div>
-            </div>
-            <div class="relative dropdown-group">
-                <div onclick="toggleDropdown()" class="dropdown-toggle select-none bg-[#76B5C5] w-[700px] h-[80px] rounded-2xl flex items-center justify-around pr-[140px] cursor-pointer transition-transform duration-300">
-                    <img src="../images/Arrow 1.svg" class="div-arrow-icon h-[30px] transition-transform duration-100 rotate-0"/>
-                    <p class="text-slate-800 font-semibold text-2xl m-0 group-hover:text-white">Effortless Order Processing</p>
-                </div>
-                <div class="dropdown-content absolute left-0 top-full mt-2 w-[700px] bg-[#76B5C5] rounded-xl shadow-lg hidden z-50 transform transition-all duration-1000 scale-105">
-                    <p class="p-4 text-slate-700 text-xl font-semibold leading-relaxed">
-                        Simplify every step of your order workflow with intuitive, real-time processing.  
-                        Eliminate bottlenecks and ensure each order moves seamlessly from request to delivery.  
-                        Built for speed and reliability, this system keeps your operations flowing with precision and ease.
-                    </p>
-                </div>
-            </div>
-            <div class="relative dropdown-group">
-                <div onclick="toggleDropdown()" class="dropdown-toggle select-none bg-[#76B5C5] w-[700px] h-[80px] rounded-2xl flex items-center justify-around pr-[170px] cursor-pointer transition-transform duration-300">
-                    <img src="../images/Arrow 1.svg" class="div-arrow-icon h-[30px] transition-transform duration-100 rotate-0"/>
-                    <p class="text-slate-800 font-semibold text-2xl m-0 group-hover:text-white">Dashboard & Analytics</p>
-                </div>
-                <div class="dropdown-content absolute left-0 top-full mt-2 w-[700px] bg-[#76B5C5] rounded-xl shadow-lg hidden z-50 transform transition-all duration-1000 scale-105">
-                    <p class="p-4 text-slate-700 text-xl font-semibold leading-relaxed">
-                        Gain instant clarity with a centralized dashboard that turns complex data into actionable insights.  
-                        Track performance metrics, spot trends, and make confident decisions based on real-time analytics.  
-                        Whether you're optimizing workflows or forecasting demand, the tools you need are right at your fingertips.
-                    </p>
-                </div>
-            </div>
-            <div class="relative dropdown-group">
-                <div onclick="toggleDropdown()" class="dropdown-toggle select-none bg-[#76B5C5] w-[700px] h-[80px] rounded-2xl flex items-center justify-around pr-40 cursor-pointer transition-transform duration-300">
-                    <img src="../images/Arrow 1.svg" class="div-arrow-icon h-[30px] transition-transform duration-100 rotate-0"/>
-                    <p class="text-slate-800 font-semibold text-2xl m-0 group-hover:text-white">Smart Notifications</p>
-                </div>
-                <div class="dropdown-content absolute left-0 top-full mt-2 w-[700px] bg-[#76B5C5] rounded-xl shadow-lg hidden z-50 transform transition-all duration-1000 scale-105">
-                    <p class="p-4 text-slate-700 text-xl font-semibold leading-relaxed">
-                        Stay informed with intelligent alerts that adapt to your workflow.  
-                        From low inventory warnings to order status updates, receive only what matters — when it matters.  
-                        Designed to reduce noise and improve response time, smart notifications help you act faster and work smarter.
-                    </p>
-                </div>
-            </div>
-            <div class="relative dropdown-group">
-                <div onclick="toggleDropdown()" class="dropdown-toggle select-none bg-[#76B5C5] w-[700px] h-[80px] rounded-2xl flex items-center justify-around pr-42 cursor-pointer transition-transform duration-300">
-                    <img src="../images/Arrow 1.svg" class="div-arrow-icon h-[30px] transition-transform duration-100 rotate-0"/>
-                    <p class="text-slate-800 font-semibold text-2xl m-0 group-hover:text-white">Role-Based Access</p>
-                </div>
-                <div class="dropdown-content absolute left-0 top-full mt-2 w-[700px] bg-[#76B5C5] rounded-xl shadow-lg hidden z-50 transform transition-all duration-1000 scale-105">
-                    <p class="p-4 text-slate-700 text-xl font-semibold leading-relaxed">
-                        Control access with precision through customizable roles.  
-                        Ensure that each team member sees only what they need, reducing risk and enhancing security.  
-                        Whether you are creating, managing or overviewing your employees, role-based access keeps your and your employees data protected and keeps the workflows efficient.
-                    </p>
+                <div class="w-full flex justify-center">
+                    <img src="../images/Landing page illustration3.svg" class="w-fit h-fit fade-on-scroll opacity-0 translate-y-5 transition-all duration-1000"/>
                 </div>
             </div>
         </div>
-        <div class="w-full bg-slate-800 flex justify-between pt-3 px-4">
-            <div class="w-fit">
-                <p class="select-none text-white text-2xl font-bold">Contact & Support section</p>
-                <p class="select-none text-white text-xl font-semibold">Phone: 06 - 30 47 72 11</p>
-                <p class="select-none text-white text-xl font-semibold">Email: 549842@student.fontys.nl</p>
+    </section>
+    <section id="Details" class="h-screen w-full bg-slate-100 snap-start">
+        <div class="w-full h-full flex flex-col">
+            <div class="h-full w-full flex flex-col items-center justify-center gap-10">
+                <div class="relative dropdown-group">
+                    <div onclick="toggleDropdown()" class="dropdown-toggle select-none bg-[#76B5C5] w-[700px] h-[80px] rounded-2xl flex items-center justify-around pr-30 cursor-pointer transition-transform duration-300">
+                        <img src="../images/Arrow 1.svg" class="div-arrow-icon h-[30px] transition-transform duration-100 rotate-0"/>
+                        <p class="text-slate-800 font-semibold text-2xl m-0 group-hover:text-white">Real-Time Inventory Tracking</p>
+                    </div>
+                    <div class="dropdown-content absolute left-0 top-full mt-2 w-[700px] bg-[#76B5C5] rounded-xl shadow-lg hidden z-50 transform transition-all duration-1000 scale-105">
+                        <p class="p-4 text-slate-700 text-xl font-semibold leading-relaxed">
+                            Stay ahead with real-time insights into your inventory. 
+                            Identify trends, prevent overstocking or shortages, and make data-driven restocking decisions. 
+                            Designed for fast-moving operations, this tool provides visibility and control when you need it most.
+                        </p>
+                    </div>
+                </div>
+                <div class="relative dropdown-group">
+                    <div onclick="toggleDropdown()" class="dropdown-toggle select-none bg-[#76B5C5] w-[700px] h-[80px] rounded-2xl flex items-center justify-around pr-[140px] cursor-pointer transition-transform duration-300">
+                        <img src="../images/Arrow 1.svg" class="div-arrow-icon h-[30px] transition-transform duration-100 rotate-0"/>
+                        <p class="text-slate-800 font-semibold text-2xl m-0 group-hover:text-white">Effortless Order Processing</p>
+                    </div>
+                    <div class="dropdown-content absolute left-0 top-full mt-2 w-[700px] bg-[#76B5C5] rounded-xl shadow-lg hidden z-50 transform transition-all duration-1000 scale-105">
+                        <p class="p-4 text-slate-700 text-xl font-semibold leading-relaxed">
+                            Simplify every step of your order workflow with intuitive, real-time processing.  
+                            Eliminate bottlenecks and ensure each order moves seamlessly from request to delivery.  
+                            Built for speed and reliability, this system keeps your operations flowing with precision and ease.
+                        </p>
+                    </div>
+                </div>
+                <div class="relative dropdown-group">
+                    <div onclick="toggleDropdown()" class="dropdown-toggle select-none bg-[#76B5C5] w-[700px] h-[80px] rounded-2xl flex items-center justify-around pr-[170px] cursor-pointer transition-transform duration-300">
+                        <img src="../images/Arrow 1.svg" class="div-arrow-icon h-[30px] transition-transform duration-100 rotate-0"/>
+                        <p class="text-slate-800 font-semibold text-2xl m-0 group-hover:text-white">Dashboard & Analytics</p>
+                    </div>
+                    <div class="dropdown-content absolute left-0 top-full mt-2 w-[700px] bg-[#76B5C5] rounded-xl shadow-lg hidden z-50 transform transition-all duration-1000 scale-105">
+                        <p class="p-4 text-slate-700 text-xl font-semibold leading-relaxed">
+                            Gain instant clarity with a centralized dashboard that turns complex data into actionable insights.  
+                            Track performance metrics, spot trends, and make confident decisions based on real-time analytics.  
+                            Whether you're optimizing workflows or forecasting demand, the tools you need are right at your fingertips.
+                        </p>
+                    </div>
+                </div>
+                <div class="relative dropdown-group">
+                    <div onclick="toggleDropdown()" class="dropdown-toggle select-none bg-[#76B5C5] w-[700px] h-[80px] rounded-2xl flex items-center justify-around pr-40 cursor-pointer transition-transform duration-300">
+                        <img src="../images/Arrow 1.svg" class="div-arrow-icon h-[30px] transition-transform duration-100 rotate-0"/>
+                        <p class="text-slate-800 font-semibold text-2xl m-0 group-hover:text-white">Smart Notifications</p>
+                    </div>
+                    <div class="dropdown-content absolute left-0 top-full mt-2 w-[700px] bg-[#76B5C5] rounded-xl shadow-lg hidden z-50 transform transition-all duration-1000 scale-105">
+                        <p class="p-4 text-slate-700 text-xl font-semibold leading-relaxed">
+                            Stay informed with intelligent alerts that adapt to your workflow.  
+                            From low inventory warnings to order status updates, receive only what matters — when it matters.  
+                            Designed to reduce noise and improve response time, smart notifications help you act faster and work smarter.
+                        </p>
+                    </div>
+                </div>
+                <div class="relative dropdown-group">
+                    <div onclick="toggleDropdown()" class="dropdown-toggle select-none bg-[#76B5C5] w-[700px] h-[80px] rounded-2xl flex items-center justify-around pr-42 cursor-pointer transition-transform duration-300">
+                        <img src="../images/Arrow 1.svg" class="div-arrow-icon h-[30px] transition-transform duration-100 rotate-0"/>
+                        <p class="text-slate-800 font-semibold text-2xl m-0 group-hover:text-white">Role-Based Access</p>
+                    </div>
+                    <div class="dropdown-content absolute left-0 top-full mt-2 w-[700px] bg-[#76B5C5] rounded-xl shadow-lg hidden z-50 transform transition-all duration-1000 scale-105">
+                        <p class="p-4 text-slate-700 text-xl font-semibold leading-relaxed">
+                            Control access with precision through customizable roles.  
+                            Ensure that each team member sees only what they need, reducing risk and enhancing security.  
+                            Whether you are creating, managing or overviewing your employees, role-based access keeps your and your employees data protected and keeps the workflows efficient.
+                        </p>
+                    </div>
+                </div>
             </div>
-            <div class="flex items-end">
-                <p class="select-none text-white text-2xl">© 2025 BSW. All Rights Reserved.</P>
+            <div class="w-full bg-slate-800 flex justify-between pt-3 px-4">
+                <div class="w-fit">
+                    <p class="select-none text-white text-2xl font-bold">Contact & Support section</p>
+                    <p class="select-none text-white text-xl font-semibold">Phone: 06 - 30 47 72 11</p>
+                    <p class="select-none text-white text-xl font-semibold">Email: 549842@student.fontys.nl</p>
+                </div>
+                <div class="flex items-end">
+                    <p class="select-none text-white text-2xl">© 2025 BSW. All Rights Reserved.</P>
+                </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
+</div>
