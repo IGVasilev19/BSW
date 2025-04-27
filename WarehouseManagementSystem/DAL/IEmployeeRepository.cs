@@ -1,4 +1,5 @@
-﻿using BLL;
+﻿using Entities;
+using Microsoft.Data.SqlClient;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +10,7 @@ namespace DAL
 {
     public interface IEmployeeRepository : Repository<Employee>
     {
-        public void UpdateRole(int id, Role role);
+        public Task UpdateRoleAsync (int id, Role role);
+        Task AddAsync(Employee employee, SqlConnection conn, SqlTransaction tran);
     }
 }

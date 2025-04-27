@@ -1,4 +1,5 @@
-﻿using BLL;
+﻿using Entities;
+using Microsoft.Data.SqlClient;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,10 +17,10 @@ namespace DAL
             _db = db;
         }
 
-        public void Add(Address address)
+        public async Task AddAsync(Address address)
         {
             using var conn = _db.GetConnection();
-            conn.Open();
+            conn.OpenAsync();
 
             var cmd = _db.CreateCommand(@"INSERT INTO Address (Country, City, StreetName, StreetNumber, Zip) VALUES (@Country, @City, @StreetName, @StreetNumber, @Zip)", conn);
 
@@ -29,20 +30,33 @@ namespace DAL
             cmd.Parameters.AddWithValue("@StreetNumber", address.StreetNumber);
             cmd.Parameters.AddWithValue("@Zip", address.Zip);
 
-            cmd.ExecuteNonQuery();
+            await cmd.ExecuteNonQueryAsync();
         }
 
-        public void DeleteById(int id)
+        public async Task<int> AddAsync(Address address, SqlConnection connection, SqlTransaction transaction)
+        {
+            var cmd = _db.CreateCommand(@"INSERT INTO Address (Country, City, StreetName, StreetNumber, Zip) VALUES (@Country, @City, @StreetName, @StreetNumber, @Zip)", connection, transaction);
+
+            cmd.Parameters.AddWithValue("@Country", address.Country);
+            cmd.Parameters.AddWithValue("@City", address.City);
+            cmd.Parameters.AddWithValue("@StreetName", address.StreetName);
+            cmd.Parameters.AddWithValue("@StreetNumber", address.StreetNumber);
+            cmd.Parameters.AddWithValue("@Zip", address.Zip);
+
+            return await cmd.ExecuteNonQueryAsync();
+        }
+
+        public async Task DeleteByIdAsync(int id)
         {
             throw new NotImplementedException();
         }
 
-        public IEnumerable<Address> GetAll()
+        public async Task<IEnumerable<Address>> GetAllAsync()
         {
             var list = new List<Address>();
 
             using var conn = _db.GetConnection();
-            conn.Open();
+            conn.OpenAsync();
             var cmd = _db.CreateCommand("SELECT * FROM Address", conn);
             using var reader = cmd.ExecuteReader();
 
@@ -60,12 +74,12 @@ namespace DAL
             return list;
         }
 
-        public Address GetById(int id)
+        public async Task<Address> GetByIdAsync(int id)
         {
             throw new NotImplementedException();
         }
 
-        public void Update(Address address)
+        public async Task UpdateAsync(Address address)
         {
             throw new NotImplementedException();
         }

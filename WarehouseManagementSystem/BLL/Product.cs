@@ -1,4 +1,4 @@
-﻿namespace BLL
+﻿namespace Entities
 {
     public class Product
     {

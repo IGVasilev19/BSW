@@ -1,4 +1,4 @@
-﻿using BLL;
+﻿using Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +9,8 @@ namespace Service
 {
     public interface IEmployeeService : Service<Employee>
     {
-        public void UpdateRole(int id, Role role);
+        public Task UpdateRoleAsync(int id, Role role);
+
+        public Task<bool> RegisterOwnerWithWarehouseAsync(Address address, Warehouse warehouse, Employee employee);
     }
 }

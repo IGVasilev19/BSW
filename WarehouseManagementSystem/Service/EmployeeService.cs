@@ -1,27 +1,64 @@
-﻿using BLL;
+﻿using Entities;
 using DAL;
 
 namespace Service
 {
-    public class EmployeeService : Service<Employee>
+    public class EmployeeService : IEmployeeService
     {
         private readonly IEmployeeRepository _repo;
+        private readonly IAddressService _addressService;
+        private readonly IWarehouseService _warehouseService;
+        private readonly DbHelper _db;
 
-        public EmployeeService(IEmployeeRepository repo)
+        public EmployeeService(IAddressService addressService, IWarehouseService warehouseService, IEmployeeRepository repo, DbHelper db)
         {
             _repo = repo;
+            _addressService = addressService;
+            _warehouseService = warehouseService;
+            _db = db;
         }
 
-        public IEnumerable<Employee> GetAll() => _repo.GetAll();
+        public Task<IEnumerable<Employee>> GetAllAsync() => _repo.GetAllAsync();
 
-        public Employee? GetById(int id) => _repo.GetById(id);
+        public Task<Employee> GetByIdAsync(int id) => _repo.GetByIdAsync(id);
 
-        public void Create(Employee employee) => _repo.Add(employee);
+        public Task CreateAsync(Employee employee) => _repo.AddAsync(employee);
 
-        public void Update(Employee employee) => _repo.Update(employee);
+        public Task UpdateAsync(Employee employee) => _repo.UpdateAsync(employee);
 
-        public void DeleteById(int id) => _repo.DeleteById(id);
+        public Task DeleteByIdAsync(int id) => _repo.DeleteByIdAsync(id);
 
-        public void UpdateRole(int id, Role role) => _repo.UpdateRole(id, role);
+        public Task UpdateRoleAsync(int id, Role role) => _repo.UpdateRoleAsync(id, role);
+
+        public async Task<bool> RegisterOwnerWithWarehouseAsync(Address address, Warehouse warehouse, Employee employee)
+        {
+            using var connection = _db.GetConnection();
+            await connection.OpenAsync();
+
+            using var transaction = connection.BeginTransaction();
+
+            try
+            {
+                var addressId = await _addressService.CreateAsync(address, connection, transaction);
+                warehouse = new Warehouse(warehouse.Name, addressId);
+
+                var warehouseId = await _warehouseService.CreateAsync(warehouse, connection, transaction);
+
+                string hashedPassword = PasswordHasher.Hash(employee.Password);
+
+                employee = new Employee(employee.Name, employee.Email, hashedPassword, employee.PhoneNumber, employee.Role, employee.IsActive, warehouseId);
+
+                await _repo.AddAsync(employee, connection, transaction);
+
+                await transaction.CommitAsync();
+                return true;
+            }
+            catch (Exception)
+            {
+                await transaction.RollbackAsync();
+                throw;
+            }
+        }
+
     }
 }

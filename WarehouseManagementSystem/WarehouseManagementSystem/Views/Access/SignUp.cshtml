@@ -1,6 +1,8 @@
+@using WarehouseManagementSystem.Models
 @{
     ViewData["Title"] = "Sign Up";
 }
+@model OwnerRegistrationViewModel
 
 <div class="w-full h-full flex items-center">
     <div class="w-full h-full flex flex-col items-center justify-center">
@@ -18,7 +20,7 @@
     </div>
     <div class="h-[900px] border-2 border-[#76b5c577]">
     </div>    
-    <div class="flip-container w-full h-full perspective-1000 flex flex-col justify-center gap-5 px-5">
+    <form asp-action="RegisterOwner" asp-controller="Access" method="post" class="flip-container w-full h-full perspective-1000 flex flex-col justify-center gap-5 px-5">
         <div id="flip-card" class="relative w-full h-full duration-700 transform-style-preserve-3d transition-transform ease-in-out">
             <div class="absolute w-full h-full backface-hidden flex flex-col gap-5 justify-center">
                 <div class="flex flex-col">
@@ -31,21 +33,21 @@
                 <div class="w-full flex justify-center gap-5">
                     <div class="w-full flex flex-col">
                         <p class="text-[#2C3E50] text-xl font-poppins font-light">Full Name*</p>
-                        <input class="border-[#76b5c5] border-2 rounded-lg h-[60px] focus:outline-none focus:ring-0 px-4 py-2 caret-[#76b5c5b4] text-[#2C3E50]"/>
+                        <input asp-for="Name" class="border-[#76b5c5] border-2 rounded-lg h-[60px] focus:outline-none focus:ring-0 px-4 py-2 caret-[#76b5c5b4] text-[#2C3E50]" />
                     </div>
                     <div class="w-full flex flex-col">
                         <p class="text-[#2C3E50] text-xl font-poppins font-light">Phone Number*</p>
-                        <input class="border-[#76b5c5] border-2 rounded-lg h-[60px] focus:outline-none focus:ring-0 px-4 py-2 caret-[#76b5c5b4] text-[#2C3E50]"/>
+                        <input asp-for="PhoneNumber" class="border-[#76b5c5] border-2 rounded-lg h-[60px] focus:outline-none focus:ring-0 px-4 py-2 caret-[#76b5c5b4] text-[#2C3E50]" />
                     </div>
                 </div>
                 <div class="w-full flex flex-col">
                     <p class="text-[#2C3E50] text-xl font-poppins font-light">Email Address*</p>
-                    <input class="border-[#76b5c5] border-2 rounded-lg h-[60px] focus:outline-none focus:ring-0 px-4 py-2 caret-[#76b5c5b4] text-[#2C3E50]"/>
+                    <input asp-for="Email" class="border-[#76b5c5] border-2 rounded-lg h-[60px] focus:outline-none focus:ring-0 px-4 py-2 caret-[#76b5c5b4] text-[#2C3E50]" />
                 </div>
                 <div class="w-full flex justify-center gap-5">
                     <div class="w-full flex flex-col">
                         <p class="text-[#2C3E50] text-xl font-poppins font-light">Password*</p>
-                        <input class="border-[#76b5c5] border-2 rounded-lg h-[60px] focus:outline-none focus:ring-0 px-4 py-2 caret-[#76b5c5b4] text-[#2C3E50]"/>
+                        <input asp-for="Password" class="border-[#76b5c5] border-2 rounded-lg h-[60px] focus:outline-none focus:ring-0 px-4 py-2 caret-[#76b5c5b4] text-[#2C3E50]" />
                     </div>
                     <div class="w-full flex flex-col">
                         <p class="text-[#2C3E50] text-xl font-poppins font-light">Confirm Password*</p>
@@ -54,10 +56,10 @@
                 </div>
                 <div class="w-full flex flex-col">
                     <p class="text-[#2C3E50] text-xl font-poppins font-light">Warehouse Name*</p>
-                    <input class="border-[#76b5c5] border-2 rounded-lg h-[60px] focus:outline-none px-4 py-2 caret-[#76b5c5b4] text-[#2C3E50] focus:ring-0"/>
+                    <input asp-for="WarehouseName" class="border-[#76b5c5] border-2 rounded-lg h-[60px] focus:outline-none px-4 py-2 caret-[#76b5c5b4] text-[#2C3E50] focus:ring-0" />
                 </div>
                 <div class="group w-full flex justify-center">
-                    <button id="next-button" onclick="flipCardNext()" class="w-1/3 h-[60px] bg-[#76b5c5] flex items-center justify-center rounded gap-3 transition-all duration-300 hover:scale-[1.05]">
+                    <button type="button" id="next-button" onclick="flipCardNext()" class="w-1/3 h-[60px] bg-[#76b5c5] flex items-center justify-center rounded gap-3 transition-all duration-300 hover:scale-[1.05]">
                         <p class="text-white tracking-wide font-poppins text-3xl m-0">Next</p>
                         <img id="arrow2Icon" src="../images/Arrow 2.svg" class="h-[25px]"/>
                     </button>
@@ -73,35 +75,35 @@
                 </div>
                 <div class="w-full flex flex-col">
                     <p class="text-[#2C3E50] text-xl font-poppins font-light">Country*</p>
-                    <input class="border-[#76b5c5] border-2 rounded-lg h-[60px] focus:outline-none focus:ring-0 px-4 py-2 caret-[#76b5c5b4] text-[#2C3E50]"/>
+                    <input asp-for="Country" class="border-[#76b5c5] border-2 rounded-lg h-[60px] focus:outline-none focus:ring-0 px-4 py-2 caret-[#76b5c5b4] text-[#2C3E50]" />
                 </div>
                 <div class="w-full flex flex-col">
                     <p class="text-[#2C3E50] text-xl font-poppins font-light">City*</p>
-                    <input class="border-[#76b5c5] border-2 rounded-lg h-[60px] focus:outline-none px-4 py-2 caret-[#76b5c5b4] text-[#2C3E50] focus:ring-0"/>
+                    <input asp-for="City" class="border-[#76b5c5] border-2 rounded-lg h-[60px] focus:outline-none px-4 py-2 caret-[#76b5c5b4] text-[#2C3E50] focus:ring-0" />
                 </div>
                 <div class="w-full flex flex-col">
                     <p class="text-[#2C3E50] text-xl font-poppins font-light">Street Name*</p>
-                    <input class="border-[#76b5c5] border-2 rounded-lg h-[60px] focus:outline-none focus:ring-0 px-4 py-2 caret-[#76b5c5b4] text-[#2C3E50]"/>
+                    <input asp-for="StreetName" class="border-[#76b5c5] border-2 rounded-lg h-[60px] focus:outline-none focus:ring-0 px-4 py-2 caret-[#76b5c5b4] text-[#2C3E50]" />
                 </div>
                 <div class="w-full flex justify-between gap-5">
                     <div class="w-full flex flex-col">
                         <p class="text-[#2C3E50] text-xl font-poppins font-light">Street Number*</p>
-                        <input class="border-[#76b5c5] border-2 rounded-lg h-[60px] focus:outline-none focus:ring-0 px-4 py-2 caret-[#76b5c5b4] text-[#2C3E50]"/>
+                        <input asp-for="StreetNumber" class="border-[#76b5c5] border-2 rounded-lg h-[60px] focus:outline-none focus:ring-0 px-4 py-2 caret-[#76b5c5b4] text-[#2C3E50]" />
                     </div>
                     <div class="w-full flex flex-col">
                         <p class="text-[#2C3E50] text-xl font-poppins font-light">Zip*</p>
-                        <input class="border-[#76b5c5] border-2 rounded-lg h-[60px] focus:outline-none px-4 py-2 caret-[#76b5c5b4] text-[#2C3E50] focus:ring-0"/>
+                        <input asp-for="Zip" class="border-[#76b5c5] border-2 rounded-lg h-[60px] focus:outline-none px-4 py-2 caret-[#76b5c5b4] text-[#2C3E50] focus:ring-0" />
                     </div>
                 </div>
                 <div class="w-full flex justify-center gap-3">
-                    <button onclick="flipCardBack()" class="w-1/3 h-[60px] border-[#76b5c5] border-2 flex items-center justify-center rounded gap-3 transition-all duration-300 hover:scale-[1.05]">
+                    <button type="button" onclick="flipCardBack()" class="w-1/3 h-[60px] border-[#76b5c5] border-2 flex items-center justify-center rounded gap-3 transition-all duration-300 hover:scale-[1.05]">
                         <p class="text-[#76b5c5] tracking-wide font-poppins text-3xl p-0 m-0">Back</p>
                     </button>
-                    <button onclick="flipCardBack()" class="w-1/3 h-[60px] bg-[#76b5c5] flex items-center justify-center rounded gap-3 transition-all duration-300 hover:scale-[1.05]">
+                    <button type="submit" class="w-1/3 h-[60px] bg-[#76b5c5] flex items-center justify-center rounded gap-3 transition-all duration-300 hover:scale-[1.05]">
                         <p class="text-white tracking-wide font-poppins text-3xl p-0 m-0">Sign Up</p>
                     </button>
                 </div>
             </div>
         </div>
-    </div>
+    </form>
 </div>

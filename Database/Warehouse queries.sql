@@ -12,7 +12,7 @@ Zip INT NOT NULL
 CREATE TABLE Warehouse(
 WarehouseId INT PRIMARY KEY IDENTITY(1,1),
 [Name] VARCHAR(50) NOT NULL,
-AddressId INT NOT NULL FOREIGN KEY REFERENCES [Address](AddressId)
+AddressId INT FOREIGN KEY REFERENCES [Address](AddressId)
 );
 
 SELECT * FROM Warehouse
@@ -20,15 +20,6 @@ DROP TABLE Warehouse
 INSERT INTO Warehouse ([Name]) VALUES
 ('IvoWarehouse')
 
-CREATE TABLE EmployeeStatus(
-EmployeeStatusId INT PRIMARY KEY IDENTITY(1,1),
-[Name] VARCHAR(50) NOT NULL
-);
-
-CREATE TABLE [Role](
-RoleId INT PRIMARY KEY IDENTITY(1,1),
-[Name] VARCHAR(50) NOT NULL
-);
 
 CREATE TABLE Employee(
 EmployeeId INT PRIMARY KEY IDENTITY(1,1),
@@ -36,22 +27,22 @@ EmployeeId INT PRIMARY KEY IDENTITY(1,1),
 Email VARCHAR(100) NOT NULL,
 [Password] VARCHAR(255) NOT NULL,
 PhoneNumber VARCHAR(20) NOT NULL,
-EmployeeStatusId INT NOT NULL FOREIGN KEY REFERENCES EmployeeStatus(EmployeeStatusId),
-WarehouseId INT NOT NULL FOREIGN KEY REFERENCES Warehouse(WarehouseId),
-RoleId INT NOT NULL FOREIGN KEY REFERENCES [Role](RoleId)
+IsActive BIT DEFAULT 0,
+WarehouseId INT FOREIGN KEY REFERENCES Warehouse(WarehouseId),
+[Role] INT NOT NULL
 );
 
-CREATE TABLE OrderStatus(
-OrderStatusId INT PRIMARY KEY IDENTITY(1,1),
-[Name] VARCHAR(50) NOT NULL
-);
+ALTER TABLE Employee
+ALTER COLUMN WarehouseId INT NULL;
+
+EXEC sp_rename 'Employee.Role', '[Role]', 'COLUMN';
 
 CREATE TABLE [Order](
 OrderId INT PRIMARY KEY IDENTITY(1,1),
 [Name] VARCHAR(50) NOT NULL,
 OrderDate DATETIME NOT NULL,
-OrderStatusId INT NOT NULL FOREIGN KEY REFERENCES OrderStatus(OrderStatusId),
-CreateById INT NOT NULL FOREIGN KEY REFERENCES Employee(EmployeeId),
+OrderStatus INT NOT NULL,
+CreateById INT FOREIGN KEY REFERENCES Employee(EmployeeId),
 AssignedToId INT FOREIGN KEY REFERENCES Employee(EmployeeId)
 );
 
@@ -59,15 +50,15 @@ CREATE TABLE [Zone](
 ZoneId INT PRIMARY KEY IDENTITY (1,1),
 [Name] VARCHAR(50) NOT NULL,
 Capacity DECIMAL NOT NULL,
-WarehouseId INT NOT NULL FOREIGN KEY REFERENCES Warehouse(WarehouseId)
+WarehouseId INT FOREIGN KEY REFERENCES Warehouse(WarehouseId)
 );
 
 CREATE TABLE Inventory(
 InventoryId INT PRIMARY KEY IDENTITY(1,1),
 Quantity INT NOT NULL,
 LastUpdate DATETIME NOT NULL,
-ProductId INT NOT NULL FOREIGN KEY REFERENCES [Product](ProductId),
-ZoneId INT NOT NULL FOREIGN KEY REFERENCES [Zone](ZoneId)
+ProductId INT FOREIGN KEY REFERENCES [Product](ProductId),
+ZoneId INT FOREIGN KEY REFERENCES [Zone](ZoneId)
 );
 
 CREATE TABLE Category(
@@ -79,7 +70,7 @@ CREATE TABLE [Product](
 ProductId INT PRIMARY KEY IDENTITY(1,1),
 [Name] VARCHAR(50) NOT NULL,
 Price DECIMAL NOT NULL,
-CategoryId INT NOT NULL FOREIGN KEY REFERENCES Category(CategoryId)
+CategoryId INT FOREIGN KEY REFERENCES Category(CategoryId)
 );
 
 CREATE TABLE UnitType(
@@ -91,9 +82,9 @@ CREATE TABLE OrderProduct(
 OrderProductId INT PRIMARY KEY IDENTITY(1,1),
 Quantity INT NOT NULL,
 TotalPrice DECIMAL NOT NULL,
-OrderId INT NOT NULL FOREIGN KEY REFERENCES [Order](OrderId),
-ProductId INT NOT NULL FOREIGN KEY REFERENCES [Product](ProductId),
-UnitTypeId INT NOT NULL FOREIGN KEY REFERENCES UnitType(UnitTypeId)
+OrderId INT FOREIGN KEY REFERENCES [Order](OrderId),
+ProductId INT FOREIGN KEY REFERENCES [Product](ProductId),
+UnitType INT NOT NULL
 );
 
 ALTER TABLE [OrderProduct] DROP CONSTRAINT FK__OrderProd__UnitT__4AB81AF0;
@@ -115,3 +106,22 @@ ALTER TABLE OrderProduct ADD UnitType INT NOT NULL DEFAULT 0;
 ALTER TABLE [Order] ADD OrderStatus INT NOT NULL DEFAULT 0;
 ALTER TABLE Employee ADD EmployeeStatus INT NOT NULL DEFAULT 0;
 ALTER TABLE Employee ADD Role INT NOT NULL DEFAULT 0;
+
+SELECT * FROM Employee
+SELECT * FROM Warehouse
+SELECT * FROM [Address]
+
+EXEC sp_MSforeachtable "ALTER TABLE ? NOCHECK CONSTRAINT ALL";
+EXEC sp_MSforeachtable "DROP TABLE ?";
+
+-- Disable all foreign key constraints temporarily
+EXEC sp_msforeachtable "ALTER TABLE ? NOCHECK CONSTRAINT ALL"
+
+-- Delete data from all tables
+EXEC sp_msforeachtable "DELETE FROM ?"
+
+-- Reset identity (auto-increment) values
+EXEC sp_msforeachtable "IF OBJECTPROPERTY(OBJECT_ID('?'), 'TableHasIdentity') = 1 DBCC CHECKIDENT ('?', RESEED, 0)"
+
+-- Re-enable all foreign key constraints
+EXEC sp_msforeachtable "ALTER TABLE ? WITH CHECK CHECK CONSTRAINT ALL"

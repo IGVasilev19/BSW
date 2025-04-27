@@ -1,13 +1,13 @@
-﻿using BLL;
+﻿using Entities;
 
 namespace Service
 {
     public interface Service<T>
     {
-        IEnumerable<T> GetAll();
-        T GetById(int Id);
-        void Create(T obj);
-        void Update(T obj);
-        void DeleteById(int id);
+        Task<IEnumerable<T>> GetAllAsync();
+        Task<T> GetByIdAsync(int Id);
+        Task CreateAsync(T obj);
+        Task UpdateAsync(T obj);
+        Task DeleteByIdAsync(int id);
     }
 }

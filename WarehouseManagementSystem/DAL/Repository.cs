@@ -1,13 +1,17 @@
-﻿using BLL;
+﻿using Entities;
 
 namespace DAL
 {
     public interface Repository<T>
     {
-        IEnumerable<T> GetAll();
-        T GetById(int id);
-        void Add(T obj);
-        void Update(T obj);
-        void DeleteById(int id);
+        Task<IEnumerable<T>> GetAllAsync();
+
+        Task<T> GetByIdAsync(int id);
+
+        Task AddAsync(T obj);
+
+        Task UpdateAsync(T obj);
+
+        Task DeleteByIdAsync(int id);
     }
 }

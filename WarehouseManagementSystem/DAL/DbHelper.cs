@@ -21,5 +21,10 @@ namespace DAL
         {
             return new SqlCommand(query, connection);
         }
+
+        public SqlCommand CreateCommand(string query, SqlConnection connection, SqlTransaction transaction)
+        {
+            return new SqlCommand(query, connection, transaction);
+        }
     }
 }

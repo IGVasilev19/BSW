@@ -1,4 +1,5 @@
-﻿using BLL;
+﻿using Entities;
+using Microsoft.Data.SqlClient;
 
 namespace DAL
 {
@@ -11,28 +12,44 @@ namespace DAL
             _db = db;
         }
 
-        public void Add(Employee employee)
+        public async Task AddAsync(Employee employee)
         {
             using var conn = _db.GetConnection();
-            conn.Open();
+            await conn.OpenAsync();
 
-            var cmd = _db.CreateCommand(@"INSERT INTO Employee (Name, Email, Password, PhoneNumber, Role, EmployeeStatus, WarehouseId) VALUES (@Name, @Email, @Password, @PhoneNumber, @Role, @EmployeeStatus, @WarehouseId)", conn);
+            var cmd = _db.CreateCommand(@"INSERT INTO Employee (Name, Email, Password, PhoneNumber, Role, IsActive, WarehouseId) VALUES (@Name, @Email, @Password, @PhoneNumber, @Role, @IsActive, @WarehouseId)", conn);
 
             cmd.Parameters.AddWithValue("@Name", employee.Name);
             cmd.Parameters.AddWithValue("@Email", employee.Email);
             cmd.Parameters.AddWithValue("@Password", employee.Password);
             cmd.Parameters.AddWithValue("@PhoneNumber", employee.PhoneNumber);
             cmd.Parameters.AddWithValue("@Role", (int)employee.Role);
-            cmd.Parameters.AddWithValue("@EmployeeStatus", (int)employee.EmployeeStatus);
+            cmd.Parameters.AddWithValue("@IsActive", (bool)employee.IsActive);
             cmd.Parameters.AddWithValue("@WarehouseId", employee.WarehouseId);
 
-            cmd.ExecuteNonQuery();
+            await cmd.ExecuteNonQueryAsync();
         }
 
-        public void DeleteById(int id)
+        public async Task AddAsync(Employee employee, SqlConnection connection, SqlTransaction transaction)
+        {
+
+            var cmd = _db.CreateCommand(@"INSERT INTO Employee (Name, Email, Password, PhoneNumber, Role, IsActive, WarehouseId) VALUES (@Name, @Email, @Password, @PhoneNumber, @Role, @IsActive, @WarehouseId)", connection, transaction);
+
+            cmd.Parameters.AddWithValue("@Name", employee.Name);
+            cmd.Parameters.AddWithValue("@Email", employee.Email);
+            cmd.Parameters.AddWithValue("@Password", employee.Password);
+            cmd.Parameters.AddWithValue("@PhoneNumber", employee.PhoneNumber);
+            cmd.Parameters.AddWithValue("@Role", 0);
+            cmd.Parameters.AddWithValue("@IsActive", 0);
+            cmd.Parameters.AddWithValue("@WarehouseId", employee.WarehouseId);
+
+            await cmd.ExecuteNonQueryAsync();
+        }
+
+        public async Task DeleteByIdAsync(int id)
         {
             using var conn = _db.GetConnection();
-            conn.Open();
+            await conn.OpenAsync();
 
             var cmd = _db.CreateCommand(@"DELETE FROM Address WHERE AddressId = @AddressId", conn);
 
@@ -41,12 +58,12 @@ namespace DAL
             cmd.ExecuteNonQuery();
         }
 
-        public IEnumerable<Employee> GetAll()
+        public async Task<IEnumerable<Employee>> GetAllAsync()
         {
             var list = new List<Employee>();
 
             using var conn = _db.GetConnection();
-            conn.Open();
+            await conn.OpenAsync();
             var cmd = _db.CreateCommand("SELECT * FROM Employees", conn);
             using var reader = cmd.ExecuteReader();
 
@@ -59,24 +76,24 @@ namespace DAL
                     reader["Password"].ToString(),
                     reader["PhoneNumber"].ToString(),
                     (Role)reader["Role"],
-                    (EmployeeStatus)reader["EmployeeStatus"],
+                    (bool)reader["IsActive"],
                     (int)reader["WarehouseId"]
                 ));
             }
             return list;
         }
 
-        public Employee GetById(int id)
+        public async Task<Employee> GetByIdAsync(int id)
         {
             throw new NotImplementedException();
         }
 
-        public void UpdateRole (int id, Role role)
+        public async Task UpdateRoleAsync (int id, Role role)
         {
             throw new NotImplementedException();
         }
 
-        public void Update (Employee employee)
+        public async Task UpdateAsync (Employee employee)
         {
             throw new NotImplementedException();
         }

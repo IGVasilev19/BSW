@@ -2,15 +2,14 @@
 using Microsoft.Data.SqlClient;
 using System;
 using System.Collections.Generic;
-using System.Data.SqlTypes;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace DAL
 {
-    public interface IAddressRepository : Repository<Address>
+    public interface IWarehouseRepository : Repository<Warehouse>
     {
-        Task<int> AddAsync(Address address, SqlConnection connection, SqlTransaction transaction);
+        public Task<int> AddAsync (Warehouse warehouse, SqlConnection conn, SqlTransaction tran);
     }
 }
