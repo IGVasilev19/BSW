@@ -18,18 +18,6 @@ namespace Service
             _db = db;
         }
 
-        public Task<IEnumerable<Employee>> GetAllAsync() => _repo.GetAllAsync();
-
-        public Task<Employee> GetByIdAsync(int id) => _repo.GetByIdAsync(id);
-
-        public Task CreateAsync(Employee employee) => _repo.AddAsync(employee);
-
-        public Task UpdateAsync(Employee employee) => _repo.UpdateAsync(employee);
-
-        public Task DeleteByIdAsync(int id) => _repo.DeleteByIdAsync(id);
-
-        public Task UpdateRoleAsync(int id, Role role) => _repo.UpdateRoleAsync(id, role);
-
         public async Task<bool> RegisterOwnerWithWarehouseAsync(Address address, Warehouse warehouse, Employee employee)
         {
             using var connection = _db.GetConnection();
@@ -60,5 +48,16 @@ namespace Service
             }
         }
 
+        public async Task<Employee> AuthenticateEmployeeAsync(string email, string password)
+        {
+            var employee = await _repo.GetByEmailAsync(email);
+
+            if (PasswordHasher.Verify(password, employee.Password))
+            {
+                return employee;
+            }
+
+            return null;
+        }
     }
 }

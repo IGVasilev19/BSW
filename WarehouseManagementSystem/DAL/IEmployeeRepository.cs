@@ -11,6 +11,7 @@ namespace DAL
     public interface IEmployeeRepository : Repository<Employee>
     {
         public Task UpdateRoleAsync (int id, Role role);
-        Task AddAsync(Employee employee, SqlConnection conn, SqlTransaction tran);
+        public Task AddAsync(Employee employee, SqlConnection conn, SqlTransaction tran);
+        public Task<Employee> GetByEmailAsync (string email);
     }
 }

@@ -1,0 +1,42 @@
+@model string
+
+<div class="h-full w-[270px] flex flex-col items-center justify-between bg-[#2C3E50] pt-5">
+	<form asp-action="SignOutEmployee" asp-controller="System" method="post" class="flex flex-col gap-2 items-center justify-center">
+		<div class="w-[60px] h-[60px] flex flex-col items-center justify-center rounded-4xl bg-white">
+			<p class="m-0 text-center">Profile pic</p>
+		</div>
+		<p class="select-none text-white font-semibold">@User.Identity?.Name</p>
+		<button type="submit">
+			<p class="text-white">Log out</p>
+		</button>
+	</form>
+
+	<div class="w-full flex flex-col items-center justify-center gap-3">
+		<a asp-action="Dashboard" asp-controller="System"
+		   class="w-full h-[60px] flex justify-center items-center @(Model == "Dashboard" ? "bg-[#364b61] select-none" : "bg-[#2C3E50] hover:bg-[#364b61]")">
+			<p class="text-white font-bold font-poppins text-lg m-0">DASHBOARD</p>
+		</a>
+
+		<a asp-action="Orders" asp-controller="System"
+		   class="w-full h-[60px] flex justify-center items-center @(Model == "Orders" ? "bg-[#364b61] select-none" : "bg-[#2C3E50] hover:bg-[#364b61]")">
+			<p class="text-white font-bold font-poppins text-lg m-0">ORDERS</p>
+		</a>
+
+		<a asp-action="Inventory" asp-controller="System"
+		   class="w-full h-[60px] flex justify-center items-center @(Model == "Inventory" ? "bg-[#364b61] select-none" : "bg-[#2C3E50] hover:bg-[#364b61]")">
+			<p class="text-white font-bold font-poppins text-lg m-0">INVENTORY</p>
+		</a>
+
+		<a asp-action="Employees" asp-controller="System"
+		   class="w-full h-[60px] flex justify-center items-center @(Model == "Employees" ? "bg-[#364b61] select-none" : "bg-[#2C3E50] hover:bg-[#364b61]")">
+			<p class="text-white font-bold font-poppins text-lg m-0">EMPLOYEES</p>
+		</a>
+
+		<a asp-action="Settings" asp-controller="System"
+		   class="w-full h-[60px] flex justify-center items-center @(Model == "Settings" ? "bg-[#364b61] select-none" : "bg-[#2C3E50] hover:bg-[#364b61]")">
+			<p class="text-white font-bold font-poppins text-lg m-0">SETTINGS</p>
+		</a>
+	</div>
+
+	<p class="select-none text-white text-sm">© 2025 BSW. All Rights Reserved.</p>
+</div>

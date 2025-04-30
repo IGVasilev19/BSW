@@ -11,6 +11,10 @@
         public bool IsActive { get; private set; }
         public int WarehouseId { get; private set; }
 
+        public Employee()
+        {
+        }
+
         public Employee(string name, string email, string password, string phoneNumber)
         {
             this.Name = name;

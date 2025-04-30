@@ -9,8 +9,8 @@ namespace Service
 {
     public interface IEmployeeService : Service<Employee>
     {
-        public Task UpdateRoleAsync(int id, Role role);
-
         public Task<bool> RegisterOwnerWithWarehouseAsync(Address address, Warehouse warehouse, Employee employee);
+
+        public Task<Employee> AuthenticateEmployeeAsync(string email, string password);
     }
 }

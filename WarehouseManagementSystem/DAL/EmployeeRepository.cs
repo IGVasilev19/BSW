@@ -24,7 +24,7 @@ namespace DAL
             cmd.Parameters.AddWithValue("@Password", employee.Password);
             cmd.Parameters.AddWithValue("@PhoneNumber", employee.PhoneNumber);
             cmd.Parameters.AddWithValue("@Role", (int)employee.Role);
-            cmd.Parameters.AddWithValue("@IsActive", (bool)employee.IsActive);
+            cmd.Parameters.AddWithValue("@IsActive", employee.IsActive);
             cmd.Parameters.AddWithValue("@WarehouseId", employee.WarehouseId);
 
             await cmd.ExecuteNonQueryAsync();
@@ -81,6 +81,32 @@ namespace DAL
                 ));
             }
             return list;
+        }
+
+        public async Task<Employee> GetByEmailAsync(string email)
+        {
+            using var conn = _db.GetConnection();
+            await conn.OpenAsync();
+
+            var cmd = _db.CreateCommand("SELECT * FROM Employee WHERE Email = @Email", conn);
+            cmd.Parameters.AddWithValue("@Email", email);
+
+            using var reader = await cmd.ExecuteReaderAsync();
+            if (await reader.ReadAsync())
+            {
+                return new Employee(
+                    (int)reader["EmployeeId"],
+                    reader["Name"].ToString(),
+                    reader["Email"].ToString(),
+                    reader["Password"].ToString(),
+                    reader["PhoneNumber"].ToString(),
+                    (Role)reader["Role"],
+                    (bool)reader["IsActive"],
+                    (int)reader["WarehouseId"]
+                );
+            }
+
+            return null;
         }
 
         public async Task<Employee> GetByIdAsync(int id)
