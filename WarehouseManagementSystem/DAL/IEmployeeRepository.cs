@@ -13,5 +13,6 @@ namespace DAL
         public Task UpdateRoleAsync (int id, Role role);
         public Task AddAsync(Employee employee, SqlConnection conn, SqlTransaction tran);
         public Task<Employee> GetByEmailAsync (string email);
+        public Task UpdateActivityAsync(string email, bool activity);
     }
 }

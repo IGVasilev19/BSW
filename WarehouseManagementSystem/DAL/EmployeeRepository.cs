@@ -64,7 +64,7 @@ namespace DAL
 
             using var conn = _db.GetConnection();
             await conn.OpenAsync();
-            var cmd = _db.CreateCommand("SELECT * FROM Employees", conn);
+            var cmd = _db.CreateCommand("SELECT * FROM Employee", conn);
             using var reader = cmd.ExecuteReader();
 
             while (reader.Read())
@@ -122,6 +122,19 @@ namespace DAL
         public async Task UpdateAsync (Employee employee)
         {
             throw new NotImplementedException();
+        }
+
+        public async Task UpdateActivityAsync (string email, bool activity)
+        {
+            using var conn = _db.GetConnection();
+            await conn.OpenAsync();
+
+            var cmd = _db.CreateCommand(@"UPDATE Employee SET IsActive = @IsActive WHERE Email = @Email", conn);
+
+            cmd.Parameters.AddWithValue("@Email", email);
+            cmd.Parameters.AddWithValue("@IsActive", activity);
+
+            cmd.ExecuteNonQuery();
         }
     }
 }

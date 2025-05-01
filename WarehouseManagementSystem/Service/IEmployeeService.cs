@@ -12,5 +12,7 @@ namespace Service
         public Task<bool> RegisterOwnerWithWarehouseAsync(Address address, Warehouse warehouse, Employee employee);
 
         public Task<Employee> AuthenticateEmployeeAsync(string email, string password);
+
+        public Task UpdateActivityAsync (string email, bool activity);
     }
 }

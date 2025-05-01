@@ -68,13 +68,16 @@ public class AccessController : Controller
         {
             new Claim(ClaimTypes.NameIdentifier, employee.EmployeeId.ToString()),
             new Claim(ClaimTypes.Name, employee.Name),
-            new Claim(ClaimTypes.Role, employee.Role.ToString())
+            new Claim(ClaimTypes.Role, employee.Role.ToString()),
+            new Claim(ClaimTypes.Email, employee.Email)
         };
 
         var identity = new ClaimsIdentity(claims, "WarehouseCookie");
         var principal = new ClaimsPrincipal(identity);
 
         await HttpContext.SignInAsync("WarehouseCookie", principal);
+
+        _employeeService.UpdateActivityAsync(employee.Email, true);
 
         return RedirectToAction("Dashboard", "System");
     }

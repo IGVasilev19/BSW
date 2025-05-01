@@ -59,5 +59,9 @@ namespace Service
 
             return null;
         }
+
+        public async Task<IEnumerable<Employee>> GetAllAsync() => await _repo.GetAllAsync();
+
+        public async Task UpdateActivityAsync (string email, bool activity) => await _repo.UpdateActivityAsync(email, activity);
     }
 }
