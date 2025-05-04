@@ -67,8 +67,8 @@ public class AccessController : Controller
         var claims = new List<Claim>
         {
             new Claim(ClaimTypes.NameIdentifier, employee.EmployeeId.ToString()),
-            new Claim(ClaimTypes.Name, employee.Name),
             new Claim(ClaimTypes.Role, employee.Role.ToString()),
+            new Claim(ClaimTypes.Role, employee.Name),
             new Claim(ClaimTypes.Email, employee.Email)
         };
 

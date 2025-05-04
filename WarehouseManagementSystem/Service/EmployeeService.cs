@@ -18,7 +18,7 @@ namespace Service
             _db = db;
         }
 
-        public async Task<bool> RegisterOwnerWithWarehouseAsync(Address address, Warehouse warehouse, Employee employee)
+        public async Task<bool> RegisterOwnerWithWarehouseAsync (Address address, Warehouse warehouse, Employee employee)
         {
             using var connection = _db.GetConnection();
             await connection.OpenAsync();
@@ -48,7 +48,7 @@ namespace Service
             }
         }
 
-        public async Task<Employee> AuthenticateEmployeeAsync(string email, string password)
+        public async Task<Employee> AuthenticateEmployeeAsync (string email, string password)
         {
             var employee = await _repo.GetByEmailAsync(email);
 
@@ -60,8 +60,14 @@ namespace Service
             return null;
         }
 
+        public async Task<IEnumerable<Employee>> GetAllAsync (int warehouseId) => await _repo.GetAllAsync(warehouseId);
+
         public async Task<IEnumerable<Employee>> GetAllAsync() => await _repo.GetAllAsync();
 
         public async Task UpdateActivityAsync (string email, bool activity) => await _repo.UpdateActivityAsync(email, activity);
+
+        public async Task<Employee> GetByIdAsync (int id) => await _repo.GetByIdAsync(id);
+
+        public async Task<Employee> GetByEmailAsync (string email) => await _repo.GetByEmailAsync(email);
     }
 }

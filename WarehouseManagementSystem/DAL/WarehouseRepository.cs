@@ -34,12 +34,13 @@ namespace DAL
             using var conn = _db.GetConnection();
             conn.OpenAsync();
 
-            var cmd = _db.CreateCommand(@"INSERT INTO Warehouse (Name,AddressId) VALUES (@Name,@AddressId)", connection, transaction);
+            var cmd = _db.CreateCommand(@"INSERT INTO Warehouse (Name,AddressId) VALUES (@Name,@AddressId); SELECT SCOPE_IDENTITY();", connection, transaction);
 
             cmd.Parameters.AddWithValue("@Name", warehouse.Name);
             cmd.Parameters.AddWithValue("@AddressId", warehouse.AddressId);
 
-            return await cmd.ExecuteNonQueryAsync();
+            var result = await cmd.ExecuteScalarAsync();
+            return Convert.ToInt32(result);
         }
 
         public async Task DeleteByIdAsync(int id)

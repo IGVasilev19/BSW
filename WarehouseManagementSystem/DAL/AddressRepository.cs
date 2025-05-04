@@ -35,7 +35,7 @@ namespace DAL
 
         public async Task<int> AddAsync(Address address, SqlConnection connection, SqlTransaction transaction)
         {
-            var cmd = _db.CreateCommand(@"INSERT INTO Address (Country, City, StreetName, StreetNumber, Zip) VALUES (@Country, @City, @StreetName, @StreetNumber, @Zip)", connection, transaction);
+            var cmd = _db.CreateCommand(@"INSERT INTO Address (Country, City, StreetName, StreetNumber, Zip) VALUES (@Country, @City, @StreetName, @StreetNumber, @Zip); SELECT SCOPE_IDENTITY();", connection, transaction);
 
             cmd.Parameters.AddWithValue("@Country", address.Country);
             cmd.Parameters.AddWithValue("@City", address.City);
@@ -43,7 +43,8 @@ namespace DAL
             cmd.Parameters.AddWithValue("@StreetNumber", address.StreetNumber);
             cmd.Parameters.AddWithValue("@Zip", address.Zip);
 
-            return await cmd.ExecuteNonQueryAsync();
+            var result = await cmd.ExecuteScalarAsync();
+            return Convert.ToInt32(result);
         }
 
         public async Task DeleteByIdAsync(int id)

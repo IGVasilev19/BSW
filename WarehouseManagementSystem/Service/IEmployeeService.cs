@@ -14,5 +14,9 @@ namespace Service
         public Task<Employee> AuthenticateEmployeeAsync(string email, string password);
 
         public Task UpdateActivityAsync (string email, bool activity);
+
+        public Task<Employee> GetByEmailAsync (string email);
+
+        public Task<IEnumerable<Employee>> GetAllAsync(int id);
     }
 }

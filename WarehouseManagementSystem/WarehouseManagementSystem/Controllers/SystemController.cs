@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Service;
 using System.Security.Claims;
 using WarehouseManagementSystem.Models;
@@ -35,20 +36,37 @@ namespace WarehouseManagementSystem.Controllers
         }
 
         [Authorize]
-        public async Task<IActionResult> Employees()
+        public async Task<IActionResult> Employees(bool showCreateForm = false)
         {
-            var employees = await _employeeService.GetAllAsync();
+            var loggedEmployeeEmail = @User.FindFirst(ClaimTypes.Email)?.Value;
 
-            var viewModel = employees.Select(e => new EmployeeViewModel
+            var loggedEmployee = await _employeeService.GetByEmailAsync(loggedEmployeeEmail);
+
+            var employees = await _employeeService.GetAllAsync(loggedEmployee.WarehouseId);
+
+            var vm = new EmployeesPageViewModel
             {
-                EmployeeId = e.EmployeeId,
-                Name = e.Name,
-                Email = e.Email,
-                Role = e.Role,
-                IsActive = e.IsActive
-            }).ToList();
+                Employees = employees.Select(e => new EmployeeViewModel
+                {
+                    EmployeeId = e.EmployeeId,
+                    Name = e.Name,
+                    Email = e.Email,
+                    Role = e.Role,
+                    IsActive = e.IsActive
+                }).ToList(),
+                CreateEmployee = new CreateEmployeeViewModel
+                {
+                    Roles = new SelectList(
+                        Enum.GetValues(typeof(Role)).Cast<Role>()
+                            .Where(r => r != Role.Admin)
+                            .Select(r => new { Value = r, Text = r.ToString() }),
+                        "Value", "Text"
+                    )
+                },
+                ShowCreateForm = showCreateForm
+            };
 
-            return View(viewModel);
+            return View(vm);
         }
 
         [Authorize]
@@ -64,6 +82,12 @@ namespace WarehouseManagementSystem.Controllers
             await HttpContext.SignOutAsync("WarehouseCookie");
 
             return RedirectToAction("Index", "Home");
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> CreateEmployee()
+        {
+            return RedirectToAction("Employees", "System");
         }
     }
 }

@@ -65,6 +65,35 @@ namespace DAL
             using var conn = _db.GetConnection();
             await conn.OpenAsync();
             var cmd = _db.CreateCommand("SELECT * FROM Employee", conn);
+
+            using var reader = cmd.ExecuteReader();
+
+            while (reader.Read())
+            {
+                list.Add(new Employee(
+                    (int)reader["EmployeeId"],
+                    reader["Name"].ToString(),
+                    reader["Email"].ToString(),
+                    reader["Password"].ToString(),
+                    reader["PhoneNumber"].ToString(),
+                    (Role)reader["Role"],
+                    (bool)reader["IsActive"],
+                    (int)reader["WarehouseId"]
+                ));
+            }
+            return list;
+        }
+
+        public async Task<IEnumerable<Employee>> GetAllAsync(int warehouseId)
+        {
+            var list = new List<Employee>();
+
+            using var conn = _db.GetConnection();
+            await conn.OpenAsync();
+            var cmd = _db.CreateCommand("SELECT * FROM Employee WHERE WarehouseId = @WarehouseId", conn);
+
+            cmd.Parameters.AddWithValue("@WarehouseId", warehouseId);
+
             using var reader = cmd.ExecuteReader();
 
             while (reader.Read())
@@ -111,7 +140,28 @@ namespace DAL
 
         public async Task<Employee> GetByIdAsync(int id)
         {
-            throw new NotImplementedException();
+            using var conn = _db.GetConnection();
+            await conn.OpenAsync();
+
+            var cmd = _db.CreateCommand("SELECT * FROM Employee WHERE EmployeeId = @Id", conn);
+            cmd.Parameters.AddWithValue("@Id", id);
+
+            using var reader = await cmd.ExecuteReaderAsync();
+            if (await reader.ReadAsync())
+            {
+                return new Employee(
+                    (int)reader["EmployeeId"],
+                    reader["Name"].ToString(),
+                    reader["Email"].ToString(),
+                    reader["Password"].ToString(),
+                    reader["PhoneNumber"].ToString(),
+                    (Role)reader["Role"],
+                    (bool)reader["IsActive"],
+                    (int)reader["WarehouseId"]
+                );
+            }
+
+            return null;
         }
 
         public async Task UpdateRoleAsync (int id, Role role)

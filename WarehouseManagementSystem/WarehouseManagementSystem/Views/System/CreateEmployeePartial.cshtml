@@ -1,0 +1,48 @@
+@using WarehouseManagementSystem.Models
+@model CreateEmployeeViewModel
+
+<div class="w-full h-full flex flex-col items-center justify-center bg-white gap-5">
+    <p class="select-none text-[#2C3E50] text-6xl font-poppins font-bold text-center">Create Employee</p>
+    <form method="post" asp-action="CreateEmployee" class="w-[70%] flex flex-col items-center justify-center gap-3">
+        <div class="w-full flex flex-col">
+            <p class="select-none text-[#2C3E50] text-xl font-poppins font-light">Full Name*</p>
+            <input asp-for="Name" class="border-[#76b5c5] border-2 rounded-lg h-[60px] focus:outline-none focus:ring-0 px-4 py-2 caret-[#76b5c5b4] text-[#2C3E50]" />
+        </div>
+        <div class="w-full flex flex-col">
+            <p class="select-none text-[#2C3E50] text-xl font-poppins font-light">Email Address*</p>
+            <input asp-for="Email" class="border-[#76b5c5] border-2 rounded-lg h-[60px] focus:outline-none focus:ring-0 px-4 py-2 caret-[#76b5c5b4] text-[#2C3E50]" />
+        </div>
+        <div class="w-full flex flex-col">
+            <p class="select-none text-[#2C3E50] text-xl font-poppins font-light">Password*</p>
+            <input asp-for="Password" class="border-[#76b5c5] border-2 rounded-lg h-[60px] focus:outline-none focus:ring-0 px-4 py-2 caret-[#76b5c5b4] text-[#2C3E50]" />
+        </div>
+        <div class ="w-full flex gap-2">
+            <div class="w-full flex flex-col">
+                <p class="select-none text-[#2C3E50] text-xl font-poppins font-light">Role*</p>
+                <div class="relative dropdown-group">
+                    <div onclick="toggleRoleDropdown()" class="toggle-roledropdown select-none flex items-center justify-between border-[#76b5c5] border-2 rounded-lg h-[60px] focus:outline-none focus:ring-0 px-4 py-2 text-[#2C3E50]">
+                        <p id="selectedRole" class="text-[#2C3E50] text-xl font-semibold m-0">@((Model.SelectedRole == default(Role)) ? "Select Role" : Model.SelectedRole.ToString())</p>
+                        <img id="dropdownArrow" src="../images/Arrow 4.svg" class="div-arrow-icon h-[25px] transition-transform duration-100 rotate-0"/>
+                    </div>
+                    <div id="dropdownRoleContent" class="dropdown-content absolute w-full bg-white mt-2 rounded-xl shadow-lg hidden z-50 transition-all duration-300 scale-100 border-[#76b5c5] border-2">
+                        @foreach (var item in Model.Roles)
+                        {
+                            <div onclick="selectRole('@item.Value')" class="px-6 py-3 hover:bg-gray-100 hover:first:rounded-t-xl hover:last:rounded-b-xl text-[#2C3E50] text-lg font-semibold cursor-pointer">
+                                @item.Text
+                            </div>
+                        }
+                    </div>
+                    <input type="hidden" name="Role" id="Role" value="@Model.Role" />
+                </div>
+            </div>
+            <div class="w-full flex flex-col">
+                <p class="select-none text-[#2C3E50] text-xl font-poppins font-light">Phone number*</p>
+                <input asp-for="PhoneNumber" class="border-[#76b5c5] border-2 rounded-lg h-[60px] focus:outline-none focus:ring-0 px-4 py-2 caret-[#76b5c5b4] text-[#2C3E50]" />
+            </div>
+        </div>
+        
+        <button type="submit" class="w-1/3 h-[60px] bg-[#76b5c5] flex items-center justify-center rounded gap-3 transition-all duration-300 hover:scale-[1.05]">
+            <p class="text-white tracking-wide font-poppins text-3xl p-0 m-0">CREATE</p>
+        </button>
+    </form>
+</div>
