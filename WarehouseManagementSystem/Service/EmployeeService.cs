@@ -1,5 +1,6 @@
 ﻿using Entities;
 using DAL;
+using Exceptions;
 
 namespace Service
 {
@@ -20,31 +21,15 @@ namespace Service
 
         public async Task<bool> RegisterOwnerWithWarehouseAsync (Address address, Warehouse warehouse, Employee employee)
         {
-            using var connection = _db.GetConnection();
-            await connection.OpenAsync();
-
-            using var transaction = connection.BeginTransaction();
-
+            var secureEmployee = new Employee(employee.Name, employee.Email, PasswordHasher.Hash(employee.Password), employee.PhoneNumber);
             try
             {
-                var addressId = await _addressService.CreateAsync(address, connection, transaction);
-                warehouse = new Warehouse(warehouse.Name, addressId);
-
-                var warehouseId = await _warehouseService.CreateAsync(warehouse, connection, transaction);
-
-                string hashedPassword = PasswordHasher.Hash(employee.Password);
-
-                employee = new Employee(employee.Name, employee.Email, hashedPassword, employee.PhoneNumber, employee.Role, employee.IsActive, warehouseId);
-
-                await _repo.AddAsync(employee, connection, transaction);
-
-                await transaction.CommitAsync();
+                await _repo.RegisterWithWarehouseTransactionAsync(address, warehouse, secureEmployee);
                 return true;
             }
-            catch (Exception)
+            catch (QueryFailedException ex)
             {
-                await transaction.RollbackAsync();
-                throw;
+                return false;
             }
         }
 
@@ -69,5 +54,19 @@ namespace Service
         public async Task<Employee> GetByIdAsync (int id) => await _repo.GetByIdAsync(id);
 
         public async Task<Employee> GetByEmailAsync (string email) => await _repo.GetByEmailAsync(email);
+
+        public async Task<bool> CreateAsync(Employee employee)
+        {
+            try
+            {
+                await _repo.AddAsync(employee);
+                return true;
+            }
+            catch (QueryFailedException ex)
+            { 
+                throw ex;
+                return false;
+            }
+        }
     }
 }

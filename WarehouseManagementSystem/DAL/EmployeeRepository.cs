@@ -1,15 +1,21 @@
 ﻿using Entities;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.Data.SqlClient;
+using Exceptions;
 
 namespace DAL
 {
     public class EmployeeRepository : IEmployeeRepository
     {
         private readonly DbHelper _db;
+        private readonly IAddressRepository _addressRepository;
+        private readonly IWarehouseRepository _warehouseRepository;
 
-        public EmployeeRepository(DbHelper db)
+        public EmployeeRepository(DbHelper db, IAddressRepository addressRepository, IWarehouseRepository warehouseRepository)
         {
             _db = db;
+            _addressRepository = addressRepository;
+            _warehouseRepository = warehouseRepository;
         }
 
         public async Task AddAsync(Employee employee)
@@ -17,17 +23,24 @@ namespace DAL
             using var conn = _db.GetConnection();
             await conn.OpenAsync();
 
-            var cmd = _db.CreateCommand(@"INSERT INTO Employee (Name, Email, Password, PhoneNumber, Role, IsActive, WarehouseId) VALUES (@Name, @Email, @Password, @PhoneNumber, @Role, @IsActive, @WarehouseId)", conn);
+            try
+            {
+                var cmd = _db.CreateCommand(@"INSERT INTO Employee (Name, Email, Password, PhoneNumber, Role, IsActive, WarehouseId) VALUES (@Name, @Email, @Password, @PhoneNumber, @Role, @IsActive, @WarehouseId)", conn);
 
-            cmd.Parameters.AddWithValue("@Name", employee.Name);
-            cmd.Parameters.AddWithValue("@Email", employee.Email);
-            cmd.Parameters.AddWithValue("@Password", employee.Password);
-            cmd.Parameters.AddWithValue("@PhoneNumber", employee.PhoneNumber);
-            cmd.Parameters.AddWithValue("@Role", (int)employee.Role);
-            cmd.Parameters.AddWithValue("@IsActive", employee.IsActive);
-            cmd.Parameters.AddWithValue("@WarehouseId", employee.WarehouseId);
+                cmd.Parameters.AddWithValue("@Name", employee.Name);
+                cmd.Parameters.AddWithValue("@Email", employee.Email);
+                cmd.Parameters.AddWithValue("@Password", employee.Password);
+                cmd.Parameters.AddWithValue("@PhoneNumber", employee.PhoneNumber);
+                cmd.Parameters.AddWithValue("@Role", (int)employee.Role);
+                cmd.Parameters.AddWithValue("@IsActive", employee.IsActive);
+                cmd.Parameters.AddWithValue("@WarehouseId", employee.WarehouseId);
 
-            await cmd.ExecuteNonQueryAsync();
+                await cmd.ExecuteNonQueryAsync();
+            }
+            catch (Exception ex)
+            {
+                throw new QueryFailedException("Employee with this email already exists",ex);
+            }
         }
 
         public async Task AddAsync(Employee employee, SqlConnection connection, SqlTransaction transaction)
@@ -185,6 +198,31 @@ namespace DAL
             cmd.Parameters.AddWithValue("@IsActive", activity);
 
             cmd.ExecuteNonQuery();
+        }
+
+        public async Task RegisterWithWarehouseTransactionAsync(Address address, Warehouse warehouse, Employee employee)
+        {
+            using var connection = _db.GetConnection();
+            await connection.OpenAsync();
+            using var transaction = connection.BeginTransaction();
+
+            try
+            {
+                var addressId = await _addressRepository.AddAsync(address, connection, transaction);
+                warehouse = new Warehouse(warehouse.Name, addressId);
+                var warehouseId = await _warehouseRepository.AddAsync(warehouse, connection, transaction);
+
+                employee = new Employee(employee.Name, employee.Email, employee.Password, employee.PhoneNumber, employee.Role, employee.IsActive, warehouseId);
+
+                await AddAsync(employee, connection, transaction);
+
+                await transaction.CommitAsync();
+            }
+            catch (Exception ex)
+            {
+                await transaction.RollbackAsync();
+                throw new QueryFailedException("Failed to register owner with warehouse", ex);
+            }
         }
     }
 }

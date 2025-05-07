@@ -126,5 +126,5 @@ EXEC sp_msforeachtable "IF OBJECTPROPERTY(OBJECT_ID('?'), 'TableHasIdentity') = 
 -- Re-enable all foreign key constraints
 EXEC sp_msforeachtable "ALTER TABLE ? WITH CHECK CHECK CONSTRAINT ALL"
 
-
-
+ALTER TABLE Employee
+ADD CONSTRAINT UQ_Employee_Email UNIQUE (Email);

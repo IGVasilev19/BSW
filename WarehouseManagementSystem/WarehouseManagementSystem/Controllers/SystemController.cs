@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Authentication;
+﻿using Entities;
+using Exceptions;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -36,7 +38,7 @@ namespace WarehouseManagementSystem.Controllers
         }
 
         [Authorize]
-        public async Task<IActionResult> Employees(bool showCreateForm = false)
+        public async Task<IActionResult> Employees()
         {
             var loggedEmployeeEmail = @User.FindFirst(ClaimTypes.Email)?.Value;
 
@@ -53,17 +55,7 @@ namespace WarehouseManagementSystem.Controllers
                     Email = e.Email,
                     Role = e.Role,
                     IsActive = e.IsActive
-                }).ToList(),
-                CreateEmployee = new CreateEmployeeViewModel
-                {
-                    Roles = new SelectList(
-                        Enum.GetValues(typeof(Role)).Cast<Role>()
-                            .Where(r => r != Role.Admin)
-                            .Select(r => new { Value = r, Text = r.ToString() }),
-                        "Value", "Text"
-                    )
-                },
-                ShowCreateForm = showCreateForm
+                }).ToList()
             };
 
             return View(vm);
@@ -73,6 +65,23 @@ namespace WarehouseManagementSystem.Controllers
         public IActionResult Settings()
         {
             return View();
+        }
+
+        [Authorize]
+        public IActionResult CreateEmployeeView()
+        {
+            var vm = new CreateEmployeeViewModel
+            {
+                Roles = new SelectList(
+                    Enum.GetValues(typeof(Role))
+                        .Cast<Role>()
+                        .Where(r => r != Role.Admin)
+                        .Select(r => new { Value = (int)r, Text = r.ToString() }),
+                    "Value", "Text"
+                )
+            };
+
+            return View("CreateEmployee",vm);
         }
 
         [HttpPost]
@@ -85,8 +94,54 @@ namespace WarehouseManagementSystem.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> CreateEmployee()
+        public async Task<IActionResult> CreateEmployee(CreateEmployeeViewModel model)
         {
+
+            var loggedEmployeeEmail = @User.FindFirst(ClaimTypes.Email)?.Value;
+
+            var loggedEmployee = await _employeeService.GetByEmailAsync(loggedEmployeeEmail);
+
+            if (!ModelState.IsValid)
+            {
+                model.Roles = new SelectList(
+                    Enum.GetValues(typeof(Role))
+                        .Cast<Role>()
+                        .Where(r => r != Role.Admin)
+                        .Select(r => new { Value = (int)r, Text = r.ToString() }),
+                    "Value", "Text"
+                );
+
+                return View("CreateEmployee", model);
+            }
+
+            var employee = new Employee(
+                model.Name,
+                model.Email,
+                model.Password,
+                model.PhoneNumber,
+                (Role)model.SelectedRole,
+                false,
+                loggedEmployee.WarehouseId
+            );
+
+            try
+            {
+                await _employeeService.CreateAsync(employee);
+            }
+            catch (QueryFailedException ex)
+            {
+                ModelState.AddModelError(model.Email, "Account with this email already exists");
+                model.Roles = new SelectList(
+                    Enum.GetValues(typeof(Role))
+                        .Cast<Role>()
+                        .Where(r => r != Role.Admin)
+                        .Select(r => new { Value = (int)r, Text = r.ToString() }),
+                    "Value", "Text"
+                );
+
+                return View("CreateEmployee", model);
+            }
+            
             return RedirectToAction("Employees", "System");
         }
     }

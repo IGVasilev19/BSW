@@ -5,11 +5,19 @@ function toggleRoleDropdown() {
   arrow.classList.toggle("custom-rotate-neg90");
 }
 
-function selectRole(value) {
-  document.getElementById("selectedRole").textContent = value;
-  document.getElementById("Role").value = value;
-  toggleRoleDropdown();
+function selectRole(value, text) {
+    const display = document.getElementById("selectedRole");
+    const hiddenInput = document.getElementById("SelectedRole");
+
+    display.textContent = text;
+    hiddenInput.value = value;
+
+    $(hiddenInput).valid();
+
+
+    toggleRoleDropdown();
 }
+
 
 document.addEventListener("click", function (e) {
   const dropdown = document.getElementById("dropdownRoleContent");
