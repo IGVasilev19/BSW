@@ -7,52 +7,12 @@
       "RelativeMoniker": "D:0:0:{24C74F25-3A58-4D70-8508-6B671E5FFE08}|WarehouseManagementSystem\\WarehouseManagementSystem.csproj|solutionrelative:warehousemanagementsystem\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{24C74F25-3A58-4D70-8508-6B671E5FFE08}|WarehouseManagementSystem\\WarehouseManagementSystem.csproj|d:\\fontys work\\semester2\\individual project\\warehouse-management-system\\warehousemanagementsystem\\warehousemanagementsystem\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{24C74F25-3A58-4D70-8508-6B671E5FFE08}|WarehouseManagementSystem\\WarehouseManagementSystem.csproj|solutionrelative:warehousemanagementsystem\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+      "AbsoluteMoniker": "D:0:0:{731F945C-30BF-430B-A6B4-2B7148F22DE9}|Service\\Service.csproj|d:\\fontys work\\semester2\\individual project\\warehouse-management-system\\warehousemanagementsystem\\service\\serviceregistration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{731F945C-30BF-430B-A6B4-2B7148F22DE9}|Service\\Service.csproj|solutionrelative:service\\serviceregistration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{24C74F25-3A58-4D70-8508-6B671E5FFE08}|WarehouseManagementSystem\\WarehouseManagementSystem.csproj|d:\\fontys work\\semester2\\individual project\\warehouse-management-system\\warehousemanagementsystem\\warehousemanagementsystem\\views\\_viewstart.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{24C74F25-3A58-4D70-8508-6B671E5FFE08}|WarehouseManagementSystem\\WarehouseManagementSystem.csproj|solutionrelative:warehousemanagementsystem\\views\\_viewstart.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{24C74F25-3A58-4D70-8508-6B671E5FFE08}|WarehouseManagementSystem\\WarehouseManagementSystem.csproj|d:\\fontys work\\semester2\\individual project\\warehouse-management-system\\warehousemanagementsystem\\warehousemanagementsystem\\package.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{24C74F25-3A58-4D70-8508-6B671E5FFE08}|WarehouseManagementSystem\\WarehouseManagementSystem.csproj|solutionrelative:warehousemanagementsystem\\package.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{24C74F25-3A58-4D70-8508-6B671E5FFE08}|WarehouseManagementSystem\\WarehouseManagementSystem.csproj|d:\\fontys work\\semester2\\individual project\\warehouse-management-system\\warehousemanagementsystem\\warehousemanagementsystem\\wwwroot\\js\\site.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
-      "RelativeMoniker": "D:0:0:{24C74F25-3A58-4D70-8508-6B671E5FFE08}|WarehouseManagementSystem\\WarehouseManagementSystem.csproj|solutionrelative:warehousemanagementsystem\\wwwroot\\js\\site.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{24C74F25-3A58-4D70-8508-6B671E5FFE08}|WarehouseManagementSystem\\WarehouseManagementSystem.csproj|d:\\fontys work\\semester2\\individual project\\warehouse-management-system\\warehousemanagementsystem\\warehousemanagementsystem\\wwwroot\\js\\landingpage.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
-      "RelativeMoniker": "D:0:0:{24C74F25-3A58-4D70-8508-6B671E5FFE08}|WarehouseManagementSystem\\WarehouseManagementSystem.csproj|solutionrelative:warehousemanagementsystem\\wwwroot\\js\\landingpage.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6BC041AD-B69C-43BD-A16F-C22C701BE3EE}|DAL\\DAL.csproj|d:\\fontys work\\semester2\\individual project\\warehouse-management-system\\warehousemanagementsystem\\dal\\warehouserepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6BC041AD-B69C-43BD-A16F-C22C701BE3EE}|DAL\\DAL.csproj|solutionrelative:dal\\warehouserepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6BC041AD-B69C-43BD-A16F-C22C701BE3EE}|DAL\\DAL.csproj|d:\\fontys work\\semester2\\individual project\\warehouse-management-system\\warehousemanagementsystem\\dal\\repository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6BC041AD-B69C-43BD-A16F-C22C701BE3EE}|DAL\\DAL.csproj|solutionrelative:dal\\repository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6BC041AD-B69C-43BD-A16F-C22C701BE3EE}|DAL\\DAL.csproj|d:\\fontys work\\semester2\\individual project\\warehouse-management-system\\warehousemanagementsystem\\dal\\dbhelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6BC041AD-B69C-43BD-A16F-C22C701BE3EE}|DAL\\DAL.csproj|solutionrelative:dal\\dbhelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{731F945C-30BF-430B-A6B4-2B7148F22DE9}|Service\\Service.csproj|d:\\fontys work\\semester2\\individual project\\warehouse-management-system\\warehousemanagementsystem\\service\\employeeservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{731F945C-30BF-430B-A6B4-2B7148F22DE9}|Service\\Service.csproj|solutionrelative:service\\employeeservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0819D962-5401-4C79-BB91-10E7703E9A6A}|BLL\\Entities.csproj|d:\\fontys work\\semester2\\individual project\\warehouse-management-system\\warehousemanagementsystem\\bll\\zone.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0819D962-5401-4C79-BB91-10E7703E9A6A}|BLL\\Entities.csproj|solutionrelative:bll\\zone.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0819D962-5401-4C79-BB91-10E7703E9A6A}|BLL\\Entities.csproj|d:\\fontys work\\semester2\\individual project\\warehouse-management-system\\warehousemanagementsystem\\bll\\address.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0819D962-5401-4C79-BB91-10E7703E9A6A}|BLL\\Entities.csproj|solutionrelative:bll\\address.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6BC041AD-B69C-43BD-A16F-C22C701BE3EE}|DAL\\DAL.csproj|d:\\fontys work\\semester2\\individual project\\warehouse-management-system\\warehousemanagementsystem\\dal\\addressrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6BC041AD-B69C-43BD-A16F-C22C701BE3EE}|DAL\\DAL.csproj|solutionrelative:dal\\addressrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{24C74F25-3A58-4D70-8508-6B671E5FFE08}|WarehouseManagementSystem\\WarehouseManagementSystem.csproj|d:\\fontys work\\semester2\\individual project\\warehouse-management-system\\warehousemanagementsystem\\warehousemanagementsystem\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{24C74F25-3A58-4D70-8508-6B671E5FFE08}|WarehouseManagementSystem\\WarehouseManagementSystem.csproj|solutionrelative:warehousemanagementsystem\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -62,47 +22,8 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 0,
           "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "appsettings.json",
-              "DocumentMoniker": "D:\\Fontys work\\Semester2\\Individual project\\warehouse-management-system\\WarehouseManagementSystem\\WarehouseManagementSystem\\appsettings.json",
-              "RelativeDocumentMoniker": "WarehouseManagementSystem\\appsettings.json",
-              "ToolTip": "D:\\Fontys work\\Semester2\\Individual project\\warehouse-management-system\\WarehouseManagementSystem\\WarehouseManagementSystem\\appsettings.json",
-              "RelativeToolTip": "WarehouseManagementSystem\\appsettings.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-05-08T08:50:09.463Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "_ViewStart.cshtml",
-              "DocumentMoniker": "D:\\Fontys work\\Semester2\\Individual project\\warehouse-management-system\\WarehouseManagementSystem\\WarehouseManagementSystem\\Views\\_ViewStart.cshtml",
-              "RelativeDocumentMoniker": "WarehouseManagementSystem\\Views\\_ViewStart.cshtml",
-              "ToolTip": "D:\\Fontys work\\Semester2\\Individual project\\warehouse-management-system\\WarehouseManagementSystem\\WarehouseManagementSystem\\Views\\_ViewStart.cshtml",
-              "RelativeToolTip": "WarehouseManagementSystem\\Views\\_ViewStart.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-05-08T08:50:08.773Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "package.json",
-              "DocumentMoniker": "D:\\Fontys work\\Semester2\\Individual project\\warehouse-management-system\\WarehouseManagementSystem\\WarehouseManagementSystem\\package.json",
-              "RelativeDocumentMoniker": "WarehouseManagementSystem\\package.json",
-              "ToolTip": "D:\\Fontys work\\Semester2\\Individual project\\warehouse-management-system\\WarehouseManagementSystem\\WarehouseManagementSystem\\package.json",
-              "RelativeToolTip": "WarehouseManagementSystem\\package.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-05-08T08:50:05.62Z",
-              "EditorCaption": ""
-            },
             {
               "$type": "Document",
               "DocumentIndex": 0,
@@ -111,126 +32,35 @@
               "RelativeDocumentMoniker": "WarehouseManagementSystem\\Views\\Home\\Index.cshtml",
               "ToolTip": "D:\\Fontys work\\Semester2\\Individual project\\warehouse-management-system\\WarehouseManagementSystem\\WarehouseManagementSystem\\Views\\Home\\Index.cshtml",
               "RelativeToolTip": "WarehouseManagementSystem\\Views\\Home\\Index.cshtml",
-              "ViewState": "AgIAAB4AAAAAAAAAAAAAACIAAAAWAAAAAAAAAA==",
+              "ViewState": "AgIAAAkAAAAAAAAAAADwvxUAAAAlAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-05-08T08:48:39.544Z",
+              "WhenOpened": "2025-05-09T09:24:23.092Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "site.js",
-              "DocumentMoniker": "D:\\Fontys work\\Semester2\\Individual project\\warehouse-management-system\\WarehouseManagementSystem\\WarehouseManagementSystem\\wwwroot\\js\\site.js",
-              "RelativeDocumentMoniker": "WarehouseManagementSystem\\wwwroot\\js\\site.js",
-              "ToolTip": "D:\\Fontys work\\Semester2\\Individual project\\warehouse-management-system\\WarehouseManagementSystem\\WarehouseManagementSystem\\wwwroot\\js\\site.js",
-              "RelativeToolTip": "WarehouseManagementSystem\\wwwroot\\js\\site.js",
-              "ViewState": "AgIAAAcAAAAAAAAAAIBBwAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
-              "WhenOpened": "2025-05-08T08:44:21.323Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "landingpage.js",
-              "DocumentMoniker": "D:\\Fontys work\\Semester2\\Individual project\\warehouse-management-system\\WarehouseManagementSystem\\WarehouseManagementSystem\\wwwroot\\js\\landingpage.js",
-              "RelativeDocumentMoniker": "WarehouseManagementSystem\\wwwroot\\js\\landingpage.js",
-              "ToolTip": "D:\\Fontys work\\Semester2\\Individual project\\warehouse-management-system\\WarehouseManagementSystem\\WarehouseManagementSystem\\wwwroot\\js\\landingpage.js",
-              "RelativeToolTip": "WarehouseManagementSystem\\wwwroot\\js\\landingpage.js",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
-              "WhenOpened": "2025-05-08T08:44:14.777Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "WarehouseRepository.cs",
-              "DocumentMoniker": "D:\\Fontys work\\Semester2\\Individual project\\warehouse-management-system\\WarehouseManagementSystem\\DAL\\WarehouseRepository.cs",
-              "RelativeDocumentMoniker": "DAL\\WarehouseRepository.cs",
-              "ToolTip": "D:\\Fontys work\\Semester2\\Individual project\\warehouse-management-system\\WarehouseManagementSystem\\DAL\\WarehouseRepository.cs",
-              "RelativeToolTip": "DAL\\WarehouseRepository.cs",
-              "ViewState": "AgIAAC0AAAAAAAAAAAAuwAAAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 1,
+              "Title": "ServiceRegistration.cs",
+              "DocumentMoniker": "D:\\Fontys work\\Semester2\\Individual project\\warehouse-management-system\\WarehouseManagementSystem\\Service\\ServiceRegistration.cs",
+              "RelativeDocumentMoniker": "Service\\ServiceRegistration.cs",
+              "ToolTip": "D:\\Fontys work\\Semester2\\Individual project\\warehouse-management-system\\WarehouseManagementSystem\\Service\\ServiceRegistration.cs",
+              "RelativeToolTip": "Service\\ServiceRegistration.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAADwvwAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-08T08:43:52.393Z",
+              "WhenOpened": "2025-05-09T08:50:30.819Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "Repository.cs",
-              "DocumentMoniker": "D:\\Fontys work\\Semester2\\Individual project\\warehouse-management-system\\WarehouseManagementSystem\\DAL\\Repository.cs",
-              "RelativeDocumentMoniker": "DAL\\Repository.cs",
-              "ToolTip": "D:\\Fontys work\\Semester2\\Individual project\\warehouse-management-system\\WarehouseManagementSystem\\DAL\\Repository.cs",
-              "RelativeToolTip": "DAL\\Repository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 2,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\Fontys work\\Semester2\\Individual project\\warehouse-management-system\\WarehouseManagementSystem\\WarehouseManagementSystem\\Program.cs",
+              "RelativeDocumentMoniker": "WarehouseManagementSystem\\Program.cs",
+              "ToolTip": "D:\\Fontys work\\Semester2\\Individual project\\warehouse-management-system\\WarehouseManagementSystem\\WarehouseManagementSystem\\Program.cs",
+              "RelativeToolTip": "WarehouseManagementSystem\\Program.cs",
+              "ViewState": "AgIAABUAAAAAAAAAAAAAABUAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-08T08:43:34.346Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "DbHelper.cs",
-              "DocumentMoniker": "D:\\Fontys work\\Semester2\\Individual project\\warehouse-management-system\\WarehouseManagementSystem\\DAL\\DbHelper.cs",
-              "RelativeDocumentMoniker": "DAL\\DbHelper.cs",
-              "ToolTip": "D:\\Fontys work\\Semester2\\Individual project\\warehouse-management-system\\WarehouseManagementSystem\\DAL\\DbHelper.cs",
-              "RelativeToolTip": "DAL\\DbHelper.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-08T08:43:14.313Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "EmployeeService.cs",
-              "DocumentMoniker": "D:\\Fontys work\\Semester2\\Individual project\\warehouse-management-system\\WarehouseManagementSystem\\Service\\EmployeeService.cs",
-              "RelativeDocumentMoniker": "Service\\EmployeeService.cs",
-              "ToolTip": "D:\\Fontys work\\Semester2\\Individual project\\warehouse-management-system\\WarehouseManagementSystem\\Service\\EmployeeService.cs",
-              "RelativeToolTip": "Service\\EmployeeService.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAsAAAAZAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-08T08:42:56.882Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "Zone.cs",
-              "DocumentMoniker": "D:\\Fontys work\\Semester2\\Individual project\\warehouse-management-system\\WarehouseManagementSystem\\BLL\\Zone.cs",
-              "RelativeDocumentMoniker": "BLL\\Zone.cs",
-              "ToolTip": "D:\\Fontys work\\Semester2\\Individual project\\warehouse-management-system\\WarehouseManagementSystem\\BLL\\Zone.cs",
-              "RelativeToolTip": "BLL\\Zone.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-08T08:42:44.222Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "Address.cs",
-              "DocumentMoniker": "D:\\Fontys work\\Semester2\\Individual project\\warehouse-management-system\\WarehouseManagementSystem\\BLL\\Address.cs",
-              "RelativeDocumentMoniker": "BLL\\Address.cs",
-              "ToolTip": "D:\\Fontys work\\Semester2\\Individual project\\warehouse-management-system\\WarehouseManagementSystem\\BLL\\Address.cs",
-              "RelativeToolTip": "BLL\\Address.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-08T08:41:52.622Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "AddressRepository.cs",
-              "DocumentMoniker": "D:\\Fontys work\\Semester2\\Individual project\\warehouse-management-system\\WarehouseManagementSystem\\DAL\\AddressRepository.cs",
-              "RelativeDocumentMoniker": "DAL\\AddressRepository.cs",
-              "ToolTip": "D:\\Fontys work\\Semester2\\Individual project\\warehouse-management-system\\WarehouseManagementSystem\\DAL\\AddressRepository.cs",
-              "RelativeToolTip": "DAL\\AddressRepository.cs",
-              "ViewState": "AgIAADgAAAAAAAAAAAAkwAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-08T08:41:37.361Z",
+              "WhenOpened": "2025-05-09T08:49:39.862Z",
               "EditorCaption": ""
             }
           ]

@@ -1,4 +1,4 @@
-using Entities;
+using Domain;
 using Service;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -18,6 +18,8 @@ builder.Services.AddAuthentication("WarehouseCookie")
     });
 
 builder.Services.AddAuthorization();
+builder.Services.AddControllersWithViews();
+
 
 
 var app = builder.Build();

@@ -1,4 +1,4 @@
-﻿using Entities;
+﻿using Domain;
 using Exceptions;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;

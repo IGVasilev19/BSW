@@ -14,7 +14,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\BLL\Entities.csproj" />
+    <ProjectReference Include="..\BLL\Domain.csproj" />
     <ProjectReference Include="..\Exceptions\Exceptions.csproj" />
     <ProjectReference Include="..\Service\Service.csproj" />
   </ItemGroup>

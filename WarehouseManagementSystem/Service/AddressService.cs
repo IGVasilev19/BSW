@@ -1,5 +1,5 @@
 ﻿using DAL;
-using Entities;
+using Domain;
 using Microsoft.Data.SqlClient;
 using System;
 using System.Collections.Generic;

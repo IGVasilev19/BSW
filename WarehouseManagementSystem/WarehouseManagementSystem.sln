@@ -5,7 +5,7 @@ VisualStudioVersion = 17.12.35707.178
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WarehouseManagementSystem", "WarehouseManagementSystem\WarehouseManagementSystem.csproj", "{24C74F25-3A58-4D70-8508-6B671E5FFE08}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Entities", "BLL\Entities.csproj", "{0819D962-5401-4C79-BB91-10E7703E9A6A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain", "BLL\Domain.csproj", "{0819D962-5401-4C79-BB91-10E7703E9A6A}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAL", "DAL\DAL.csproj", "{6BC041AD-B69C-43BD-A16F-C22C701BE3EE}"
 EndProject
