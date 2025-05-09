@@ -1,19 +1,9 @@
 using Entities;
 using Service;
-using DAL;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddControllersWithViews();
-builder.Services.AddScoped<IEmployeeService, EmployeeService>();
-builder.Services.AddScoped<IAddressService, AddressService>();
-builder.Services.AddScoped<IWarehouseService, WarehouseService>();
-
-builder.Services.AddScoped<IEmployeeRepository, EmployeeRepository>();
-builder.Services.AddScoped<IAddressRepository, AddressRepository>();
-builder.Services.AddScoped<IWarehouseRepository, WarehouseRepository>();
-
-builder.Services.AddScoped<DbHelper>();
+builder.Services.AddBusinessServices();
 
 builder.Services.AddAuthentication("WarehouseCookie")
     .AddCookie("WarehouseCookie", options =>

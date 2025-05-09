@@ -55,6 +55,11 @@ namespace Service
 
         public async Task<Employee> GetByEmailAsync (string email) => await _repo.GetByEmailAsync(email);
 
+        async Task Service<Employee>.CreateAsync(Employee employee) 
+        {
+            throw  new NotImplementedException();
+        }
+
         public async Task<bool> CreateAsync(Employee employee)
         {
             try
@@ -64,8 +69,8 @@ namespace Service
             }
             catch (QueryFailedException ex)
             { 
-                throw ex;
                 return false;
+                throw ex;
             }
         }
     }

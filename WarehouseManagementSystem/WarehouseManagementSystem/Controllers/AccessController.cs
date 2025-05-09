@@ -82,13 +82,11 @@ public class AccessController : Controller
         return RedirectToAction("Dashboard", "System");
     }
 
-    [HttpGet]
     public IActionResult SignUp()
     {
         return View();
     }
 
-    [HttpGet]
     public IActionResult SignIn()
     {
         return View();

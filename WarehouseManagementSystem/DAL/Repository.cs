@@ -4,14 +4,14 @@ namespace DAL
 {
     public interface Repository<T>
     {
-        Task<IEnumerable<T>> GetAllAsync();
+       public Task<IEnumerable<T>> GetAllAsync();
 
-        Task<T> GetByIdAsync(int id);
+       public Task<T> GetByIdAsync(int id);
 
-        Task AddAsync(T obj);
+       public Task AddAsync(T obj);
 
-        Task UpdateAsync(T obj);
+       public Task UpdateAsync(T obj);
 
-        Task DeleteByIdAsync(int id);
+       public Task DeleteByIdAsync(int id);
     }
 }

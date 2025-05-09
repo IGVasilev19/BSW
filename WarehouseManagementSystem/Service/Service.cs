@@ -4,7 +4,7 @@ namespace Service
 {
     public interface Service<T>
     {
-        Task<IEnumerable<T>> GetAllAsync();
-        Task CreateAsync(T entity);
+        public Task<IEnumerable<T>> GetAllAsync();
+        public Task CreateAsync(T entity);
     }
 }

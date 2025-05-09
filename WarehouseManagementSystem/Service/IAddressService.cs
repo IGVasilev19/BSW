@@ -10,6 +10,6 @@ namespace Service
 {
     public interface IAddressService : Service<Address>
     {
-        Task<int> CreateAsync(Address address, SqlConnection conn, SqlTransaction tran);
+        public Task<int> CreateAsync(Address address, SqlConnection conn, SqlTransaction tran);
     }
 }

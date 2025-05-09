@@ -11,6 +11,6 @@ namespace DAL
 {
     public interface IAddressRepository : Repository<Address>
     {
-        Task<int> AddAsync(Address address, SqlConnection connection, SqlTransaction transaction);
+        public Task<int> AddAsync(Address address, SqlConnection connection, SqlTransaction transaction);
     }
 }
