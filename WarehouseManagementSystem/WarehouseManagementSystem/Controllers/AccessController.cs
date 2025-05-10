@@ -20,7 +20,7 @@ public class AccessController : Controller
     {
         if (!ModelState.IsValid)
         {
-            return View(model);
+            return View("SignUp",model);
         }
 
         var address = new Address(
@@ -32,20 +32,24 @@ public class AccessController : Controller
         );
 
         var warehouse = new Warehouse(model.WarehouseName);
-
         var employee = new Employee(model.Name, model.Email, model.Password, model.PhoneNumber);
 
-        var result = await _employeeService.RegisterOwnerWithWarehouseAsync(
+        try
+        {
+            await _employeeService.RegisterOwnerWithWarehouseAsync(
             address,
             warehouse,
             employee
-        );
+            );
 
-        if (result)
             return RedirectToAction("SignIn", "Access");
-
-        ModelState.AddModelError("", "Registration failed.");
-        return View(model);
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine(ex);
+            ViewBag.ErrorMessage = "Owner with this email already exists!";
+            return View("SignUp", model);
+        }
     }
 
     [HttpPost]
@@ -53,15 +57,15 @@ public class AccessController : Controller
     {
         if (!ModelState.IsValid)
         {
-            return View(model);
+            return View("SignIn", model);
         }
 
         var employee = await _employeeService.AuthenticateEmployeeAsync(model.Email, model.Password);
 
         if (employee == null)
         {
-            ModelState.AddModelError("", "Invalid credentials.");
-            return View(model);
+            ViewBag.ErrorMessage = "Invalid credentials.";
+            return View("SignIn", model);
         }
 
         var claims = new List<Claim>

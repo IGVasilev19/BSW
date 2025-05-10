@@ -14,21 +14,21 @@
             <div class="w-full flex flex-col">
                 <div class="flex gap-3">
                     <p class="select-none text-[#2C3E50] text-xl font-poppins font-light">Full Name*</p>
-                    <span asp-validation-for="Name" class="text-red-500"></span>
+                    <span asp-validation-for="Name" class="text-red-500 text-lg"></span>
                 </div>
                 <input asp-for="Name" class="border-[#76b5c5] border-2 rounded-lg h-[60px] focus:outline-none focus:ring-0 px-4 py-2 caret-[#76b5c5b4] text-[#2C3E50]" />
             </div>
             <div class="w-full flex flex-col">
                 <div class="flex gap-3">
                     <p class="select-none text-[#2C3E50] text-xl font-poppins font-light">Email Address*</p>
-                    <span asp-validation-for="Email" class="text-red-500"></span>
+                    <span asp-validation-for="Email" class="text-red-500 text-lg"></span>
                 </div>
                 <input asp-for="Email" class="border-[#76b5c5] border-2 rounded-lg h-[60px] focus:outline-none focus:ring-0 px-4 py-2 caret-[#76b5c5b4] text-[#2C3E50]" />
             </div>
             <div class="w-full flex flex-col">
                 <div class="flex gap-3">
                     <p class="select-none text-[#2C3E50] text-xl font-poppins font-light">Password*</p>
-                    <span asp-validation-for="Password" class="text-red-500"></span>
+                    <span asp-validation-for="Password" class="text-red-500 text-lg"></span>
                 </div>
                 <input asp-for="Password" class="border-[#76b5c5] border-2 rounded-lg h-[60px] focus:outline-none focus:ring-0 px-4 py-2 caret-[#76b5c5b4] text-[#2C3E50]" />
             </div>
@@ -36,7 +36,7 @@
                 <div class="w-full flex flex-col">
                     <div class="flex gap-3">
                         <p class="select-none text-[#2C3E50] text-xl font-poppins font-light">Role*</p>
-                        <span asp-validation-for="SelectedRole" class="text-red-500"></span>
+                        <span asp-validation-for="SelectedRole" class="text-red-500 text-lg"></span>
                     </div>
                     <div class="relative dropdown-group">
                         <div onclick="toggleRoleDropdown()" class="toggle-roledropdown select-none flex items-center justify-between border-2 rounded-lg h-[60px] px-4 border-[#76b5c5] cursor-pointer">
@@ -61,7 +61,7 @@
                 <div class="w-full flex flex-col">
                     <div class="flex gap-3">
                         <p class="select-none text-[#2C3E50] text-xl font-poppins font-light">Phone number*</p>
-                        <span asp-validation-for="PhoneNumber" class="text-red-500"></span>
+                        <span asp-validation-for="PhoneNumber" class="text-red-500 text-lg"></span>
                     </div>
                     <input asp-for="PhoneNumber" class="border-[#76b5c5] border-2 rounded-lg h-[60px] focus:outline-none focus:ring-0 px-4 py-2 caret-[#76b5c5b4] text-[#2C3E50]" />
                 </div>

@@ -21,6 +21,7 @@
     <div class="h-[900px] border-2 border-[#76b5c577]">
     </div>    
     <form asp-action="RegisterOwner" asp-controller="Access" method="post" class="flip-container w-full h-full perspective-1000 flex flex-col justify-center gap-5 px-5">
+    @Html.AntiForgeryToken()
         <div id="flip-card" class="relative w-full h-full duration-700 transform-style-preserve-3d transition-transform ease-in-out">
             <div class="absolute w-full h-full backface-hidden flex flex-col gap-5 justify-center">
                 <div class="flex flex-col">
@@ -30,32 +31,56 @@
                         </div>
                     </div>
                 </div>
-                <div class="w-full flex justify-center gap-5">
-                    <div class="w-full flex flex-col">
-                        <p class="text-[#2C3E50] text-xl font-poppins font-light">Full Name*</p>
-                        <input asp-for="Name" class="border-[#76b5c5] border-2 rounded-lg h-[60px] focus:outline-none focus:ring-0 px-4 py-2 caret-[#76b5c5b4] text-[#2C3E50]" />
-                    </div>
-                    <div class="w-full flex flex-col">
-                        <p class="text-[#2C3E50] text-xl font-poppins font-light">Phone Number*</p>
-                        <input asp-for="PhoneNumber" class="border-[#76b5c5] border-2 rounded-lg h-[60px] focus:outline-none focus:ring-0 px-4 py-2 caret-[#76b5c5b4] text-[#2C3E50]" />
+                <div class="w-full h-full flex flex-col gap-2">
+                    @if (ViewBag.ErrorMessage != null)
+                    {
+                        <span class="text-red-500 text-lg">@ViewBag.ErrorMessage</span>
+                    }
+                    <div class="w-full flex justify-center gap-5">
+                        <div class="w-full flex flex-col">
+                            <div class="flex gap-3">
+                                <p class="text-[#2C3E50] text-xl font-poppins font-light">Full Name*</p>
+                                <span asp-validation-for="Name" class="text-red-500"></span>
+                            </div>
+                            <input asp-for="Name" class="border-[#76b5c5] border-2 rounded-lg h-[60px] focus:outline-none focus:ring-0 px-4 py-2 caret-[#76b5c5b4] text-[#2C3E50]" />
+                        </div>
+                        <div class="w-full flex flex-col">
+                            <div class="flex gap-3">
+                                <p class="text-[#2C3E50] text-xl font-poppins font-light">Phone Number*</p>
+                                <span asp-validation-for="PhoneNumber" class="text-red-500"></span>
+                            </div>
+                            <input asp-for="PhoneNumber" class="border-[#76b5c5] border-2 rounded-lg h-[60px] focus:outline-none focus:ring-0 px-4 py-2 caret-[#76b5c5b4] text-[#2C3E50]" />
+                        </div>
                     </div>
                 </div>
                 <div class="w-full flex flex-col">
-                    <p class="text-[#2C3E50] text-xl font-poppins font-light">Email Address*</p>
+                    <div class="flex gap-3">
+                        <p class="text-[#2C3E50] text-xl font-poppins font-light">Email Address*</p>
+                        <span asp-validation-for="Email" class="text-red-500"></span>
+                    </div>
                     <input asp-for="Email" class="border-[#76b5c5] border-2 rounded-lg h-[60px] focus:outline-none focus:ring-0 px-4 py-2 caret-[#76b5c5b4] text-[#2C3E50]" />
                 </div>
                 <div class="w-full flex justify-center gap-5">
                     <div class="w-full flex flex-col">
-                        <p class="text-[#2C3E50] text-xl font-poppins font-light">Password*</p>
+                        <div class="flex gap-3">
+                            <p class="text-[#2C3E50] text-xl font-poppins font-light">Password*</p>
+                            <span asp-validation-for="Password" class="text-red-500"></span>
+                        </div>
                         <input asp-for="Password" class="border-[#76b5c5] border-2 rounded-lg h-[60px] focus:outline-none focus:ring-0 px-4 py-2 caret-[#76b5c5b4] text-[#2C3E50]" />
                     </div>
                     <div class="w-full flex flex-col">
-                        <p class="text-[#2C3E50] text-xl font-poppins font-light">Confirm Password*</p>
-                        <input class="border-[#76b5c5] border-2 rounded-lg h-[60px] focus:outline-none focus:ring-0 px-4 py-2 caret-[#76b5c5b4] text-[#2C3E50]"/>
+                        <div class="flex gap-3">
+                            <p class="text-[#2C3E50] text-xl font-poppins font-light">Confirm Password*</p>
+                            <span asp-validation-for="ConfirmPassword" class="text-red-500"></span>
+                        </div>
+                        <input asp-for="ConfirmPassword" type="Password" class="border-[#76b5c5] border-2 rounded-lg h-[60px] focus:outline-none focus:ring-0 px-4 py-2 caret-[#76b5c5b4] text-[#2C3E50]"/>
                     </div>
                 </div>
                 <div class="w-full flex flex-col">
-                    <p class="text-[#2C3E50] text-xl font-poppins font-light">Warehouse Name*</p>
+                    <div class="flex gap-3">
+                            <p class="text-[#2C3E50] text-xl font-poppins font-light">Warehouse Name*</p>
+                            <span asp-validation-for="WarehouseName" class="text-red-500"></span>
+                    </div>
                     <input asp-for="WarehouseName" class="border-[#76b5c5] border-2 rounded-lg h-[60px] focus:outline-none px-4 py-2 caret-[#76b5c5b4] text-[#2C3E50] focus:ring-0" />
                 </div>
                 <div class="group w-full flex justify-center">
@@ -74,24 +99,39 @@
                     </div>
                 </div>
                 <div class="w-full flex flex-col">
-                    <p class="text-[#2C3E50] text-xl font-poppins font-light">Country*</p>
+                    <div class="flex gap-3">
+                        <p class="text-[#2C3E50] text-xl font-poppins font-light">Country*</p>
+                        <span asp-validation-for="Country" class="text-red-500"></span>
+                    </div>
                     <input asp-for="Country" class="border-[#76b5c5] border-2 rounded-lg h-[60px] focus:outline-none focus:ring-0 px-4 py-2 caret-[#76b5c5b4] text-[#2C3E50]" />
                 </div>
                 <div class="w-full flex flex-col">
-                    <p class="text-[#2C3E50] text-xl font-poppins font-light">City*</p>
+                    <div class="flex gap-3">
+                        <p class="text-[#2C3E50] text-xl font-poppins font-light">City*</p>
+                        <span asp-validation-for="City" class="text-red-500"></span>
+                    </div>
                     <input asp-for="City" class="border-[#76b5c5] border-2 rounded-lg h-[60px] focus:outline-none px-4 py-2 caret-[#76b5c5b4] text-[#2C3E50] focus:ring-0" />
                 </div>
                 <div class="w-full flex flex-col">
-                    <p class="text-[#2C3E50] text-xl font-poppins font-light">Street Name*</p>
+                    <div class="flex gap-3">
+                        <p class="text-[#2C3E50] text-xl font-poppins font-light">Street Name*</p>
+                        <span asp-validation-for="StreetName" class="text-red-500"></span>
+                    </div>
                     <input asp-for="StreetName" class="border-[#76b5c5] border-2 rounded-lg h-[60px] focus:outline-none focus:ring-0 px-4 py-2 caret-[#76b5c5b4] text-[#2C3E50]" />
                 </div>
                 <div class="w-full flex justify-between gap-5">
                     <div class="w-full flex flex-col">
-                        <p class="text-[#2C3E50] text-xl font-poppins font-light">Street Number*</p>
+                        <div class="flex gap-3">
+                            <p class="text-[#2C3E50] text-xl font-poppins font-light">Street Number*</p>
+                            <span asp-validation-for="StreetNumber" class="text-red-500"></span>
+                        </div>
                         <input asp-for="StreetNumber" class="border-[#76b5c5] border-2 rounded-lg h-[60px] focus:outline-none focus:ring-0 px-4 py-2 caret-[#76b5c5b4] text-[#2C3E50]" />
                     </div>
                     <div class="w-full flex flex-col">
-                        <p class="text-[#2C3E50] text-xl font-poppins font-light">Zip*</p>
+                        <div class="flex gap-3">
+                            <p class="text-[#2C3E50] text-xl font-poppins font-light">Zip*</p>
+                            <span asp-validation-for="Zip" class="text-red-500"></span>
+                        </div>
                         <input asp-for="Zip" class="border-[#76b5c5] border-2 rounded-lg h-[60px] focus:outline-none px-4 py-2 caret-[#76b5c5b4] text-[#2C3E50] focus:ring-0" />
                     </div>
                 </div>

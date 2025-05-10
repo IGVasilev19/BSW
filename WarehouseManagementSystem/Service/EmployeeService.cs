@@ -19,17 +19,16 @@ namespace Service
             _db = db;
         }
 
-        public async Task<bool> RegisterOwnerWithWarehouseAsync (Address address, Warehouse warehouse, Employee employee)
+        public async Task RegisterOwnerWithWarehouseAsync (Address address, Warehouse warehouse, Employee employee)
         {
             var secureEmployee = new Employee(employee.Name, employee.Email, PasswordHasher.Hash(employee.Password), employee.PhoneNumber);
             try
             {
                 await _repo.RegisterWithWarehouseTransactionAsync(address, warehouse, secureEmployee);
-                return true;
             }
             catch (QueryFailedException ex)
             {
-                return false;
+                throw ex;
             }
         }
 
@@ -37,7 +36,11 @@ namespace Service
         {
             var employee = await _repo.GetByEmailAsync(email);
 
-            if (PasswordHasher.Verify(password, employee.Password))
+            if (employee == null)
+            {
+                return null;
+            }
+            else if (PasswordHasher.Verify(password, employee.Password))
             {
                 return employee;
             }
@@ -60,16 +63,14 @@ namespace Service
             throw  new NotImplementedException();
         }
 
-        public async Task<bool> CreateAsync(Employee employee)
+        public async Task CreateAsync(Employee employee)
         {
             try
             {
                 await _repo.AddAsync(employee);
-                return true;
             }
             catch (QueryFailedException ex)
-            { 
-                return false;
+            {
                 throw ex;
             }
         }

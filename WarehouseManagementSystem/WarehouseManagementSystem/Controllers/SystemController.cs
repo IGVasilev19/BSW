@@ -129,8 +129,8 @@ namespace WarehouseManagementSystem.Controllers
                 await _employeeService.CreateAsync(employee);
             }
             catch (QueryFailedException ex)
-            {
-                ModelState.AddModelError(model.Email, "Account with this email already exists");
+            { 
+                ModelState.AddModelError("Email", "Account with this email already exists");
                 model.Roles = new SelectList(
                     Enum.GetValues(typeof(Role))
                         .Cast<Role>()
