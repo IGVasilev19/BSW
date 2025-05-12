@@ -9,10 +9,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{24C74F25-3A58-4D70-8508-6B671E5FFE08}|WarehouseManagementSystem\\WarehouseManagementSystem.csproj|d:\\fontys work\\semester2\\individual project\\warehouse-management-system\\warehousemanagementsystem\\warehousemanagementsystem\\views\\access\\signin.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{24C74F25-3A58-4D70-8508-6B671E5FFE08}|WarehouseManagementSystem\\WarehouseManagementSystem.csproj|solutionrelative:warehousemanagementsystem\\views\\access\\signin.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{24C74F25-3A58-4D70-8508-6B671E5FFE08}|WarehouseManagementSystem\\WarehouseManagementSystem.csproj|d:\\fontys work\\semester2\\individual project\\warehouse-management-system\\warehousemanagementsystem\\warehousemanagementsystem\\controllers\\accesscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{24C74F25-3A58-4D70-8508-6B671E5FFE08}|WarehouseManagementSystem\\WarehouseManagementSystem.csproj|solutionrelative:warehousemanagementsystem\\controllers\\accesscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -45,22 +41,9 @@
               "RelativeDocumentMoniker": "WarehouseManagementSystem\\Views\\Access\\SignUp.cshtml",
               "ToolTip": "D:\\Fontys work\\Semester2\\Individual project\\warehouse-management-system\\WarehouseManagementSystem\\WarehouseManagementSystem\\Views\\Access\\SignUp.cshtml",
               "RelativeToolTip": "WarehouseManagementSystem\\Views\\Access\\SignUp.cshtml",
-              "ViewState": "AgIAABIAAAAAAAAAAADwvyEAAABbAAAAAAAAAA==",
+              "ViewState": "AgIAABgAAAAAAAAAAADwvyMAAAAVAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2025-05-10T13:45:34.698Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "AccessController.cs",
-              "DocumentMoniker": "D:\\Fontys work\\Semester2\\Individual project\\warehouse-management-system\\WarehouseManagementSystem\\WarehouseManagementSystem\\Controllers\\AccessController.cs",
-              "RelativeDocumentMoniker": "WarehouseManagementSystem\\Controllers\\AccessController.cs",
-              "ToolTip": "D:\\Fontys work\\Semester2\\Individual project\\warehouse-management-system\\WarehouseManagementSystem\\WarehouseManagementSystem\\Controllers\\AccessController.cs",
-              "RelativeToolTip": "WarehouseManagementSystem\\Controllers\\AccessController.cs",
-              "ViewState": "AgIAABsAAAAAAAAAAAASwDIAAAApAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-10T13:41:50.344Z",
               "EditorCaption": ""
             }
           ]
