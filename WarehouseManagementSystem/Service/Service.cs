@@ -6,5 +6,8 @@ namespace Service
     {
         public Task<IEnumerable<T>> GetAllAsync();
         public Task CreateAsync(T entity);
+        public Task<T> GetByIdAsync(int id);
+
+        public Task DeleteByIdAsync(int id);
     }
 }

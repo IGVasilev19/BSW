@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Data.SqlClient;
 using Exceptions;
+using System.Diagnostics;
 
 namespace DAL
 {
@@ -64,9 +65,9 @@ namespace DAL
             using var conn = _db.GetConnection();
             await conn.OpenAsync();
 
-            var cmd = _db.CreateCommand(@"DELETE FROM Address WHERE AddressId = @AddressId", conn);
+            var cmd = _db.CreateCommand(@"DELETE FROM Employee WHERE EmployeeId = @Id", conn);
 
-            cmd.Parameters.AddWithValue("@AddressId", id);
+            cmd.Parameters.AddWithValue("@Id", id);
 
             cmd.ExecuteNonQuery();
         }
@@ -97,14 +98,15 @@ namespace DAL
             return list;
         }
 
-        public async Task<IEnumerable<Employee>> GetAllAsync(int warehouseId)
+        public async Task<IEnumerable<Employee>> GetAllAsync(int employeeId, int warehouseId)
         {
             var list = new List<Employee>();
 
             using var conn = _db.GetConnection();
             await conn.OpenAsync();
-            var cmd = _db.CreateCommand("SELECT * FROM Employee WHERE WarehouseId = @WarehouseId", conn);
+            var cmd = _db.CreateCommand("SELECT * FROM Employee WHERE WarehouseId = @WarehouseId AND EmployeeId != @EmployeeId", conn);
 
+            cmd.Parameters.AddWithValue("@EmployeeId", employeeId);
             cmd.Parameters.AddWithValue("@WarehouseId", warehouseId);
 
             using var reader = cmd.ExecuteReader();
@@ -179,7 +181,15 @@ namespace DAL
 
         public async Task UpdateRoleAsync (int id, Role role)
         {
-            throw new NotImplementedException();
+            using var conn = _db.GetConnection();
+            await conn.OpenAsync();
+
+            var cmd = _db.CreateCommand(@"UPDATE Employee SET [Role] = @Role WHERE EmployeeId = @Id", conn);
+
+            cmd.Parameters.AddWithValue("@Id", id);
+            cmd.Parameters.AddWithValue("@Role", role);
+
+            cmd.ExecuteNonQuery();
         }
 
         public async Task UpdateAsync (Employee employee)

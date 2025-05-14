@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Service;
+using System.Reflection;
 using System.Security.Claims;
 using WarehouseManagementSystem.Models;
 
@@ -44,7 +45,7 @@ namespace WarehouseManagementSystem.Controllers
 
             var loggedEmployee = await _employeeService.GetByEmailAsync(loggedEmployeeEmail);
 
-            var employees = await _employeeService.GetAllAsync(loggedEmployee.WarehouseId);
+            var employees = await _employeeService.GetAllAsync(loggedEmployee.EmployeeId, loggedEmployee.WarehouseId);
 
             var vm = new EmployeesPageViewModel
             {
@@ -142,6 +143,71 @@ namespace WarehouseManagementSystem.Controllers
                 return View("CreateEmployee", model);
             }
             
+            return RedirectToAction("Employees", "System");
+        }
+
+        [Authorize]
+        public async Task<IActionResult> EditEmployeeView(int id)
+        {
+            var employee = await _employeeService.GetByIdAsync(id);
+
+            var vmEmployee = new EditEmployeeViewModel
+            {
+                EmployeeId = employee.EmployeeId,
+                Name = employee.Name,
+                Email = employee.Email,
+                SelectedRole = (int)employee.Role,
+                Roles = new SelectList(
+                    Enum.GetValues(typeof(Role))
+                        .Cast<Role>()
+                        .Where(r => r != Role.Admin)
+                        .Select(r => new { Value = (int)r, Text = r.ToString() }),
+                    "Value", "Text"
+                )
+            };
+
+            return View("EditEmployee",vmEmployee);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> EditEmployee(EditEmployeeViewModel model)
+        {
+            if (!ModelState.IsValid)
+            {
+                model.Roles = new SelectList(
+                    Enum.GetValues(typeof(Role))
+                        .Cast<Role>()
+                        .Where(r => r != Role.Admin)
+                        .Select(r => new { Value = (int)r, Text = r.ToString() }),
+                    "Value", "Text"
+                );
+
+                return View("EditEmployee", model);
+            }
+
+            await _employeeService.UpdateRoleAsync(model.EmployeeId, (Role)model.SelectedRole);
+
+            return RedirectToAction("Employees", "System");
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> DeleteEmployee(EditEmployeeViewModel model)
+        {
+            if (!ModelState.IsValid)
+            {
+                model.Roles = new SelectList(
+                    Enum.GetValues(typeof(Role))
+                        .Cast<Role>()
+                        .Where(r => r != Role.Admin)
+                        .Select(r => new { Value = (int)r, Text = r.ToString() }),
+                    "Value", "Text"
+                );
+
+                return View("EditEmployee", model);
+            }
+
+            await _employeeService.DeleteByIdAsync(model.EmployeeId);
+
             return RedirectToAction("Employees", "System");
         }
     }

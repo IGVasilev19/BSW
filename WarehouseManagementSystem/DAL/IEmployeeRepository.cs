@@ -14,7 +14,7 @@ namespace DAL
         public Task AddAsync(Employee employee, SqlConnection conn, SqlTransaction tran);
         public Task<Employee> GetByEmailAsync (string email);
         public Task UpdateActivityAsync(string email, bool activity);
-        public Task<IEnumerable<Employee>> GetAllAsync(int id);
+        public Task<IEnumerable<Employee>> GetAllAsync(int employeeId, int warehouseId);
         public Task RegisterWithWarehouseTransactionAsync(Address address, Warehouse warehouse, Employee employee);
     }
 }

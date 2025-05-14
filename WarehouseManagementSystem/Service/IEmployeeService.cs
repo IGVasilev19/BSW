@@ -11,14 +11,14 @@ namespace Service
     {
         public Task RegisterOwnerWithWarehouseAsync(Address address, Warehouse warehouse, Employee employee);
 
-        public Task CreateAsync(Employee employee);
-
         public Task<Employee> AuthenticateEmployeeAsync(string email, string password);
 
         public Task UpdateActivityAsync (string email, bool activity);
 
         public Task<Employee> GetByEmailAsync (string email);
 
-        public Task<IEnumerable<Employee>> GetAllAsync(int id);
+        public Task<IEnumerable<Employee>> GetAllAsync(int employeeId, int warehouseId);
+
+        public Task UpdateRoleAsync(int id, Role role);
     }
 }

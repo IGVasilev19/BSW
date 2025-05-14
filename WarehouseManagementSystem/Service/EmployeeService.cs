@@ -48,7 +48,7 @@ namespace Service
             return null;
         }
 
-        public async Task<IEnumerable<Employee>> GetAllAsync (int warehouseId) => await _repo.GetAllAsync(warehouseId);
+        public async Task<IEnumerable<Employee>> GetAllAsync (int employeeId, int warehouseId) => await _repo.GetAllAsync(employeeId, warehouseId);
 
         public async Task<IEnumerable<Employee>> GetAllAsync() => await _repo.GetAllAsync();
 
@@ -57,11 +57,6 @@ namespace Service
         public async Task<Employee> GetByIdAsync (int id) => await _repo.GetByIdAsync(id);
 
         public async Task<Employee> GetByEmailAsync (string email) => await _repo.GetByEmailAsync(email);
-
-        async Task Service<Employee>.CreateAsync(Employee employee) 
-        {
-            throw  new NotImplementedException();
-        }
 
         public async Task CreateAsync(Employee employee)
         {
@@ -74,5 +69,9 @@ namespace Service
                 throw ex;
             }
         }
+
+        public async Task UpdateRoleAsync(int id, Role role) => await _repo.UpdateRoleAsync(id, role);
+
+        public async Task DeleteByIdAsync(int id) => await _repo.DeleteByIdAsync(id);
     }
 }
