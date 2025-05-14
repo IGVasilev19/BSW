@@ -9,7 +9,7 @@
     @Html.Partial("_Sidebar", "Employees")
     <div class="w-full h-full flex flex-col items-center justify-center gap-5">
         <p class="select-none text-[#2C3E50] text-6xl font-poppins font-bold text-center">Create Employee</p>
-        <form method="post" asp-action="CreateEmployee" asp-controller="System" class="w-[70%] flex flex-col items-center justify-center gap-3">
+        <form method="post" asp-action="CreateEmployee" asp-controller="Employee" class="w-[70%] flex flex-col items-center justify-center gap-3">
         @Html.AntiForgeryToken()
             <div class="w-full flex flex-col">
                 <div class="flex gap-3">

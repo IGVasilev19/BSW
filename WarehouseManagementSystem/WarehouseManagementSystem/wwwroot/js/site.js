@@ -6,18 +6,16 @@ function toggleRoleDropdown() {
 }
 
 function selectRole(value, text) {
-    const display = document.getElementById("selectedRole");
-    const hiddenInput = document.getElementById("SelectedRole");
+  const display = document.getElementById("selectedRole");
+  const hiddenInput = document.getElementById("SelectedRole");
 
-    display.textContent = text;
-    hiddenInput.value = value;
+  display.textContent = text;
+  hiddenInput.value = value;
 
-    $(hiddenInput).valid();
+  $(hiddenInput).valid();
 
-
-    toggleRoleDropdown();
+  toggleRoleDropdown();
 }
-
 
 document.addEventListener("click", function (e) {
   const dropdown = document.getElementById("dropdownRoleContent");
@@ -26,6 +24,25 @@ document.addEventListener("click", function (e) {
     dropdown.classList.add("hidden");
     document
       .getElementById("dropdownArrow")
+      .classList.remove("custom-rotate-neg90");
+  }
+});
+
+const btn = document.getElementById("dropdownBtn");
+const menu = document.getElementById("dropdownMenu");
+
+btn.addEventListener("click", () => {
+  menu.classList.toggle("hidden");
+  document
+    .getElementById("inventoryDropdownArrow")
+    .classList.toggle("custom-rotate-neg90");
+});
+
+document.addEventListener("click", (e) => {
+  if (!btn.contains(e.target) && !menu.contains(e.target)) {
+    menu.classList.add("hidden");
+    document
+      .getElementById("inventoryDropdownArrow")
       .classList.remove("custom-rotate-neg90");
   }
 });
