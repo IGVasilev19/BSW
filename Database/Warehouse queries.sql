@@ -128,3 +128,8 @@ EXEC sp_msforeachtable "ALTER TABLE ? WITH CHECK CHECK CONSTRAINT ALL"
 
 ALTER TABLE Employee
 ADD CONSTRAINT UQ_Employee_Email UNIQUE (Email);
+
+SELECT * FROM [Product]
+SELECT * FROM Category
+SELECT * FROM [Zone]
+SELECT * FROM Inventory

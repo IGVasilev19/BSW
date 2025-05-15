@@ -19,21 +19,27 @@
 					</button>
 
 					<div id="dropdownMenu" class="hidden absolute right-0 mt-2 w-full bg-[#2C3E50] rounded-lg shadow-lg z-50">
-						<a href="#" class="block px-4 py-2 hover:rounded-t-lg hover:bg-gray-600 text-white">Product</a>
-						<a href="#" class="block px-4 py-2 hover:bg-gray-600 text-white">Category</a>
-						<a href="#" class="block px-4 py-2 hover:rounded-b-lg hover:bg-gray-600 text-white">Zone</a>
+						<a asp-action="CreateProductView" asp-controller="Inventory" class="block px-4 py-2 hover:rounded-t-lg hover:bg-gray-600">
+							<p class="text-white m-0">Product</p>
+						</a>
+						<a asp-action="CreateCategory" asp-controller="Inventory" class="block px-4 py-2 hover:bg-gray-600">
+							<p class="text-white m-0">Category</p>
+						</a>
+						<a asp-action="CreateZone" asp-controller="Inventory" class="block px-4 py-2 hover:rounded-b-lg hover:bg-gray-600">
+							<p class="text-white m-0">Zone</p>
+						</a>
 					</div>
 				</div>
 			</div>
 		</div>
 		<div class="w-[96%] h-fit flex justify-between gap-3">
 			<div class="w-[800px] flex items-center rounded-lg drop-shadow-2xl overflow-hidden">
-				<input type="text" class="h-full w-full px-4 py-2 outline-none text-gray-800 bg-white" />
+				<input type="text" class="h-full w-full px-4 py-2 outline-none bg-white caret-[#76b5c5b4] text-[#2C3E50]"/>
 				<button class="bg-[#76b5c5] px-4 py-2 text-white">
 					<img src="../images/search.svg" class="h-[40px]" />
 				</button>
 			</div>
-			<a class="w-fit h-full flex items-center justify-center drop-shadow-2xl bg-[#76b5c5] px-12 rounded">
+			<a class="w-fit h-full flex items-center justify-center drop-shadow-2xl bg-[#76b5c5] px-12 rounded cursor-pointer select-none">
 				<p class="font-bold font-poppins text-xl text-white tracking-wider m-0">SORT</p>
 			</a>
 		</div>
