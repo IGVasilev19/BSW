@@ -1,7 +1,9 @@
 using System.Diagnostics;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Service;
+using WarehouseManagementSystem.Models;
 
 namespace WarehouseManagementSystem.Controllers
 {
@@ -25,12 +27,12 @@ namespace WarehouseManagementSystem.Controllers
         [Authorize]
         public async Task<IActionResult> CreateProductView()
         {
-            List<CreateCategoryViewModel> categories = await _categoryService.GetAllAsync();
+            List<CreateCategoryViewModel> categories = (List<CreateCategoryViewModel>)await _categoryService.GetAllAsync();
 
             var vm = new CreateProductViewModel
             {
-                Categories = new SelectList(categories, "CategoryId", "Name");
-            }
+                Categories = new SelectList(categories, "CategoryId", "Name")
+            };
 
             return View("CreateProduct", vm);
         }

@@ -1,6 +1,7 @@
 ﻿using Domain;
 using DAL;
 using Exceptions;
+using System.Data;
 
 namespace Service
 {
@@ -62,7 +63,9 @@ namespace Service
         {
             try
             {
-                await _repo.AddAsync(employee);
+                var secureEmployee = new Employee(employee.Name,employee.Email,PasswordHasher.Hash(employee.Password),employee.PhoneNumber, employee.Role, employee.IsActive, employee.WarehouseId);
+
+                await _repo.AddAsync(secureEmployee);
             }
             catch (QueryFailedException ex)
             {
