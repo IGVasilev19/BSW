@@ -133,3 +133,17 @@ SELECT * FROM [Product]
 SELECT * FROM Category
 SELECT * FROM [Zone]
 SELECT * FROM Inventory
+
+SET IDENTITY_INSERT Category ON;
+
+INSERT INTO Category (CategoryId, Name)
+SELECT CategoryId + 1, Name FROM Category;
+
+DELETE FROM Category
+WHERE CategoryId <= 2;
+
+SET IDENTITY_INSERT Category OFF;
+
+DBCC CHECKIDENT ('Category', RESEED, 0);
+
+DELETE FROM Category

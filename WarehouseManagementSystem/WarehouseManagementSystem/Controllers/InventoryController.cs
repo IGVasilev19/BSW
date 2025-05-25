@@ -1,4 +1,6 @@
 using System.Diagnostics;
+using Domain;
+using Exceptions;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -27,23 +29,59 @@ namespace WarehouseManagementSystem.Controllers
         [Authorize]
         public async Task<IActionResult> CreateProductView()
         {
-            List<CreateCategoryViewModel> categories = (List<CreateCategoryViewModel>)await _categoryService.GetAllAsync();
+            List<Category> categories = (List<Category>)await _categoryService.GetAllAsync();
+            var availableCategories = new List<CreateCategoryViewModel>();
+
+            foreach (var category in categories) 
+            {
+                var availableCategory = new CreateCategoryViewModel
+                {
+                    CategoryId = category.CategoryId,
+                    Name = category.Name
+                };
+
+                availableCategories.Add(availableCategory);
+            }
 
             var vm = new CreateProductViewModel
             {
-                Categories = new SelectList(categories, "CategoryId", "Name")
+                Categories = availableCategories,
             };
 
             return View("CreateProduct", vm);
         }
 
-        [Authorize]
-        public IActionResult CreateCategory()
+        [Authorize(Roles = "Admin,Manager")]
+        public IActionResult CreateCategoryView()
         {
-            return View();
+            return View("CreateCategory");
         }
 
-        [Authorize]
+        [HttpPost]
+        public async Task<IActionResult> CreateCategory(CreateCategoryViewModel model)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View("CreateCategory", model);
+            }
+
+            var newCategory = new Category(model.Name);
+
+            try
+            {
+                await _categoryService.CreateAsync(newCategory);
+            }
+            catch(QueryFailedException ex)
+            {
+                ModelState.AddModelError("Name", "This category already exists");
+
+                return View("CreateCategory", model);
+            }
+
+            return View("Inventory");
+        }
+
+        [Authorize(Roles = "Admin,Manager")]
         public IActionResult CreateZone()
         {
             return View();

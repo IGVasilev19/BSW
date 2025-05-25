@@ -11,10 +11,11 @@ namespace WarehouseManagementSystem.Models
         public string Name { get; set; }
         [Required(ErrorMessage = "This field is required")]
         public decimal Price { get; set; }
-        [Range(1, 2, ErrorMessage = "Please select a valid category")]
-        public int SelectedCategory { get; set; }
+        [Required(ErrorMessage = "Please select a category")]
+        [Range(1, int.MaxValue, ErrorMessage = "Please select a category")]
+        public int SelectedCategory { get; set; } = 0;
         [BindNever]
         [ValidateNever]
-        public SelectList Categories { get; set; }
+        public List<CreateCategoryViewModel> Categories { get; set; }
     }
 }

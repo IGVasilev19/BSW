@@ -46,3 +46,31 @@ document.addEventListener("click", (e) => {
       .classList.remove("custom-rotate-neg90");
   }
 });
+
+function toggleCategoryDropdown() {
+  const dropdown = document.getElementById("dropdownCategoryContent");
+  const arrow = document.getElementById("dropdownArrow");
+  dropdown.classList.toggle("hidden");
+  arrow.classList.toggle("custom-rotate-neg90");
+}
+
+function selectCategory(value, text) {
+  const display = document.getElementById("selectedCategory");
+  const hiddenInput = document.getElementById("SelectedCategory");
+
+  display.textContent = text;
+  hiddenInput.value = value;
+
+  toggleCategoryDropdown();
+}
+
+document.addEventListener("click", function (e) {
+  const dropdown = document.getElementById("dropdownCategoryContent");
+  const toggle = document.querySelector(".toggle-categorydropdown");
+  if (!toggle.contains(e.target)) {
+    dropdown.classList.add("hidden");
+    document
+      .getElementById("dropdownArrow")
+      .classList.remove("custom-rotate-neg90");
+  }
+});
