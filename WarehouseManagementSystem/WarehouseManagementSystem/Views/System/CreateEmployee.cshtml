@@ -1,6 +1,7 @@
 @{
     ViewData["Title"] = "CreateEmployee";
 }
+@using System.Security.Claims
 @using WarehouseManagementSystem.Models
 @model CreateEmployeeViewModel
 
@@ -38,25 +39,39 @@
                         <p class="select-none text-[#2C3E50] text-xl font-poppins font-light">Role*</p>
                         <span asp-validation-for="SelectedRole" class="text-red-500 text-lg"></span>
                     </div>
-                    <div class="relative dropdown-group">
-                        <div onclick="toggleRoleDropdown()" class="toggle-roledropdown select-none flex items-center justify-between border-2 rounded-lg h-[60px] px-4 border-[#76b5c5] cursor-pointer">
-                            <p id="selectedRole" class="text-[#2C3E50] text-xl font-semibold m-0">
-                                @(Model.SelectedRole == 0 ? "Select Role" : ((Role)Model.SelectedRole).ToString())
-                            </p>
-                            <img id="dropdownArrow" src="~/images/Arrow 4.svg" class="h-[25px] transition-transform duration-100 rotate-0" />
-                        </div>
+                    @if (User.FindFirst(ClaimTypes.Role)?.Value == "Admin")
+                    {
+                        <div class="relative dropdown-group">
+                            <div onclick="toggleRoleDropdown()" class="toggle-roledropdown select-none flex items-center justify-between border-2 rounded-lg h-[60px] px-4 border-[#76b5c5] cursor-pointer">
+                                <p id="selectedRole" class="text-[#2C3E50] text-xl font-semibold m-0">
+                                    @(Model.SelectedRole == 0 ? "Select Role" : ((Role)Model.SelectedRole).ToString())
+                                </p>
+                                <img id="dropdownArrow" src="~/images/Arrow 4.svg" class="h-[25px] transition-transform duration-100 rotate-0" />
+                            </div>
 
-                        <div id="dropdownRoleContent" class="dropdown-content absolute w-full bg-white mt-2 rounded-xl shadow-lg hidden z-50 border-2 border-[#76b5c5]">
-                            @foreach (var item in Model.Roles)
-                            {
-                                <div onclick="selectRole('@item.Value','@item.Text')" 
-                                    class="px-6 py-3 hover:bg-gray-100 hover:first:rounded-t-xl hover:last:rounded-b-xl text-[#2C3E50] text-lg font-semibold cursor-pointer">
-                                    @item.Text
-                                </div>
-                            }
+                            <div id="dropdownRoleContent" class="dropdown-content absolute w-full bg-white mt-2 rounded-xl shadow-lg hidden z-50 border-2 border-[#76b5c5]">
+                                @foreach (var item in Model.Roles)
+                                {
+                                    <div onclick="selectRole('@item.Value','@item.Text')" 
+                                        class="px-6 py-3 hover:bg-gray-100 hover:first:rounded-t-xl hover:last:rounded-b-xl text-[#2C3E50] text-lg font-semibold cursor-pointer">
+                                        @item.Text
+                                    </div>
+                                }
+                            </div>
                         </div>
-                    </div>
-                    <input asp-for="SelectedRole" type="hidden" id="SelectedRole" name="SelectedRole"/>
+                        <input asp-for="SelectedRole" type="hidden" id="SelectedRole" name="SelectedRole"/>
+                    }
+                    else
+                    {
+                        <div class="relative dropdown-group">
+                            <div class="select-none flex items-center justify-between border-2 rounded-lg h-[60px] px-4 border-[#76b5c5]">
+                                <p id="selectedRole" class="text-[#2C3E50] text-xl font-semibold m-0">
+                                    Worker
+                                </p>
+                            </div>
+                        </div>
+                        <input asp-for="SelectedRole" type="hidden" id="SelectedRole" name="SelectedRole" value="2"/>
+                    }
                 </div>
                 <div class="w-full flex flex-col">
                     <div class="flex gap-3">

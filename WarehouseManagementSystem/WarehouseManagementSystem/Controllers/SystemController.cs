@@ -71,7 +71,7 @@ namespace WarehouseManagementSystem.Controllers
             return View(vm);
         }
 
-        [Authorize]
+        [Authorize(Roles = "Admin,Manager")]
         public IActionResult CreateEmployeeView()
         {
             var vm = new CreateEmployeeViewModel
@@ -88,7 +88,7 @@ namespace WarehouseManagementSystem.Controllers
             return View("CreateEmployee",vm);
         }
 
-        [Authorize]
+        [Authorize(Roles = "Admin,Manager")]
         public async Task<IActionResult> EditEmployeeView(int id)
         {
             var employee = await _employeeService.GetByIdAsync(id);

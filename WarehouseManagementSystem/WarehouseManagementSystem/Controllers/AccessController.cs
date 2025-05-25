@@ -72,7 +72,7 @@ public class AccessController : Controller
         {
             new Claim(ClaimTypes.NameIdentifier, employee.EmployeeId.ToString()),
             new Claim(ClaimTypes.Role, employee.Role.ToString()),
-            new Claim(ClaimTypes.Role, employee.Name),
+            new Claim(ClaimTypes.Name, employee.Name),
             new Claim(ClaimTypes.Email, employee.Email)
         };
 

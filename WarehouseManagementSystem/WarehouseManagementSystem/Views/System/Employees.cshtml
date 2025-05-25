@@ -1,6 +1,7 @@
 @{
 	ViewData["Title"] = "Employees";
 }
+@using System.Security.Claims
 @using WarehouseManagementSystem.Models
 @model EmployeesPageViewModel
 
@@ -18,9 +19,12 @@
 				<a class="w-full h-full flex items-center justify-center drop-shadow-2xl bg-[#76b5c5] px-18 rounded-lg">
 					<p class="font-bold font-poppins text-xl text-white tracking-wider m-0">SORT</p>
 				</a>
+			@if (User.FindFirst(ClaimTypes.Role)?.Value == "Admin" || User.FindFirst(ClaimTypes.Role)?.Value == "Manager")
+			{
 				<a asp-action="CreateEmployeeView" asp-controller="System" class="w-full h-full flex items-center justify-center drop-shadow-2xl bg-[#76b5c5] rounded-lg">
 					<p class="font-bold font-poppins text-xl text-white tracking-wider px-14 m-0">CREATE</p>
 				</a>
+			}
 			</div>
 		</div>
 		<div class="w-[96%] h-[86%] bg-white drop-shadow-2xl rounded-lg">
@@ -44,32 +48,93 @@
 							{
 								@if ((int)@employee.Role != 0)
 								{
-									<tr onclick="window.location.href='@Url.Action("EditEmployeeView", "System", new { id = employee.EmployeeId })'" class="border-b cursor-pointer hover:bg-gray-100">
-										<td class="select-none w-[100px] pl-5 text-[#2C3E50] font-semibold font-poppins text-xl">@employee.EmployeeId</td>
-										<td class="select-none w-[500px] text-[#2C3E50] font-semibold font-poppins text-xl">@employee.Name</td>
-										<td class="select-none w-[800px] text-[#2C3E50] font-semibold font-poppins text-xl">@employee.Email</td>
-										<td class="select-none w-[150px]">
-											@{
-												var bgColor = "select-none w-fit px-4 py-1 rounded text-[#2C3E50] font-semibold text-center text-xl " +
-												((int)employee.Role == 0 ? "bg-[#76b5c5]" :
-												(int)employee.Role == 1 ? "bg-[#76b5c5b2]" : "bg-[#76b5c556]");
-											}
+									@if(User.FindFirst(ClaimTypes.Role)?.Value == "Admin")
+									{
+										<tr onclick="window.location.href='@Url.Action("EditEmployeeView", "System", new { id = employee.EmployeeId })'" class="border-b cursor-pointer hover:bg-gray-100">
+											<td class="select-none w-[100px] pl-5 text-[#2C3E50] font-semibold font-poppins text-xl">@employee.EmployeeId</td>
+											<td class="select-none w-[500px] text-[#2C3E50] font-semibold font-poppins text-xl">@employee.Name</td>
+											<td class="select-none w-[800px] text-[#2C3E50] font-semibold font-poppins text-xl">@employee.Email</td>
+											<td class="select-none w-[150px]">
+												@{
+													var bgColor = "select-none w-fit px-4 py-1 rounded text-[#2C3E50] font-semibold text-center text-xl " +
+													((int)employee.Role == 0 ? "bg-[#76b5c5]" :
+													(int)employee.Role == 1 ? "bg-[#76b5c5b2]" : "bg-[#76b5c556]");
+												}
 
-											<div class="@bgColor">
-												@employee.Role
-											</div>
-										</td>
-										<td class="w-[90px] py-3 pl-6">
-											@if (employee.IsActive)
-											{
-												<div class=" w-[25px] h-[25px] rounded-full bg-[#4CAF50]"></div>
-											}
-											else
-											{
-												<div class="w-[25px] h-[25px] rounded-full border-[#76b5c5] border-4"></div>
-											}
-										</td>
-									</tr>
+												<div class="@bgColor">
+													@employee.Role
+												</div>
+											</td>
+											<td class="w-[90px] py-3 pl-6">
+												@if (employee.IsActive)
+												{
+													<div class=" w-[25px] h-[25px] rounded-full bg-[#4CAF50]"></div>
+												}
+												else
+												{
+													<div class="w-[25px] h-[25px] rounded-full border-[#76b5c5] border-4"></div>
+												}
+											</td>
+										</tr>
+									}
+									else if (User.FindFirst(ClaimTypes.Role)?.Value == "Manager" && (int)employee.Role != 1)
+									{
+										<tr onclick="window.location.href='@Url.Action("EditEmployeeView", "System", new { id = employee.EmployeeId })'" class="border-b cursor-pointer hover:bg-gray-100">
+											<td class="select-none w-[100px] pl-5 text-[#2C3E50] font-semibold font-poppins text-xl">@employee.EmployeeId</td>
+											<td class="select-none w-[500px] text-[#2C3E50] font-semibold font-poppins text-xl">@employee.Name</td>
+											<td class="select-none w-[800px] text-[#2C3E50] font-semibold font-poppins text-xl">@employee.Email</td>
+											<td class="select-none w-[150px]">
+												@{
+													var bgColor = "select-none w-fit px-4 py-1 rounded text-[#2C3E50] font-semibold text-center text-xl " +
+													((int)employee.Role == 0 ? "bg-[#76b5c5]" :
+													(int)employee.Role == 1 ? "bg-[#76b5c5b2]" : "bg-[#76b5c556]");
+												}
+
+												<div class="@bgColor">
+													@employee.Role
+												</div>
+											</td>
+											<td class="w-[90px] py-3 pl-6">
+												@if (employee.IsActive)
+												{
+													<div class=" w-[25px] h-[25px] rounded-full bg-[#4CAF50]"></div>
+												}
+												else
+												{
+													<div class="w-[25px] h-[25px] rounded-full border-[#76b5c5] border-4"></div>
+												}
+											</td>
+										</tr>
+									}
+									else
+									{
+										<tr class="border-b">
+											<td class="select-none w-[100px] pl-5 text-[#2C3E50] font-semibold font-poppins text-xl">@employee.EmployeeId</td>
+											<td class="select-none w-[500px] text-[#2C3E50] font-semibold font-poppins text-xl">@employee.Name</td>
+											<td class="select-none w-[800px] text-[#2C3E50] font-semibold font-poppins text-xl">@employee.Email</td>
+											<td class="select-none w-[150px]">
+												@{
+													var bgColor = "select-none w-fit px-4 py-1 rounded text-[#2C3E50] font-semibold text-center text-xl " +
+													((int)employee.Role == 0 ? "bg-[#76b5c5]" :
+													(int)employee.Role == 1 ? "bg-[#76b5c5b2]" : "bg-[#76b5c556]");
+												}
+
+												<div class="@bgColor">
+													@employee.Role
+												</div>
+											</td>
+											<td class="w-[90px] py-3 pl-6">
+												@if (employee.IsActive)
+												{
+													<div class=" w-[25px] h-[25px] rounded-full bg-[#4CAF50]"></div>
+												}
+												else
+												{
+													<div class="w-[25px] h-[25px] rounded-full border-[#76b5c5] border-4"></div>
+												}
+											</td>
+										</tr>
+									}
 								}
 								else
 								{

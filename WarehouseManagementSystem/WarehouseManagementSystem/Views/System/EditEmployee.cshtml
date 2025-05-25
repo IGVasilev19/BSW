@@ -1,6 +1,7 @@
 @{
     ViewData["Title"] = "EditEmployee";
 }
+@using System.Security.Claims
 @using WarehouseManagementSystem.Models
 @model EditEmployeeViewModel
 
@@ -22,12 +23,13 @@
                 <p class="select-none text-[#2C3E50] text-xl font-poppins font-light">Email Address*</p>
                 <div class="flex items-center select-none border-[#76b5c5] border-2 rounded-lg h-[60px] px-4 py-2 m-0 text-[#2C3E50]">@Model.Email</div>
             </div>
-            <div class ="w-full flex gap-2">
-                <div class="w-full flex flex-col">
-                    <div class="flex gap-3">
-                        <p class="select-none text-[#2C3E50] text-xl font-poppins font-light">Role*</p>
-                        <span asp-validation-for="SelectedRole" class="text-red-500 text-lg"></span>
-                    </div>
+            <div class="w-full flex flex-col">
+                <div class="flex gap-3">
+                    <p class="select-none text-[#2C3E50] text-xl font-poppins font-light">Role*</p>
+                    <span asp-validation-for="SelectedRole" class="text-red-500 text-lg"></span>
+                </div>
+                @if (User.FindFirst(ClaimTypes.Role)?.Value == "Admin")
+                {
                     <div class="relative dropdown-group">
                         <div onclick="toggleRoleDropdown()" class="toggle-roledropdown select-none flex items-center justify-between border-2 rounded-lg h-[60px] px-4 border-[#76b5c5] cursor-pointer">
                             <p id="selectedRole" class="text-[#2C3E50] text-xl font-semibold m-0">
@@ -47,7 +49,19 @@
                         </div>
                     </div>
                     <input asp-for="SelectedRole" type="hidden" id="SelectedRole" name="SelectedRole"/>
-                </div>
+                }
+                else
+                {
+                    <div class="relative dropdown-group">
+                        <div onclick="toggleRoleDropdown()" class="toggle-roledropdown select-none flex items-center justify-between border-2 rounded-lg h-[60px] px-4 border-[#76b5c5] cursor-pointer">
+                            <p id="selectedRole" class="text-[#2C3E50] text-xl font-semibold m-0">
+                                @(Model.SelectedRole == 0 ? "Select Role" : ((Role)Model.SelectedRole).ToString())
+                            </p>
+                            <img id="dropdownArrow" src="~/images/Arrow 4.svg" class="h-[25px] transition-transform duration-100 rotate-0" />
+                        </div>
+                    </div>
+                    <input asp-for="SelectedRole" type="hidden" id="SelectedRole" name="SelectedRole"/>
+                }
             </div>
             <div class="w-full h-[60px] flex items-center justify-center gap-3">
                 <button type="submit" formaction="/System/DeleteEmployee" class="select-none w-1/3 h-full bg-[#E23C3C] flex items-center justify-center rounded gap-3 transition-all duration-300 hover:scale-[1.05] cursor-pointer">
