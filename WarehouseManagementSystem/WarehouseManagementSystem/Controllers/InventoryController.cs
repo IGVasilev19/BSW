@@ -1,4 +1,5 @@
 using System.Diagnostics;
+using System.Security.Claims;
 using Domain;
 using Exceptions;
 using Microsoft.AspNetCore.Authorization;
@@ -13,11 +14,15 @@ namespace WarehouseManagementSystem.Controllers
     {
         private readonly IProductService _productService;
         private readonly ICategoryService _categoryService;
+        private readonly IZoneService _zoneService;
+        private readonly IEmployeeService _employeeService;
 
-        public InventoryController (IProductService productService, ICategoryService categoryService)
+        public InventoryController (IProductService productService, ICategoryService categoryService, IZoneService zoneService, IEmployeeService employeeService)
         {
             _productService = productService;
             _categoryService = categoryService;
+            _zoneService = zoneService;
+            _employeeService = employeeService;
         }
 
         [Authorize]
@@ -51,6 +56,34 @@ namespace WarehouseManagementSystem.Controllers
             return View("CreateProduct", vm);
         }
 
+        [HttpPost]
+        public async Task<IActionResult> CreateProduct (CreateProductViewModel model)
+        {
+            if (!ModelState.IsValid)
+            {
+                 return View("CreateProduct", model);
+            }
+
+            var newProduct = new Product( 
+                model.Name, 
+                model.Price, 
+                model.SelectedCategory.CategoryId 
+            );
+
+            try
+            {
+                _productService.CreateAsync(newProduct);
+            }
+            catch (Exception ex)
+            {
+                ModelState.AddModelError("Name", "This product already exists");
+
+                return View("CreateProduct", model);
+            }
+
+            return View("Inventory");
+        }
+
         [Authorize(Roles = "Admin,Manager")]
         public IActionResult CreateCategoryView()
         {
@@ -82,9 +115,41 @@ namespace WarehouseManagementSystem.Controllers
         }
 
         [Authorize(Roles = "Admin,Manager")]
-        public IActionResult CreateZone()
+        public IActionResult CreateZoneView()
         {
-            return View();
+            return View("CreateZone");
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> CreateZone(CreateZoneViewModel model)
+        {
+            if (!ModelState.IsValid)
+            {
+                 return View("CreateZone", model);
+            }
+
+            var loggedEmployeeEmail = @User.FindFirst(ClaimTypes.Email)?.Value;
+
+            var loggedEmployee = await _employeeService.GetByEmailAsync(loggedEmployeeEmail);
+
+            var newZone = new Zone(
+                model.Name,
+                model.Capacity,
+                loggedEmployee.WarehouseId
+            );
+
+            try
+            {
+                _zoneService.CreateAsync(newZone);
+            }
+            catch(Exception ex)
+            {
+                ModelState.AddModelError("Name", "This zone already exists");
+
+                return View("CreateZone", model);
+            }
+            
+            return View("Inventory");
         }
     }
 }

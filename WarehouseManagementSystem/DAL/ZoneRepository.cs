@@ -1,4 +1,5 @@
 ﻿using Domain;
+using Exceptions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,9 +10,32 @@ namespace DAL
 {
     public class ZoneRepository : IZoneRepository
     {
-        public Task AddAsync(Zone obj)
+        private readonly DbHelper _db;
+
+        public ZoneRepository(DbHelper db)
         {
-            throw new NotImplementedException();
+            _db = db;
+        }
+
+        public async Task AddAsync(Zone zone)
+        {
+            using var conn = _db.GetConnection();
+            await conn.OpenAsync();
+
+            try
+            {
+                var cmd = _db.CreateCommand(@"INSERT INTO Zone (Name, Capacity, WarehouseId) VALUES (@Name, @Capacity, @WarehouseId)", conn);
+
+                cmd.Parameters.AddWithValue("@Name", zone.Name);
+                cmd.Parameters.AddWithValue("@Capacity", zone.Capacity);
+                cmd.Parameters.AddWithValue("@WarehouseId", zone.WarehouseId);
+
+                await cmd.ExecuteNonQueryAsync();
+            }
+            catch (Exception ex)
+            {
+                throw new QueryFailedException("This zone already exists", ex);
+            }
         }
 
         public Task DeleteByIdAsync(int id)

@@ -1,5 +1,6 @@
 ﻿using DAL;
 using Domain;
+using Exceptions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,7 +18,19 @@ namespace Service
             _repo = repo;
         }
 
-        public Task CreateAsync(Product product) => _repo.AddAsync(product);
+        public Task CreateAsync(Product product)
+        {
+            try
+            {
+                _repo.AddAsync(product);
+            }
+            catch(QueryFailedException ex) 
+            {
+                throw ex;
+            }
+
+            return null;
+        }
 
         public Task DeleteByIdAsync(int id)
         {

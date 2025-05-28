@@ -48,29 +48,34 @@ document.addEventListener("click", (e) => {
 });
 
 function toggleCategoryDropdown() {
-  const dropdown = document.getElementById("dropdownCategoryContent");
-  const arrow = document.getElementById("dropdownArrow");
-  dropdown.classList.toggle("hidden");
-  arrow.classList.toggle("custom-rotate-neg90");
+    const dropdown = document.getElementById("dropdownCategoryContent");
+    const arrow = document.getElementById("dropdownArrow");
+    dropdown.classList.toggle("hidden");
+    arrow.classList.toggle("custom-rotate-neg90");
 }
 
 function selectCategory(value, text) {
-  const display = document.getElementById("selectedCategory");
-  const hiddenInput = document.getElementById("SelectedCategory");
+    const display = document.getElementById("selectedCategory");
+    const hiddenInput = document.getElementById("SelectedCategory1");
+    const hiddenInput2 = document.getElementById("SelectedCategory2");
 
-  display.textContent = text;
-  hiddenInput.value = value;
+    display.textContent = text;
+    hiddenInput.value = value;
+    hiddenInput2.value = text;
 
-  toggleCategoryDropdown();
+    $(hiddenInput).valid();
+    $(hiddenInput2).valid();
+
+    toggleCategoryDropdown();
 }
 
 document.addEventListener("click", function (e) {
-  const dropdown = document.getElementById("dropdownCategoryContent");
-  const toggle = document.querySelector(".toggle-categorydropdown");
-  if (!toggle.contains(e.target)) {
-    dropdown.classList.add("hidden");
-    document
-      .getElementById("dropdownArrow")
-      .classList.remove("custom-rotate-neg90");
-  }
+    const dropdown = document.getElementById("dropdownCategoryContent");
+    const toggle = document.querySelector(".toggle-roledropdown");
+    if (!toggle.contains(e.target)) {
+        dropdown.classList.add("hidden");
+        document
+            .getElementById("dropdownArrow")
+            .classList.remove("custom-rotate-neg90");
+    }
 });

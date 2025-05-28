@@ -1,55 +1,30 @@
 @{
     ViewData["Title"] = "CreateZone";
 }
+@using WarehouseManagementSystem.Models
+@model CreateZoneViewModel
+
 
 <div class="w-full h-full flex bg-white">
     @Html.Partial("_Sidebar", "Inventory")
     <div class="w-full h-full flex flex-col items-center justify-center gap-5">
         <p class="select-none text-[#2C3E50] text-6xl font-poppins font-bold text-center">Create Zone</p>
-        <form method="post" asp-action="CreateEmployee" asp-controller="System" class="w-[70%] flex flex-col items-center justify-center gap-3">
+        <form method="post" asp-action="CreateZone" asp-controller="Inventory" class="w-[70%] flex flex-col items-center justify-center gap-3">
         @Html.AntiForgeryToken()
             <div class="w-full flex flex-col">
                 <div class="flex gap-3">
-                    <p class="select-none text-[#2C3E50] text-xl font-poppins font-light">Full Name*</p>
-                    @* <span asp-validation-for="Name" class="text-red-500 text-lg"></span> *@
+                    <p class="select-none text-[#2C3E50] text-xl font-poppins font-light">Zone Name*</p>
+                    <span asp-validation-for="Name" class="text-red-500 text-lg"></span>
                 </div>
-                @* <input asp-for="Name" class="border-[#76b5c5] border-2 rounded-lg h-[60px] focus:outline-none focus:ring-0 px-4 py-2 caret-[#76b5c5b4] text-[#2C3E50]" /> *@
+                <input asp-for="Name" class="border-[#76b5c5] border-2 rounded-lg h-[60px] focus:outline-none focus:ring-0 px-4 py-2 caret-[#76b5c5b4] text-[#2C3E50]" />
             </div>
             <div class="w-full flex flex-col">
                 <div class="flex gap-3">
-                    <p class="select-none text-[#2C3E50] text-xl font-poppins font-light">Email Address*</p>
-                    @* <span asp-validation-for="Email" class="text-red-500 text-lg"></span> *@
+                    <p class="select-none text-[#2C3E50] text-xl font-poppins font-light">Capacity*</p>
+                    <span asp-validation-for="Capacity" class="text-red-500 text-lg"></span>
                 </div>
-                @* <input asp-for="Email" class="border-[#76b5c5] border-2 rounded-lg h-[60px] focus:outline-none focus:ring-0 px-4 py-2 caret-[#76b5c5b4] text-[#2C3E50]" /> *@
+                <input asp-for="Capacity" type="number" class="border-[#76b5c5] border-2 rounded-lg h-[60px] focus:outline-none focus:ring-0 px-4 py-2 caret-[#76b5c5b4] text-[#2C3E50]" />
             </div>
-            <div class ="w-full flex gap-2">
-                <div class="w-full flex flex-col">
-                    <div class="flex gap-3">
-                        <p class="select-none text-[#2C3E50] text-xl font-poppins font-light">Role*</p>
-                        @* <span asp-validation-for="SelectedRole" class="text-red-500 text-lg"></span> *@
-                    </div>
-                    <div class="relative dropdown-group">
-                        <div onclick="toggleRoleDropdown()" class="toggle-roledropdown select-none flex items-center justify-between border-2 rounded-lg h-[60px] px-4 border-[#76b5c5] cursor-pointer">
-                            <p id="selectedRole" class="text-[#2C3E50] text-xl font-semibold m-0">
-                                @* @(Model.SelectedRole == 0 ? "Select Role" : ((Role)Model.SelectedRole).ToString()) *@
-                            </p>
-                            <img id="dropdownArrow" src="~/images/Arrow 4.svg" class="h-[25px] transition-transform duration-100 rotate-0" />
-                        </div>
-
-                        <div id="dropdownRoleContent" class="dropdown-content absolute w-full bg-white mt-2 rounded-xl shadow-lg hidden z-50 border-2 border-[#76b5c5]">
-                            @* @foreach (var item in Model.Roles) *@
-                            @* { *@
-                            @*     <div onclick="selectRole('@item.Value','@item.Text')"  *@
-                            @*         class="px-6 py-3 hover:bg-gray-100 hover:first:rounded-t-xl hover:last:rounded-b-xl text-[#2C3E50] text-lg font-semibold cursor-pointer"> *@
-                            @*         @item.Text *@
-                            @*     </div> *@
-                            @* } *@
-                        </div>
-                    </div>
-                    @* <input asp-for="SelectedRole" type="hidden" id="SelectedRole" name="SelectedRole"/> *@
-                </div>
-            </div>
-    
             <button type="submit" class="w-1/3 h-[60px] bg-[#76b5c5] flex items-center justify-center rounded gap-3 transition-all duration-300 hover:scale-[1.05]">
                 <p class="text-white tracking-wide font-poppins text-3xl p-0 m-0">CREATE</p>
             </button>

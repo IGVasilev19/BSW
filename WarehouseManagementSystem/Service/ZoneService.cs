@@ -1,4 +1,6 @@
-﻿using Domain;
+﻿using DAL;
+using Domain;
+using Exceptions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,9 +11,25 @@ namespace Service
 {
     public class ZoneService : IZoneService
     {
-        public Task CreateAsync(Zone entity)
+        private readonly IZoneRepository _repo;
+
+        public ZoneService(IZoneRepository repo)
         {
-            throw new NotImplementedException();
+            _repo = repo;
+        }
+
+        public Task CreateAsync(Zone zone)
+        {
+            try
+            {
+                _repo.AddAsync(zone);
+            }
+            catch(QueryFailedException ex)
+            {
+                throw ex;
+            }
+
+            return null;
         }
 
         public Task DeleteByIdAsync(int id)
