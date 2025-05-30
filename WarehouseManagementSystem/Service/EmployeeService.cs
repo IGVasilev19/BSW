@@ -10,14 +10,12 @@ namespace Service
         private readonly IEmployeeRepository _repo;
         private readonly IAddressService _addressService;
         private readonly IWarehouseService _warehouseService;
-        private readonly DbHelper _db;
 
-        public EmployeeService(IAddressService addressService, IWarehouseService warehouseService, IEmployeeRepository repo, DbHelper db)
+        public EmployeeService(IAddressService addressService, IWarehouseService warehouseService, IEmployeeRepository repo)
         {
             _repo = repo;
             _addressService = addressService;
             _warehouseService = warehouseService;
-            _db = db;
         }
 
         public async Task RegisterOwnerWithWarehouseAsync (Address address, Warehouse warehouse, Employee employee)
