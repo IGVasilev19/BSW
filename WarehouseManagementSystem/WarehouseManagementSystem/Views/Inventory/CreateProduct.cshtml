@@ -30,7 +30,7 @@
                             </p>
                             <img id="dropdownArrow" src="~/images/Arrow 4.svg" class="h-[50%] transition-transform duration-100 rotate-0" />
                         </div>
-                        <div id="dropdownCategoryContent" class="dropdown-content absolute w-full bg-white mt-2 rounded-xl shadow-lg hidden z-50 border-2 border-[#76b5c5]">
+                        <div id="dropdownCategoryContent" class="dropdown-content absolute w-full h-[200px] bg-white mt-2 rounded-xl shadow-lg hidden z-50 border-2 border-[#76b5c5] overflow-y-auto">
                             @foreach (var item in Model.Categories)
                             {
                                 <div onclick="selectCategory('@item.CategoryId','@item.Name')" 

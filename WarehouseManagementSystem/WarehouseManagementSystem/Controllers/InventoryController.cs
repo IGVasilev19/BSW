@@ -151,5 +151,52 @@ namespace WarehouseManagementSystem.Controllers
             
             return View("Inventory");
         }
+
+
+        [Authorize]
+        public async Task<IActionResult> AddStockView()
+        {
+            List<Product> products = (List<Product>)await _productService.GetAllAsync();
+            var unassignedProducts = new List<ProductViewModel>();
+
+            foreach (var product in products)
+            {
+                var unassignedProduct = new ProductViewModel
+                {
+                    ProductId = product.ProductId,
+                    Name = product.Name
+                };
+
+                unassignedProducts.Add(unassignedProduct);
+            }
+
+            List<Zone> zones = (List<Zone>)await _zoneService.GetAllAsync();
+            var availableZones = new List<ZoneViewModel>();
+
+            foreach (var zone in zones)
+            {
+                var availableZone = new ZoneViewModel
+                {
+                    ZoneId = zone.ZoneId,
+                    Name = zone.Name
+                };
+
+                availableZones.Add(availableZone);
+            }
+
+            var vm = new AddStockViewModel
+            {
+                Products = unassignedProducts,
+                Zones = availableZones
+            };
+
+            return View("AddStock");
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> AddStock()
+        {
+            return View("Inventory");
+        }
     }
 }

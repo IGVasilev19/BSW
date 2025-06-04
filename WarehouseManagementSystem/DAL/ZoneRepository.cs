@@ -43,9 +43,26 @@ namespace DAL
             throw new NotImplementedException();
         }
 
-        public Task<IEnumerable<Zone>> GetAllAsync()
+        public async Task<IEnumerable<Zone>> GetAllAsync()
         {
-            throw new NotImplementedException();
+            var list = new List<Zone>();
+
+            using var conn = _db.GetConnection();
+            await conn.OpenAsync();
+            var cmd = _db.CreateCommand("SELECT * FROM Zone", conn);
+
+            using var reader = cmd.ExecuteReader();
+
+            while (reader.Read())
+            {
+                list.Add(new Zone(
+                    (int)reader["ZoneId"],
+                    reader["Name"].ToString(),
+                    (decimal)reader["Capacity"],
+                    (int)reader["WarehouseId"]
+                ));
+            }
+            return list;
         }
 
         public Task<Zone> GetByIdAsync(int id)

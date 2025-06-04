@@ -49,7 +49,7 @@ namespace DAL
 
             using var conn = _db.GetConnection();
             await conn.OpenAsync();
-            var cmd = _db.CreateCommand("SELECT * FROM Employee", conn);
+            var cmd = _db.CreateCommand("SELECT * FROM Product p LEFT JOIN Inventory i ON p.ProductId = i.ProductId WHERE i.ProductId IS NULL;", conn);
 
             using var reader = cmd.ExecuteReader();
 
