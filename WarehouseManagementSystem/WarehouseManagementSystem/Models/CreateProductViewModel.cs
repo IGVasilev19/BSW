@@ -16,5 +16,10 @@ namespace WarehouseManagementSystem.Models
         [BindNever]
         [ValidateNever]
         public List<CreateCategoryViewModel> Categories { get; set; }
+        [Required(ErrorMessage = "Please select a zone")]
+        public ZoneViewModel SelectedZone { get; set; }
+        [BindNever]
+        [ValidateNever]
+        public List<ZoneViewModel> Zones { get; set; }
     }
 }

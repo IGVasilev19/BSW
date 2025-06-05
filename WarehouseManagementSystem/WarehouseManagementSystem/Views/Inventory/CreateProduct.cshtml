@@ -9,7 +9,7 @@
     <div class="w-full h-full flex flex-col items-center justify-center gap-5">
         <p class="select-none text-[#2C3E50] text-6xl font-poppins font-bold text-center">Create Product</p>
         <form method="post" asp-action="CreateProduct" asp-controller="Inventory" class="w-[70%] flex flex-col items-center justify-center gap-3">
-        @Html.AntiForgeryToken()
+            @Html.AntiForgeryToken()
             <div class="w-full flex flex-col">
                 <div class="flex gap-3">
                     <p class="select-none text-[#2C3E50] text-xl font-poppins font-light">Product Name*</p>
@@ -24,32 +24,57 @@
                         <span asp-validation-for="SelectedCategory" class="text-red-500 text-lg"></span>
                     </div>
                     <div class="relative dropdown-group">
-                        <div onclick="toggleCategoryDropdown()" class="toggle-roledropdown select-none flex items-center justify-between border-2 rounded-lg h-[60px] px-4 border-[#76b5c5] cursor-pointer">
-                            <p id="selectedCategory" class="text-[#2C3E50] text-xl font-semibold m-0">
+                        <div onclick="toggleDropdown('Category')" class="toggle-categorydropdown select-none flex items-center justify-between border-2 rounded-lg h-[60px] px-4 border-[#76b5c5] cursor-pointer">
+                            <p id="CategoryDisplay" class="text-[#2C3E50] text-xl font-semibold m-0">
                                 @(Model.SelectedCategory == null ? "Select Category" : Model.SelectedCategory.Name)
                             </p>
-                            <img id="dropdownArrow" src="~/images/Arrow 4.svg" class="h-[50%] transition-transform duration-100 rotate-0" />
+                            <img id="CategoryArrow" src="~/images/Arrow 4.svg" class="h-[50%] transition-transform duration-100 rotate-0" />
                         </div>
                         <div id="dropdownCategoryContent" class="dropdown-content absolute w-full h-[200px] bg-white mt-2 rounded-xl shadow-lg hidden z-50 border-2 border-[#76b5c5] overflow-y-auto">
                             @foreach (var item in Model.Categories)
                             {
-                                <div onclick="selectCategory('@item.CategoryId','@item.Name')" 
-                                    class="px-6 py-3 hover:bg-gray-100 hover:first:rounded-t-xl hover:last:rounded-b-xl text-[#2C3E50] text-lg font-semibold cursor-pointer">
+                                <div onclick="selectDropdownItem('@item.CategoryId', '@item.Name', 'Category')"
+                                     class="px-6 py-3 hover:bg-gray-100 hover:first:rounded-t-xl hover:last:rounded-b-xl text-[#2C3E50] text-lg font-semibold cursor-pointer">
                                     @item.Name
                                 </div>
                             }
                         </div>
                     </div>
-                    <input asp-for="SelectedCategory.CategoryId" type="hidden" id="SelectedCategory1" name="SelectedCategory.CategoryId" />
-                    <input asp-for="SelectedCategory.Name" type="hidden" id="SelectedCategory2" name="SelectedCategory.Name" />
+                    <input asp-for="SelectedCategory.CategoryId" type="hidden" id="CategoryId" name="SelectedCategory.CategoryId" />
+                    <input asp-for="SelectedCategory.Name" type="hidden" id="CategoryName" name="SelectedCategory.Name" />
                 </div>
                 <div class="w-full flex flex-col">
                     <div class="flex gap-3">
-                        <p class="select-none text-[#2C3E50] text-xl font-poppins font-light">Price*</p>
-                        <span asp-validation-for="Price" class="text-red-500 text-lg"></span>
+                        <p class="select-none text-[#2C3E50] text-xl font-poppins font-light">Zone*</p>
+                        <span asp-validation-for="SelectedZone" class="text-red-500 text-lg"></span>
                     </div>
-                    <input asp-for="Price" type="number" step="0.01" class="border-[#76b5c5] border-2 rounded-lg h-[60px] focus:outline-none focus:ring-0 px-4 py-2 caret-[#76b5c5b4] text-[#2C3E50]" />
+                    <div class="relative dropdown-group">
+                        <div onclick="toggleDropdown('Zone')" class="toggle-zonedropdown select-none flex items-center justify-between border-2 rounded-lg h-[60px] px-4 border-[#76b5c5] cursor-pointer">
+                            <p id="ZoneDisplay" class="text-[#2C3E50] text-xl font-semibold m-0">
+                                @(Model.SelectedZone == null ? "Select Zone" : Model.SelectedZone.Name)
+                            </p>
+                            <img id="ZoneArrow" src="~/images/Arrow 4.svg" class="h-[50%] transition-transform duration-100 rotate-0" />
+                        </div>
+                        <div id="dropdownZoneContent" class="dropdown-content absolute w-full h-[200px] bg-white mt-2 rounded-xl shadow-lg hidden z-50 border-2 border-[#76b5c5] overflow-y-auto">
+                            @foreach (var item in Model.Zones)
+                            {
+                                <div onclick="selectDropdownItem('@item.ZoneId', '@item.Name', 'Zone')"
+                                     class="px-6 py-3 hover:bg-gray-100 hover:first:rounded-t-xl hover:last:rounded-b-xl text-[#2C3E50] text-lg font-semibold cursor-pointer">
+                                    @item.Name
+                                </div>
+                            }
+                        </div>
+                    </div>
+                    <input asp-for="SelectedZone.ZoneId" type="hidden" id="ZoneId" name="SelectedZone.ZoneId" />
+                    <input asp-for="SelectedZone.Name" type="hidden" id="ZoneName" name="SelectedZone.Name" />
                 </div>
+            </div>
+            <div class="w-full flex flex-col">
+                <div class="flex gap-3">
+                    <p class="select-none text-[#2C3E50] text-xl font-poppins font-light">Price*</p>
+                    <span asp-validation-for="Price" class="text-red-500 text-lg"></span>
+                </div>
+                <input asp-for="Price" type="number" step="0.01" class="border-[#76b5c5] border-2 rounded-lg h-[60px] focus:outline-none focus:ring-0 px-4 py-2 caret-[#76b5c5b4] text-[#2C3E50]" />
             </div>
             <button type="submit" class="w-1/3 h-[60px] bg-[#76b5c5] flex items-center justify-center rounded gap-3 transition-all duration-300 hover:scale-[1.05]">
                 <p class="text-white tracking-wide font-poppins text-3xl p-0 m-0">CREATE</p>

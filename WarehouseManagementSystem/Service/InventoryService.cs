@@ -1,4 +1,5 @@
-﻿using Domain;
+﻿using DAL;
+using Domain;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,10 +10,14 @@ namespace Service
 {
     public class InventoryService : IInventoryService
     {
-        public Task CreateAsync(Inventory entity)
+        private readonly IInventoryRepository _repo;
+
+        public InventoryService(IInventoryRepository repo)
         {
-            throw new NotImplementedException();
+            _repo = repo;
         }
+
+        public Task CreateAsync(Inventory inventory) => _repo.AddAsync(inventory);
 
         public Task DeleteByIdAsync(int id)
         {

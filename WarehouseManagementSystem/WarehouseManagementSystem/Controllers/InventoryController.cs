@@ -48,9 +48,24 @@ namespace WarehouseManagementSystem.Controllers
                 availableCategories.Add(availableCategory);
             }
 
+            List<Zone> zones = (List<Zone>)await _zoneService.GetAllAsync();
+            var availableZones = new List<ZoneViewModel>();
+
+            foreach (var zone in zones)
+            {
+                var availableZone = new ZoneViewModel
+                {
+                    ZoneId = zone.ZoneId,
+                    Name = zone.Name
+                };
+
+                availableZones.Add(availableZone);
+            }
+
             var vm = new CreateProductViewModel
             {
                 Categories = availableCategories,
+                Zones = availableZones
             };
 
             return View("CreateProduct", vm);
@@ -170,24 +185,9 @@ namespace WarehouseManagementSystem.Controllers
                 unassignedProducts.Add(unassignedProduct);
             }
 
-            List<Zone> zones = (List<Zone>)await _zoneService.GetAllAsync();
-            var availableZones = new List<ZoneViewModel>();
-
-            foreach (var zone in zones)
-            {
-                var availableZone = new ZoneViewModel
-                {
-                    ZoneId = zone.ZoneId,
-                    Name = zone.Name
-                };
-
-                availableZones.Add(availableZone);
-            }
-
             var vm = new AddStockViewModel
             {
                 Products = unassignedProducts,
-                Zones = availableZones
             };
 
             return View("AddStock");

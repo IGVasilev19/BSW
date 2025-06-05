@@ -47,35 +47,37 @@ document.addEventListener("click", (e) => {
   }
 });
 
-function toggleCategoryDropdown() {
-    const dropdown = document.getElementById("dropdownCategoryContent");
-    const arrow = document.getElementById("dropdownArrow");
+function toggleDropdown(prefix) {
+    const dropdown = document.getElementById(`dropdown${prefix}Content`);
+    const arrow = document.getElementById(`${prefix}Arrow`);
     dropdown.classList.toggle("hidden");
     arrow.classList.toggle("custom-rotate-neg90");
 }
 
-function selectCategory(value, text) {
-    const display = document.getElementById("selectedCategory");
-    const hiddenInput = document.getElementById("SelectedCategory1");
-    const hiddenInput2 = document.getElementById("SelectedCategory2");
+function selectDropdownItem(value, text, prefix) {
+    const display = document.getElementById(`${prefix}Display`);
+    const hiddenId = document.getElementById(`${prefix}Id`);
+    const hiddenName = document.getElementById(`${prefix}Name`);
 
     display.textContent = text;
-    hiddenInput.value = value;
-    hiddenInput2.value = text;
+    hiddenId.value = value;
+    hiddenName.value = text;
 
-    $(hiddenInput).valid();
-    $(hiddenInput2).valid();
+    $(`#${prefix}Id`).valid();
+    $(`#${prefix}Name`).valid();
 
-    toggleCategoryDropdown();
+    toggleDropdown(prefix);
 }
 
 document.addEventListener("click", function (e) {
-    const dropdown = document.getElementById("dropdownCategoryContent");
-    const toggle = document.querySelector(".toggle-roledropdown");
-    if (!toggle.contains(e.target)) {
-        dropdown.classList.add("hidden");
-        document
-            .getElementById("dropdownArrow")
-            .classList.remove("custom-rotate-neg90");
-    }
+    const dropdowns = ["Category", "Product", "Zone"];
+    dropdowns.forEach(prefix => {
+        const dropdown = document.getElementById(`dropdown${prefix}Content`);
+        const toggle = document.querySelector(`.toggle-${prefix.toLowerCase()}dropdown`);
+        const arrow = document.getElementById(`${prefix}Arrow`);
+        if (toggle && !toggle.contains(e.target)) {
+            dropdown.classList.add("hidden");
+            arrow.classList.remove("custom-rotate-neg90");
+        }
+    });
 });

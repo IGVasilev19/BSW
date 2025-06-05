@@ -10,58 +10,31 @@
     <div class="w-full h-full flex flex-col items-center justify-center gap-5">
         <p class="select-none text-[#2C3E50] text-6xl font-poppins font-bold text-center">Add Stock</p>
         <form method="post" asp-action="AddStock" asp-controller="Inventory" class="w-[70%] flex flex-col items-center justify-center gap-3">
-        @Html.AntiForgeryToken()
-            <div class ="w-full flex gap-2">
-                <div class="w-full flex flex-col">
-                    <div class="flex gap-3">
-                        <p class="select-none text-[#2C3E50] text-xl font-poppins font-light">Product*</p>
-                        <span asp-validation-for="SelectedProduct" class="text-red-500 text-lg"></span>
-                    </div>
-                    <div class="relative dropdown-group">
-                        <div onclick="toggleCategoryDropdown()" class="toggle-roledropdown select-none flex items-center justify-between border-2 rounded-lg h-[60px] px-4 border-[#76b5c5] cursor-pointer">
-                            <p id="selectedCategory" class="text-[#2C3E50] text-xl font-semibold m-0">
-                                @(Model.SelectedProduct == null ? "Select Category" : Model.SelectedProduct.Name)
-                            </p>
-                            <img id="dropdownArrow" src="~/images/Arrow 4.svg" class="h-[50%] transition-transform duration-100 rotate-0" />
-                        </div>
-                        <div id="dropdownCategoryContent" class="dropdown-content absolute w-full h-[200px] bg-white mt-2 rounded-xl shadow-lg hidden z-50 border-2 border-[#76b5c5] overflow-y-auto">
-                            @foreach (var item in Model.Products)
-                            {
-                                <div onclick="selectCategory('@item.ProductId','@item.Name')" 
-                                    class="px-6 py-3 hover:bg-gray-100 hover:first:rounded-t-xl hover:last:rounded-b-xl text-[#2C3E50] text-lg font-semibold cursor-pointer">
-                                    @item.Name
-                                </div>
-                            }
-                        </div>
-                    </div>
-                    <input asp-for="SelectedProduct.ProductId" type="hidden" id="SelectedCategory1" name="SelectedProduct.ProductId" />
-                    <input asp-for="SelectedProduct.Name" type="hidden" id="SelectedCategory2" name="SelectedProduct.Name" />
+            @Html.AntiForgeryToken()
+            <div class="w-full flex flex-col">
+                <div class="flex gap-3">
+                    <p class="select-none text-[#2C3E50] text-xl font-poppins font-light">Product*</p>
+                    <span asp-validation-for="SelectedProduct" class="text-red-500 text-lg"></span>
                 </div>
-                <div class="w-full flex flex-col">
-                    <div class="flex gap-3">
-                        <p class="select-none text-[#2C3E50] text-xl font-poppins font-light">Zone*</p>
-                        <span asp-validation-for="SelectedZone" class="text-red-500 text-lg"></span>
+                <div class="relative dropdown-group">
+                    <div onclick="toggleDropdown('Product')" class="toggle-productdropdown select-none flex items-center justify-between border-2 rounded-lg h-[60px] px-4 border-[#76b5c5] cursor-pointer">
+                        <p id="ProductDisplay" class="text-[#2C3E50] text-xl font-semibold m-0">
+                            @(Model.SelectedProduct == null ? "Select Product" : Model.SelectedProduct.Name)
+                        </p>
+                        <img id="ProductArrow" src="~/images/Arrow 4.svg" class="h-[50%] transition-transform duration-100 rotate-0" />
                     </div>
-                    <div class="relative dropdown-group">
-                        <div onclick="toggleCategoryDropdown()" class="toggle-roledropdown select-none flex items-center justify-between border-2 rounded-lg h-[60px] px-4 border-[#76b5c5] cursor-pointer">
-                            <p id="selectedCategory" class="text-[#2C3E50] text-xl font-semibold m-0">
-                                @(Model.SelectedZone == null ? "Select Category" : Model.SelectedZone.Name)
-                            </p>
-                            <img id="dropdownArrow" src="~/images/Arrow 4.svg" class="h-[50%] transition-transform duration-100 rotate-0" />
-                        </div>
-                        <div id="dropdownCategoryContent" class="dropdown-content absolute w-full h-[200px] bg-white mt-2 rounded-xl shadow-lg hidden z-50 border-2 border-[#76b5c5] overflow-y-auto">
-                            @foreach (var item in Model.Zones)
-                            {
-                                <div onclick="selectCategory('@item.ZoneId','@item.Name')" 
-                                    class="px-6 py-3 hover:bg-gray-100 hover:first:rounded-t-xl hover:last:rounded-b-xl text-[#2C3E50] text-lg font-semibold cursor-pointer">
-                                    @item.Name
-                                </div>
-                            }
-                        </div>
+                    <div id="dropdownProductContent" class="dropdown-content absolute w-full h-[200px] bg-white mt-2 rounded-xl shadow-lg hidden z-50 border-2 border-[#76b5c5] overflow-y-auto">
+                        @foreach (var item in Model.Products)
+                        {
+                            <div onclick="selectDropdownItem('@item.ProductId', '@item.Name', 'Product')"
+                                 class="px-6 py-3 hover:bg-gray-100 hover:first:rounded-t-xl hover:last:rounded-b-xl text-[#2C3E50] text-lg font-semibold cursor-pointer">
+                                @item.Name
+                            </div>
+                        }
                     </div>
-                    <input asp-for="SelectedZone.ZoneId" type="hidden" id="SelectedCategory1" name="SelectedZone.ZoneId" />
-                    <input asp-for="SelectedZone.Name" type="hidden" id="SelectedCategory2" name="SelectedZone.Name" />
                 </div>
+                <input asp-for="SelectedProduct.ProductId" type="hidden" id="ProductId" name="SelectedProduct.ProductId" />
+                <input asp-for="SelectedProduct.Name" type="hidden" id="ProductName" name="SelectedProduct.Name" />
             </div>
             <div class="w-full flex flex-col">
                 <div class="flex gap-3">
