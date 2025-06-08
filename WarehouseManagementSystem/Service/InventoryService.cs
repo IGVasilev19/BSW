@@ -1,8 +1,10 @@
 ﻿using DAL;
 using Domain;
+using Exceptions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -18,6 +20,18 @@ namespace Service
         }
 
         public Task CreateAsync(Inventory inventory) => _repo.AddAsync(inventory);
+
+        public async Task AddNewProductTransactionAsync(Product product, Inventory inventory)
+        {
+            try
+            {
+                await _repo.AddNewProductTransactionAsync(product, inventory);
+            }
+            catch (QueryFailedException ex)
+            {
+                throw ex;
+            }
+        }
 
         public Task DeleteByIdAsync(int id)
         {

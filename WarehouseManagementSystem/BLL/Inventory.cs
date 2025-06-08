@@ -11,6 +11,15 @@
         public Inventory()
         {
         }
+        public Inventory(int zoneId)
+        {
+            this.ZoneId = zoneId;
+        }
+        public Inventory(int productId, int zoneId)
+        {
+            this.ProductId = productId;
+            this.ZoneId = zoneId;
+        }
         public Inventory(int productId, int zoneId, int quantity, DateTime lastUpdate)
         {
             this.ProductId = productId;

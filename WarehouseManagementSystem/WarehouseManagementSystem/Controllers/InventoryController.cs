@@ -16,13 +16,15 @@ namespace WarehouseManagementSystem.Controllers
         private readonly ICategoryService _categoryService;
         private readonly IZoneService _zoneService;
         private readonly IEmployeeService _employeeService;
+        private readonly IInventoryService _inventoryService;
 
-        public InventoryController (IProductService productService, ICategoryService categoryService, IZoneService zoneService, IEmployeeService employeeService)
+        public InventoryController (IProductService productService, ICategoryService categoryService, IZoneService zoneService, IEmployeeService employeeService, IInventoryService inventoryService)
         {
             _productService = productService;
             _categoryService = categoryService;
             _zoneService = zoneService;
             _employeeService = employeeService;
+            _inventoryService = inventoryService;
         }
 
         [Authorize]
@@ -85,9 +87,13 @@ namespace WarehouseManagementSystem.Controllers
                 model.SelectedCategory.CategoryId 
             );
 
+            var newInventory = new Inventory(
+                model.SelectedZone.ZoneId    
+            );
+
             try
             {
-                _productService.CreateAsync(newProduct);
+                _inventoryService.AddNewProductTransactionAsync(newProduct, newInventory);
             }
             catch (Exception ex)
             {

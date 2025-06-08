@@ -9,5 +9,6 @@ namespace Service
 {
     public interface IInventoryService : Service<Inventory>
     {
+        public Task AddNewProductTransactionAsync(Product product, Inventory inventory);
     }
 }

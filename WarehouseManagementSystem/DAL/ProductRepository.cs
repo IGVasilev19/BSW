@@ -1,5 +1,6 @@
 ﻿using Domain;
 using Exceptions;
+using Microsoft.Data.SqlClient;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -36,6 +37,18 @@ namespace DAL
             {
                 throw new QueryFailedException("This product already exists", ex);
             }
+        }
+
+        public async Task<int> AddAsync(Product product, SqlConnection connection, SqlTransaction transaction)
+        {
+            var cmd = _db.CreateCommand(@"INSERT INTO Product (Name, Price, CategoryId) VALUES (@Name, @Price, @CategoryId); SELECT SCOPE_IDENTITY();", connection, transaction);
+
+            cmd.Parameters.AddWithValue("@Name", product.Name);
+            cmd.Parameters.AddWithValue("@Price", product.Price);
+            cmd.Parameters.AddWithValue("@CategoryId", product.CategoryId);
+
+            var result = await cmd.ExecuteScalarAsync();
+            return Convert.ToInt32(result);
         }
 
         public Task DeleteByIdAsync(int id)

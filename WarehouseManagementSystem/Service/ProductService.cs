@@ -1,6 +1,7 @@
 ﻿using DAL;
 using Domain;
 using Exceptions;
+using Microsoft.Data.SqlClient;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -31,6 +32,8 @@ namespace Service
 
             return null;
         }
+
+        public Task<int> CreateAsync(Product product, SqlConnection connection, SqlTransaction transaction) => _repo.AddAsync(product, connection, transaction);
 
         public Task DeleteByIdAsync(int id)
         {
