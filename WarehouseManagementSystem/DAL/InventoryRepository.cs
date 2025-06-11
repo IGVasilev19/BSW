@@ -57,6 +57,31 @@ namespace DAL
             throw new NotImplementedException();
         }
 
+        public async Task<IEnumerable<Inventory>> GetAllAsync(int warehouseId)
+        {
+            var list = new List<Inventory>();
+
+            using var conn = _db.GetConnection();
+            await conn.OpenAsync();
+            var cmd = _db.CreateCommand("SELECT * FROM Inventory i JOIN Zone z ON i.ZoneId = z.ZoneId WHERE z.WarehouseId = @WarehouseId;" , conn);
+
+            cmd.Parameters.AddWithValue("@WarehouseId", warehouseId);
+
+            using var reader = cmd.ExecuteReader();
+
+            while (reader.Read())
+            {
+                list.Add(new Inventory(
+                    (int)reader["InventoryId"],
+                    (int)reader["ProductId"],
+                    (int)reader["ZoneId"],
+                    (int)reader["Quantity"],
+                    (DateTime)reader["LastUpdate"]
+                ));
+            }
+            return list;
+        }
+
         public Task<Inventory> GetByIdAsync(int id)
         {
             throw new NotImplementedException();

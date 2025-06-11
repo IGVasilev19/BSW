@@ -12,5 +12,6 @@ namespace DAL
     {
         public Task AddNewProductTransactionAsync(Product product, Inventory inventory);
         public Task AddAsync(Inventory inventory, SqlConnection connection, SqlTransaction transaction);
+        public Task<IEnumerable<Inventory>> GetAllAsync(int warehouseId);
     }
 }

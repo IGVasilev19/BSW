@@ -1,6 +1,8 @@
 @{
 	ViewData["Title"] = "Inventory";
 }
+@using WarehouseManagementSystem.Models
+@model InventoryTableViewModel
 
 <div class="w-full h-full flex">
 	@Html.Partial("_Sidebar", "Inventory")
@@ -43,115 +45,66 @@
 				<p class="font-bold font-poppins text-xl text-white tracking-wider m-0">SORT</p>
 			</a>
 		</div>
-		<div class="w-[96%] h-full bg-white drop-shadow-2xl rounded-tl-lg rounded-tr-lg">
+		<div class="w-[96%] h-[700px] bg-white drop-shadow-2xl rounded-t-lg">
 			<table class="w-full text-[#2C3E50] font-poppins">
-				<thead>
-					<tr class="w-fit bg-[#76b5c554]">
-						<th class="w-[500px] tracking-wide py-3 pl-4 rounded-tl-lg">
-							<p class="tracking-wide text-[#2C3E50] text-xl font-bold m-0">Name</p>
-						</th>
-						<th class="w-[150px] py-3">
-							<div class="h-full flex gap-2">
-								<div class="border-2 border-[#76b5c577] rounded">
-								</div>
-								<p class="tracking-wide text-[#2C3E50] text-xl font-bold m-0">Zone</p>
+				<thead class="bg-[#76bc554] sticky top-0 z-10">
+				<tr class="w-full bg-[#76b5c554]">
+					<th class="w-[500px] tracking-wide py-3 pl-4 rounded-tl-lg">
+						<p class="tracking-wide text-[#2C3E50] text-xl font-bold m-0">Name</p>
+					</th>
+					<th class="w-[150px] py-3">
+						<div class="h-full flex gap-2">
+							<div class="border-2 border-[#76b5c577] rounded">
 							</div>
-						</th>
-						<th class="w-[400px] tracking-wide py-3 pl-4">
-							<div class="h-full flex gap-2">
-								<div class="border-2 border-[#76b5c577] rounded">
-								</div>
-								<p class="tracking-wide text-[#2C3E50] text-xl font-bold m-0">Category</p>
+							<p class="tracking-wide text-[#2C3E50] text-xl font-bold m-0">Zone</p>
+						</div>
+					</th>
+					<th class="w-[400px] tracking-wide py-3 pl-4">
+						<div class="h-full flex gap-2">
+							<div class="border-2 border-[#76b5c577] rounded">
 							</div>
-						</th>
-						<th class="w-[200px] tracking-wide py-3 pl-4">
-							<div class="h-full flex gap-2">
-								<div class="border-2 border-[#76b5c577] rounded">
-								</div>
-								<p class="tracking-wide text-[#2C3E50] text-xl font-bold m-0">Price</p>
+							<p class="tracking-wide text-[#2C3E50] text-xl font-bold m-0">Category</p>
+						</div>
+					</th>
+					<th class="w-[200px] tracking-wide py-3 pl-4">
+						<div class="h-full flex gap-2">
+							<div class="border-2 border-[#76b5c577] rounded">
 							</div>
-						</th>
-						<th class="w-[50px] tracking-wide py-3 rounded-tr-lg">
-							<div class="h-full flex gap-2">
-								<div class="border-2 border-[#76b5c577] rounded">
-								</div>
-								<p class="tracking-wide text-[#2C3E50] text-xl font-bold m-0">Quantity</p>
+							<p class="tracking-wide text-[#2C3E50] text-xl font-bold m-0">Price</p>
+						</div>
+					</th>
+					<th class="w-[50px] tracking-wide py-3 rounded-tr-lg">
+						<div class="h-full flex gap-2">
+							<div class="border-2 border-[#76b5c577] rounded">
 							</div>
-						</th>
-					</tr>
+							<p class="tracking-wide text-[#2C3E50] text-xl font-bold m-0">Quantity</p>
+						</div>
+					</th>
 				</thead>
-
-				<tbody class="bg-white">
-					@if (Model != null && Model.Employees.Count != 0)
-					{
-						@foreach (var employee in Model.Employees)
+			</table>
+			<div class="w-full max-h-[570px] overflow-y-auto scrollbar-hide">
+				<table class="w-full text-[#2C3E50] font-poppins">
+					<tbody>
+						@if (Model != null && Model.Inventories.Count != 0)
 						{
-							@if ((int)@employee.Role != 0)
+							@foreach (var inventory in Model.Inventories)
 							{
-								<tr onclick="window.location.href='@Url.Action("EditEmployeeView", "System", new { id = employee.EmployeeId })'" class="border-b cursor-pointer hover:bg-gray-100">
-									<td class="select-none w-[100px] pl-5 text-[#2C3E50] font-semibold font-poppins text-xl">@employee.EmployeeId</td>
-									<td class="select-none w-[500px] text-[#2C3E50] font-semibold font-poppins text-xl">@employee.Name</td>
-									<td class="select-none w-[800px] text-[#2C3E50] font-semibold font-poppins text-xl">@employee.Email</td>
-									<td class="select-none w-[150px]">
-										@{
-											var bgColor = "select-none w-fit px-4 py-1 rounded text-[#2C3E50] font-semibold text-center text-xl " +
-											((int)employee.Role == 0 ? "bg-[#76b5c5]" :
-											(int)employee.Role == 1 ? "bg-[#76b5c5b2]" : "bg-[#76b5c556]");
-										}
-
-										<div class="@bgColor">
-											@employee.Role
-										</div>
-									</td>
-									<td class="w-[90px] py-3 pl-6">
-										@if (employee.IsActive)
-										{
-											<div class=" w-[25px] h-[25px] rounded-full bg-[#4CAF50]"></div>
-										}
-										else
-										{
-											<div class="w-[25px] h-[25px] rounded-full border-[#76b5c5] border-4"></div>
-										}
-									</td>
-								</tr>
-							}
-							else
-							{
-								<tr class="border-b">
-									<td class="select-none w-[100px] pl-5 text-[#2C3E50] font-semibold font-poppins text-xl">@employee.EmployeeId</td>
-									<td class="select-none w-[500px] text-[#2C3E50] font-semibold font-poppins text-xl">@employee.Name</td>
-									<td class="select-none w-[800px] text-[#2C3E50] font-semibold font-poppins text-xl">@employee.Email</td>
-									<td class="select-none w-[150px]">
-										@{
-											var bgColor = "select-none w-fit px-4 py-1 rounded text-[#2C3E50] font-semibold text-center text-xl " +
-											((int)employee.Role == 0 ? "bg-[#76b5c5]" :
-											(int)employee.Role == 1 ? "bg-[#76b5c5b2]" : "bg-[#76b5c556]");
-										}
-
-										<div class="@bgColor">
-											@employee.Role
-										</div>
-									</td>
-									<td class="w-[90px] py-3 pl-6">
-										@if (employee.IsActive)
-										{
-											<div class=" w-[25px] h-[25px] rounded-full bg-[#4CAF50]"></div>
-										}
-										else
-										{
-											<div class="w-[25px] h-[25px] rounded-full border-[#76b5c5] border-4"></div>
-										}
-									</td>
-								</tr>
+								<tr onclick="window.location.href='@Url.Action("AddStockView", "Inventory", new { id = inventory.InventoryId })'" class="border-b cursor-pointer hover:bg-gray-100">
+								<td class="select-none w-[500px] tracking-wide py-3 pl-4 text-[#2C3E50] font-semibold font-poppins text-xl">@inventory.ProductName</td>
+								<td class="select-none w-[150px] py-3 text-[#2C3E50] font-semibold font-poppins text-xl">@inventory.ZoneName</td>
+								<td class="select-none w-[400px] tracking-wide py-3 pl-4 text-[#2C3E50] font-semibold font-poppins text-xl">@inventory.Category</td>
+								<td class="select-none w-[200px] tracking-wide py-3 pl-4 text-[#2C3E50] font-semibold font-poppins text-xl">@inventory.ProductPrice</td>
+								<td class="select-none w-[50px] tracking-wide py-3 text-[#2C3E50] font-semibold font-poppins text-xl">@inventory.Quantity</td>
+							</tr>
 							}
 						}
-					}
-					else
-					{
-						<tr><td colspan="5" class="text-[#2C3E50] text-2xl font-semibold font-poppins">No data available.</td></tr>
-					}
-				</tbody>
-			</table>
+						else
+						{
+							<tr><td colspan="5" class="text-[#2C3E50] text-2xl font-semibold font-poppins">No data available.</td></tr>
+						}
+					</tbody>
+				</table>
+			</div>
 		</div>
 	</div>
 </div>

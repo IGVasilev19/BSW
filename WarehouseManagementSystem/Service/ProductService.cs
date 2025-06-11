@@ -33,7 +33,7 @@ namespace Service
             return null;
         }
 
-        public Task<int> CreateAsync(Product product, SqlConnection connection, SqlTransaction transaction) => _repo.AddAsync(product, connection, transaction);
+        public async Task<int> CreateAsync(Product product, SqlConnection connection, SqlTransaction transaction) => await _repo.AddAsync(product, connection, transaction);
 
         public Task DeleteByIdAsync(int id)
         {
@@ -42,9 +42,6 @@ namespace Service
 
         public Task<IEnumerable<Product>> GetAllAsync() => _repo.GetAllAsync();
 
-        public Task<Product> GetByIdAsync(int id)
-        {
-            throw new NotImplementedException();
-        }
+        public async Task<Product> GetByIdAsync(int id) => await _repo.GetByIdAsync(id);
     }
 }

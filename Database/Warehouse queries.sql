@@ -63,7 +63,8 @@ ZoneId INT FOREIGN KEY REFERENCES [Zone](ZoneId)
 
 CREATE TABLE Category(
 CategoryId INT PRIMARY KEY IDENTITY(1,1),
-[Name] VARCHAR(50) NOT NULL
+[Name] VARCHAR(50) NOT NULL,
+WarehouseId INT NOT NULL FOREIGN KEY REFERENCES Warehouse(WarehouseID)
 );
 
 CREATE TABLE [Product](
@@ -147,3 +148,11 @@ SET IDENTITY_INSERT Category OFF;
 DBCC CHECKIDENT ('Category', RESEED, 0);
 
 DELETE FROM Category
+
+ALTER TABLE Category
+ADD WarehouseId INT;
+
+ALTER TABLE Category
+ADD CONSTRAINT FK_Category_Warehouse
+FOREIGN KEY (WarehouseId)
+REFERENCES Warehouse(WarehouseId);

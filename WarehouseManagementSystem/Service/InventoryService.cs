@@ -43,6 +43,8 @@ namespace Service
             throw new NotImplementedException();
         }
 
+        public async Task<IEnumerable<Inventory>> GetAllAsync(int warehouseId) => await _repo.GetAllAsync(warehouseId);
+
         public Task<Inventory> GetByIdAsync(int id)
         {
             throw new NotImplementedException();

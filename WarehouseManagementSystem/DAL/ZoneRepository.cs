@@ -65,9 +65,50 @@ namespace DAL
             return list;
         }
 
-        public Task<Zone> GetByIdAsync(int id)
+        public async Task<IEnumerable<Zone>> GetAllAsync(int warehouseId)
         {
-            throw new NotImplementedException();
+            var list = new List<Zone>();
+
+            using var conn = _db.GetConnection();
+            await conn.OpenAsync();
+            var cmd = _db.CreateCommand("SELECT * FROM Zone WHERE WarehouseId = @WarehouseId", conn);
+
+            cmd.Parameters.AddWithValue("@WarehouseId", warehouseId);
+
+            using var reader = cmd.ExecuteReader();
+
+            while (reader.Read())
+            {
+                list.Add(new Zone(
+                    (int)reader["ZoneId"],
+                    reader["Name"].ToString(),
+                    (decimal)reader["Capacity"],
+                    (int)reader["WarehouseId"]
+                ));
+            }
+            return list;
+        }
+
+        public async Task<Zone> GetByIdAsync(int id)
+        {
+            using var conn = _db.GetConnection();
+            await conn.OpenAsync();
+
+            var cmd = _db.CreateCommand("SELECT * FROM Zone WHERE ZoneId = @Id", conn);
+            cmd.Parameters.AddWithValue("@Id", id);
+
+            using var reader = await cmd.ExecuteReaderAsync();
+            if (await reader.ReadAsync())
+            {
+                return new Zone(
+                    (int)reader["ZoneId"],
+                    reader["Name"].ToString(),
+                    (decimal)reader["Capacity"],
+                    (int)reader["WarehouseId"]
+                );
+            }
+
+            return null;
         }
 
         public Task UpdateAsync(Zone obj)

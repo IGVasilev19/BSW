@@ -9,5 +9,6 @@ namespace Service
 {
     public interface IZoneService : Service<Zone>
     {
+        public Task<IEnumerable<Zone>> GetAllAsync(int warehouseId);
     }
 }

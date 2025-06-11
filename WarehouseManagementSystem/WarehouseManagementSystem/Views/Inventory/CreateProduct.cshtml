@@ -1,6 +1,7 @@
 @{
     ViewData["Title"] = "CreateProduct";
 }
+@using System.Security.Claims
 @using WarehouseManagementSystem.Models
 @model CreateProductViewModel
 
@@ -21,12 +22,12 @@
                 <div class="w-full flex flex-col">
                     <div class="flex gap-3">
                         <p class="select-none text-[#2C3E50] text-xl font-poppins font-light">Category*</p>
-                        <span asp-validation-for="SelectedCategory" class="text-red-500 text-lg"></span>
+                        <span asp-validation-for="SelectedCategory.CategoryId" class="text-red-500 text-lg"></span>
                     </div>
                     <div class="relative dropdown-group">
                         <div onclick="toggleDropdown('Category')" class="toggle-categorydropdown select-none flex items-center justify-between border-2 rounded-lg h-[60px] px-4 border-[#76b5c5] cursor-pointer">
-                            <p id="CategoryDisplay" class="text-[#2C3E50] text-xl font-semibold m-0">
-                                @(Model.SelectedCategory == null ? "Select Category" : Model.SelectedCategory.Name)
+                            <p class="text-[#2C3E50] text-xl font-semibold m-0" id="CategoryDisplay">
+                                @(string.IsNullOrWhiteSpace(Model.SelectedCategory?.Name) ? "Select Category" : Model.SelectedCategory.Name)
                             </p>
                             <img id="CategoryArrow" src="~/images/Arrow 4.svg" class="h-[50%] transition-transform duration-100 rotate-0" />
                         </div>
@@ -34,7 +35,7 @@
                             @foreach (var item in Model.Categories)
                             {
                                 <div onclick="selectDropdownItem('@item.CategoryId', '@item.Name', 'Category')"
-                                     class="px-6 py-3 hover:bg-gray-100 hover:first:rounded-t-xl hover:last:rounded-b-xl text-[#2C3E50] text-lg font-semibold cursor-pointer">
+                                class="px-6 py-3 hover:bg-gray-100 hover:first:rounded-t-xl hover:last:rounded-b-xl text-[#2C3E50] text-lg font-semibold cursor-pointer">
                                     @item.Name
                                 </div>
                             }
@@ -46,12 +47,12 @@
                 <div class="w-full flex flex-col">
                     <div class="flex gap-3">
                         <p class="select-none text-[#2C3E50] text-xl font-poppins font-light">Zone*</p>
-                        <span asp-validation-for="SelectedZone" class="text-red-500 text-lg"></span>
+                        <span asp-validation-for="SelectedZone.ZoneId" class="text-red-500 text-lg"></span>
                     </div>
                     <div class="relative dropdown-group">
                         <div onclick="toggleDropdown('Zone')" class="toggle-zonedropdown select-none flex items-center justify-between border-2 rounded-lg h-[60px] px-4 border-[#76b5c5] cursor-pointer">
-                            <p id="ZoneDisplay" class="text-[#2C3E50] text-xl font-semibold m-0">
-                                @(Model.SelectedZone == null ? "Select Zone" : Model.SelectedZone.Name)
+                            <p class="text-[#2C3E50] text-xl font-semibold m-0" id="ZoneDisplay">
+                                @(string.IsNullOrWhiteSpace(Model.SelectedZone?.Name) ? "Select Zone" : Model.SelectedZone.Name)
                             </p>
                             <img id="ZoneArrow" src="~/images/Arrow 4.svg" class="h-[50%] transition-transform duration-100 rotate-0" />
                         </div>

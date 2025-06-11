@@ -28,15 +28,48 @@ namespace WarehouseManagementSystem.Controllers
         }
 
         [Authorize]
-        public IActionResult Inventory()
+        public async Task<IActionResult> Inventory()
         {
-            return View();
+            var loggedUser = await _employeeService.GetByEmailAsync(User.FindFirst(ClaimTypes.Email).Value);
+
+            List<Inventory> inventoryRecords = (List<Inventory>)await _inventoryService.GetAllAsync(loggedUser.WarehouseId);
+            
+
+            var inventories = await _inventoryService.GetAllAsync(loggedUser.WarehouseId);
+
+            var inventoryViewModels = await Task.WhenAll(inventories.Select(async inventoryRecord =>
+            {
+                var product = await _productService.GetByIdAsync(inventoryRecord.ProductId);
+                var zone = await _zoneService.GetByIdAsync(inventoryRecord.ZoneId);
+                var category = await _categoryService.GetByIdAsync(product.CategoryId);
+
+                return new InventoryViewModel
+                {
+                    InventoryId = inventoryRecord.InventoryId,
+                    ProductId = product.ProductId,
+                    ZoneId = zone.ZoneId,
+                    ProductName = product.Name,
+                    ProductPrice = product.Price,
+                    ZoneName = zone.Name,
+                    Quantity = inventoryRecord.Quantity,
+                    Category = category.Name
+                };
+            }));
+
+            var vm = new InventoryTableViewModel
+            {
+                Inventories = inventoryViewModels.ToList()
+            };
+
+            return View(vm);
         }
 
         [Authorize]
         public async Task<IActionResult> CreateProductView()
         {
-            List<Category> categories = (List<Category>)await _categoryService.GetAllAsync();
+            var loggedUser = await _employeeService.GetByEmailAsync(User.FindFirst(ClaimTypes.Email).Value);
+
+            List<Category> categories = (List<Category>)await _categoryService.GetAllAsync(loggedUser.WarehouseId);
             var availableCategories = new List<CreateCategoryViewModel>();
 
             foreach (var category in categories) 
@@ -50,7 +83,7 @@ namespace WarehouseManagementSystem.Controllers
                 availableCategories.Add(availableCategory);
             }
 
-            List<Zone> zones = (List<Zone>)await _zoneService.GetAllAsync();
+            List<Zone> zones = (List<Zone>)await _zoneService.GetAllAsync(loggedUser.WarehouseId);
             var availableZones = new List<ZoneViewModel>();
 
             foreach (var zone in zones)
@@ -78,7 +111,41 @@ namespace WarehouseManagementSystem.Controllers
         {
             if (!ModelState.IsValid)
             {
-                 return View("CreateProduct", model);
+                var loggedUser = await _employeeService.GetByEmailAsync(User.FindFirst(ClaimTypes.Email).Value);
+
+                List<Category> categories = (List<Category>)await _categoryService.GetAllAsync(loggedUser.WarehouseId);
+                var availableCategories = new List<CreateCategoryViewModel>();
+
+                foreach (var category in categories) 
+                {
+                    var availableCategory = new CreateCategoryViewModel
+                    {
+                        CategoryId = category.CategoryId,
+                        Name = category.Name
+                    };
+
+                    availableCategories.Add(availableCategory);
+                }
+
+                List<Zone> zones = (List<Zone>)await _zoneService.GetAllAsync(loggedUser.WarehouseId);
+                var availableZones = new List<ZoneViewModel>();
+
+                foreach (var zone in zones)
+                {
+                    var availableZone = new ZoneViewModel
+                    {
+                        ZoneId = zone.ZoneId,
+                        Name = zone.Name
+                    };
+
+                    availableZones.Add(availableZone);
+                }
+
+                
+                model.Categories = availableCategories;
+                model.Zones = availableZones;
+
+                return View("CreateProduct", model);
             }
 
             var newProduct = new Product( 
@@ -102,7 +169,7 @@ namespace WarehouseManagementSystem.Controllers
                 return View("CreateProduct", model);
             }
 
-            return View("Inventory");
+            return RedirectToAction("Inventory");
         }
 
         [Authorize(Roles = "Admin,Manager")]
@@ -119,7 +186,9 @@ namespace WarehouseManagementSystem.Controllers
                 return View("CreateCategory", model);
             }
 
-            var newCategory = new Category(model.Name);
+            var loggedUser = await _employeeService.GetByEmailAsync(User.FindFirst(ClaimTypes.Email).Value);
+
+            var newCategory = new Category(model.Name, loggedUser.WarehouseId);
 
             try
             {

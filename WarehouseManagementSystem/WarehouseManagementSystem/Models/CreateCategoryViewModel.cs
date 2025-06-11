@@ -7,8 +7,9 @@ namespace WarehouseManagementSystem.Models
 {
     public class CreateCategoryViewModel
     {
-        public int CategoryId { get; set; }
         [Required(ErrorMessage = "This field is required")]
+        public int CategoryId { get; set; }
         public string Name { get; set; }
+        public int WarehouseId { get; set; }
     }
 }

@@ -3,32 +3,32 @@
   "WorkspaceRootPath": "D:\\Fontys work\\Semester2\\Individual project\\warehouse-management-system\\WarehouseManagementSystem\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{731F945C-30BF-430B-A6B4-2B7148F22DE9}|Service\\Service.csproj|d:\\fontys work\\semester2\\individual project\\warehouse-management-system\\warehousemanagementsystem\\service\\iproductservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{731F945C-30BF-430B-A6B4-2B7148F22DE9}|Service\\Service.csproj|solutionrelative:service\\iproductservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{24C74F25-3A58-4D70-8508-6B671E5FFE08}|WarehouseManagementSystem\\WarehouseManagementSystem.csproj|d:\\fontys work\\semester2\\individual project\\warehouse-management-system\\warehousemanagementsystem\\warehousemanagementsystem\\views\\inventory\\createproduct.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{24C74F25-3A58-4D70-8508-6B671E5FFE08}|WarehouseManagementSystem\\WarehouseManagementSystem.csproj|solutionrelative:warehousemanagementsystem\\views\\inventory\\createproduct.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{731F945C-30BF-430B-A6B4-2B7148F22DE9}|Service\\Service.csproj|d:\\fontys work\\semester2\\individual project\\warehouse-management-system\\warehousemanagementsystem\\service\\productservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{731F945C-30BF-430B-A6B4-2B7148F22DE9}|Service\\Service.csproj|solutionrelative:service\\productservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{24C74F25-3A58-4D70-8508-6B671E5FFE08}|WarehouseManagementSystem\\WarehouseManagementSystem.csproj|d:\\fontys work\\semester2\\individual project\\warehouse-management-system\\warehousemanagementsystem\\warehousemanagementsystem\\models\\zoneviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{24C74F25-3A58-4D70-8508-6B671E5FFE08}|WarehouseManagementSystem\\WarehouseManagementSystem.csproj|solutionrelative:warehousemanagementsystem\\models\\zoneviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6BC041AD-B69C-43BD-A16F-C22C701BE3EE}|DAL\\DAL.csproj|d:\\fontys work\\semester2\\individual project\\warehouse-management-system\\warehousemanagementsystem\\dal\\inventoryrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6BC041AD-B69C-43BD-A16F-C22C701BE3EE}|DAL\\DAL.csproj|solutionrelative:dal\\inventoryrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{24C74F25-3A58-4D70-8508-6B671E5FFE08}|WarehouseManagementSystem\\WarehouseManagementSystem.csproj|d:\\fontys work\\semester2\\individual project\\warehouse-management-system\\warehousemanagementsystem\\warehousemanagementsystem\\models\\createproductviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{24C74F25-3A58-4D70-8508-6B671E5FFE08}|WarehouseManagementSystem\\WarehouseManagementSystem.csproj|solutionrelative:warehousemanagementsystem\\models\\createproductviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{24C74F25-3A58-4D70-8508-6B671E5FFE08}|WarehouseManagementSystem\\WarehouseManagementSystem.csproj|d:\\fontys work\\semester2\\individual project\\warehouse-management-system\\warehousemanagementsystem\\warehousemanagementsystem\\controllers\\systemcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{24C74F25-3A58-4D70-8508-6B671E5FFE08}|WarehouseManagementSystem\\WarehouseManagementSystem.csproj|solutionrelative:warehousemanagementsystem\\controllers\\systemcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{24C74F25-3A58-4D70-8508-6B671E5FFE08}|WarehouseManagementSystem\\WarehouseManagementSystem.csproj|d:\\fontys work\\semester2\\individual project\\warehouse-management-system\\warehousemanagementsystem\\warehousemanagementsystem\\controllers\\inventorycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{24C74F25-3A58-4D70-8508-6B671E5FFE08}|WarehouseManagementSystem\\WarehouseManagementSystem.csproj|solutionrelative:warehousemanagementsystem\\controllers\\inventorycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{24C74F25-3A58-4D70-8508-6B671E5FFE08}|WarehouseManagementSystem\\WarehouseManagementSystem.csproj|d:\\fontys work\\semester2\\individual project\\warehouse-management-system\\warehousemanagementsystem\\warehousemanagementsystem\\controllers\\accesscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{24C74F25-3A58-4D70-8508-6B671E5FFE08}|WarehouseManagementSystem\\WarehouseManagementSystem.csproj|solutionrelative:warehousemanagementsystem\\controllers\\accesscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{24C74F25-3A58-4D70-8508-6B671E5FFE08}|WarehouseManagementSystem\\WarehouseManagementSystem.csproj|d:\\fontys work\\semester2\\individual project\\warehouse-management-system\\warehousemanagementsystem\\warehousemanagementsystem\\views\\inventory\\inventory.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{24C74F25-3A58-4D70-8508-6B671E5FFE08}|WarehouseManagementSystem\\WarehouseManagementSystem.csproj|solutionrelative:warehousemanagementsystem\\views\\inventory\\inventory.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{24C74F25-3A58-4D70-8508-6B671E5FFE08}|WarehouseManagementSystem\\WarehouseManagementSystem.csproj|d:\\fontys work\\semester2\\individual project\\warehouse-management-system\\warehousemanagementsystem\\warehousemanagementsystem\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{24C74F25-3A58-4D70-8508-6B671E5FFE08}|WarehouseManagementSystem\\WarehouseManagementSystem.csproj|solutionrelative:warehousemanagementsystem\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{24C74F25-3A58-4D70-8508-6B671E5FFE08}|WarehouseManagementSystem\\WarehouseManagementSystem.csproj|d:\\fontys work\\semester2\\individual project\\warehouse-management-system\\warehousemanagementsystem\\warehousemanagementsystem\\controllers\\systemcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{24C74F25-3A58-4D70-8508-6B671E5FFE08}|WarehouseManagementSystem\\WarehouseManagementSystem.csproj|solutionrelative:warehousemanagementsystem\\controllers\\systemcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{24C74F25-3A58-4D70-8508-6B671E5FFE08}|WarehouseManagementSystem\\WarehouseManagementSystem.csproj|d:\\fontys work\\semester2\\individual project\\warehouse-management-system\\warehousemanagementsystem\\warehousemanagementsystem\\models\\inventoryviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{24C74F25-3A58-4D70-8508-6B671E5FFE08}|WarehouseManagementSystem\\WarehouseManagementSystem.csproj|solutionrelative:warehousemanagementsystem\\models\\inventoryviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -38,97 +38,97 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "IProductService.cs",
-              "DocumentMoniker": "D:\\Fontys work\\Semester2\\Individual project\\warehouse-management-system\\WarehouseManagementSystem\\Service\\IProductService.cs",
-              "RelativeDocumentMoniker": "Service\\IProductService.cs",
-              "ToolTip": "D:\\Fontys work\\Semester2\\Individual project\\warehouse-management-system\\WarehouseManagementSystem\\Service\\IProductService.cs",
-              "RelativeToolTip": "Service\\IProductService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAADwvwsAAAAFAAAAAAAAAA==",
+              "DocumentIndex": 1,
+              "Title": "ZoneViewModel.cs",
+              "DocumentMoniker": "D:\\Fontys work\\Semester2\\Individual project\\warehouse-management-system\\WarehouseManagementSystem\\WarehouseManagementSystem\\Models\\ZoneViewModel.cs",
+              "RelativeDocumentMoniker": "WarehouseManagementSystem\\Models\\ZoneViewModel.cs",
+              "ToolTip": "D:\\Fontys work\\Semester2\\Individual project\\warehouse-management-system\\WarehouseManagementSystem\\WarehouseManagementSystem\\Models\\ZoneViewModel.cs",
+              "RelativeToolTip": "WarehouseManagementSystem\\Models\\ZoneViewModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAA7AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-08T12:43:16.01Z",
+              "WhenOpened": "2025-06-11T15:56:03.207Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "ProductService.cs",
-              "DocumentMoniker": "D:\\Fontys work\\Semester2\\Individual project\\warehouse-management-system\\WarehouseManagementSystem\\Service\\ProductService.cs",
-              "RelativeDocumentMoniker": "Service\\ProductService.cs",
-              "ToolTip": "D:\\Fontys work\\Semester2\\Individual project\\warehouse-management-system\\WarehouseManagementSystem\\Service\\ProductService.cs",
-              "RelativeToolTip": "Service\\ProductService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAiAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-08T12:43:08.059Z",
+              "DocumentIndex": 0,
+              "Title": "CreateProduct.cshtml",
+              "DocumentMoniker": "D:\\Fontys work\\Semester2\\Individual project\\warehouse-management-system\\WarehouseManagementSystem\\WarehouseManagementSystem\\Views\\Inventory\\CreateProduct.cshtml",
+              "RelativeDocumentMoniker": "WarehouseManagementSystem\\Views\\Inventory\\CreateProduct.cshtml",
+              "ToolTip": "D:\\Fontys work\\Semester2\\Individual project\\warehouse-management-system\\WarehouseManagementSystem\\WarehouseManagementSystem\\Views\\Inventory\\CreateProduct.cshtml",
+              "RelativeToolTip": "WarehouseManagementSystem\\Views\\Inventory\\CreateProduct.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAABtAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-06-11T12:28:00.566Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "InventoryRepository.cs",
-              "DocumentMoniker": "D:\\Fontys work\\Semester2\\Individual project\\warehouse-management-system\\WarehouseManagementSystem\\DAL\\InventoryRepository.cs",
-              "RelativeDocumentMoniker": "DAL\\InventoryRepository.cs",
-              "ToolTip": "D:\\Fontys work\\Semester2\\Individual project\\warehouse-management-system\\WarehouseManagementSystem\\DAL\\InventoryRepository.cs",
-              "RelativeToolTip": "DAL\\InventoryRepository.cs",
-              "ViewState": "AgIAADgAAAAAAAAAAAD4v08AAABHAAAAAAAAAA==",
+              "Title": "CreateProductViewModel.cs",
+              "DocumentMoniker": "D:\\Fontys work\\Semester2\\Individual project\\warehouse-management-system\\WarehouseManagementSystem\\WarehouseManagementSystem\\Models\\CreateProductViewModel.cs",
+              "RelativeDocumentMoniker": "WarehouseManagementSystem\\Models\\CreateProductViewModel.cs",
+              "ToolTip": "D:\\Fontys work\\Semester2\\Individual project\\warehouse-management-system\\WarehouseManagementSystem\\WarehouseManagementSystem\\Models\\CreateProductViewModel.cs",
+              "RelativeToolTip": "WarehouseManagementSystem\\Models\\CreateProductViewModel.cs",
+              "ViewState": "AgIAAAIAAAAAAAAAAIA4wA4AAAAmAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-08T12:38:43.405Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "AccessController.cs",
-              "DocumentMoniker": "D:\\Fontys work\\Semester2\\Individual project\\warehouse-management-system\\WarehouseManagementSystem\\WarehouseManagementSystem\\Controllers\\AccessController.cs",
-              "RelativeDocumentMoniker": "WarehouseManagementSystem\\Controllers\\AccessController.cs",
-              "ToolTip": "D:\\Fontys work\\Semester2\\Individual project\\warehouse-management-system\\WarehouseManagementSystem\\WarehouseManagementSystem\\Controllers\\AccessController.cs",
-              "RelativeToolTip": "WarehouseManagementSystem\\Controllers\\AccessController.cs",
-              "ViewState": "AgIAAA4AAAAAAAAAAAAAABUAAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-08T12:19:56.472Z",
+              "WhenOpened": "2025-06-11T12:27:18.249Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 5,
-              "Title": "HomeController.cs",
-              "DocumentMoniker": "D:\\Fontys work\\Semester2\\Individual project\\warehouse-management-system\\WarehouseManagementSystem\\WarehouseManagementSystem\\Controllers\\HomeController.cs",
-              "RelativeDocumentMoniker": "WarehouseManagementSystem\\Controllers\\HomeController.cs",
-              "ToolTip": "D:\\Fontys work\\Semester2\\Individual project\\warehouse-management-system\\WarehouseManagementSystem\\WarehouseManagementSystem\\Controllers\\HomeController.cs",
-              "RelativeToolTip": "WarehouseManagementSystem\\Controllers\\HomeController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAADwvwAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-08T12:19:55.432Z",
+              "Title": "Inventory.cshtml",
+              "DocumentMoniker": "D:\\Fontys work\\Semester2\\Individual project\\warehouse-management-system\\WarehouseManagementSystem\\WarehouseManagementSystem\\Views\\Inventory\\Inventory.cshtml",
+              "RelativeDocumentMoniker": "WarehouseManagementSystem\\Views\\Inventory\\Inventory.cshtml",
+              "ToolTip": "D:\\Fontys work\\Semester2\\Individual project\\warehouse-management-system\\WarehouseManagementSystem\\WarehouseManagementSystem\\Views\\Inventory\\Inventory.cshtml",
+              "RelativeToolTip": "WarehouseManagementSystem\\Views\\Inventory\\Inventory.cshtml",
+              "ViewState": "AgIAAEsAAAAAAAAAAAAAACUAAABVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-06-11T12:24:47.384Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 6,
-              "Title": "SystemController.cs",
-              "DocumentMoniker": "D:\\Fontys work\\Semester2\\Individual project\\warehouse-management-system\\WarehouseManagementSystem\\WarehouseManagementSystem\\Controllers\\SystemController.cs",
-              "RelativeDocumentMoniker": "WarehouseManagementSystem\\Controllers\\SystemController.cs",
-              "ToolTip": "D:\\Fontys work\\Semester2\\Individual project\\warehouse-management-system\\WarehouseManagementSystem\\WarehouseManagementSystem\\Controllers\\SystemController.cs",
-              "RelativeToolTip": "WarehouseManagementSystem\\Controllers\\SystemController.cs",
-              "ViewState": "AgIAAA4AAAAAAAAAAAAowAAAAAAAAAAAAAAAAA==",
+              "Title": "InventoryViewModel.cs",
+              "DocumentMoniker": "D:\\Fontys work\\Semester2\\Individual project\\warehouse-management-system\\WarehouseManagementSystem\\WarehouseManagementSystem\\Models\\InventoryViewModel.cs",
+              "RelativeDocumentMoniker": "WarehouseManagementSystem\\Models\\InventoryViewModel.cs",
+              "ToolTip": "D:\\Fontys work\\Semester2\\Individual project\\warehouse-management-system\\WarehouseManagementSystem\\WarehouseManagementSystem\\Models\\InventoryViewModel.cs",
+              "RelativeToolTip": "WarehouseManagementSystem\\Models\\InventoryViewModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAApAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-08T12:19:32.68Z",
+              "WhenOpened": "2025-06-11T12:19:57.266Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "InventoryController.cs",
               "DocumentMoniker": "D:\\Fontys work\\Semester2\\Individual project\\warehouse-management-system\\WarehouseManagementSystem\\WarehouseManagementSystem\\Controllers\\InventoryController.cs",
               "RelativeDocumentMoniker": "WarehouseManagementSystem\\Controllers\\InventoryController.cs",
               "ToolTip": "D:\\Fontys work\\Semester2\\Individual project\\warehouse-management-system\\WarehouseManagementSystem\\WarehouseManagementSystem\\Controllers\\InventoryController.cs",
               "RelativeToolTip": "WarehouseManagementSystem\\Controllers\\InventoryController.cs",
-              "ViewState": "AgIAAEUAAAAAAAAAAAA3wGYAAAANAAAAAAAAAA==",
+              "ViewState": "AgIAAFgAAAAAAAAAAAA2wIkAAAAoAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-08T12:19:28.623Z",
+              "WhenOpened": "2025-06-11T12:00:33.238Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "SystemController.cs",
+              "DocumentMoniker": "D:\\Fontys work\\Semester2\\Individual project\\warehouse-management-system\\WarehouseManagementSystem\\WarehouseManagementSystem\\Controllers\\SystemController.cs",
+              "RelativeDocumentMoniker": "WarehouseManagementSystem\\Controllers\\SystemController.cs",
+              "ToolTip": "D:\\Fontys work\\Semester2\\Individual project\\warehouse-management-system\\WarehouseManagementSystem\\WarehouseManagementSystem\\Controllers\\SystemController.cs",
+              "RelativeToolTip": "WarehouseManagementSystem\\Controllers\\SystemController.cs",
+              "ViewState": "AgIAACcAAAAAAAAAAAAmwEwAAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-11T11:59:20.144Z",
               "EditorCaption": ""
             }
           ]

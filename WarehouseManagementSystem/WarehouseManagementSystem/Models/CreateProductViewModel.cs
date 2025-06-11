@@ -11,12 +11,12 @@ namespace WarehouseManagementSystem.Models
         public string Name { get; set; }
         [Required(ErrorMessage = "This field is required")]
         public decimal Price { get; set; }
-        [Required(ErrorMessage = "Please select a category")]
+        [Required]
         public CreateCategoryViewModel SelectedCategory { get; set; }
         [BindNever]
         [ValidateNever]
         public List<CreateCategoryViewModel> Categories { get; set; }
-        [Required(ErrorMessage = "Please select a zone")]
+        [Required]
         public ZoneViewModel SelectedZone { get; set; }
         [BindNever]
         [ValidateNever]

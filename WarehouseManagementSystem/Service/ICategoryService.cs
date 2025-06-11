@@ -9,5 +9,6 @@ namespace Service
 {
     public interface ICategoryService : Service<Category>
     {
+        public Task<IEnumerable<Category>> GetAllAsync(int warehouseId);
     }
 }

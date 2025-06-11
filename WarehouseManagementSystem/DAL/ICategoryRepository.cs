@@ -9,5 +9,6 @@ namespace DAL
 {
     public interface ICategoryRepository : Repository<Category>
     {
+        public Task<IEnumerable<Category>> GetAllAsync(int warehouseId);
     }
 }

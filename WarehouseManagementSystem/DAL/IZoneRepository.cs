@@ -9,5 +9,6 @@ namespace DAL
 {
     public interface IZoneRepository : Repository<Zone>
     {
+        public Task<IEnumerable<Zone>> GetAllAsync(int warehouseId);
     }
 }

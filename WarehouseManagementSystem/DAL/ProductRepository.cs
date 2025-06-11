@@ -78,9 +78,26 @@ namespace DAL
             return list;
         }
 
-        public Task<Product> GetByIdAsync(int id)
+        public async Task<Product> GetByIdAsync(int id)
         {
-            throw new NotImplementedException();
+            using var conn = _db.GetConnection();
+            await conn.OpenAsync();
+
+            var cmd = _db.CreateCommand("SELECT * FROM Product WHERE ProductId = @Id", conn);
+            cmd.Parameters.AddWithValue("@Id", id);
+
+            using var reader = await cmd.ExecuteReaderAsync();
+            if (await reader.ReadAsync())
+            {
+                return new Product(
+                    (int)reader["ProductId"],
+                    reader["Name"].ToString(),
+                    (decimal)reader["Price"],
+                    (int)reader["CategoryId"]
+                );
+            }
+
+            return null;
         }
 
         public Task UpdateAsync(Product product)

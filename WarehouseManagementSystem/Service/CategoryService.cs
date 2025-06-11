@@ -34,11 +34,9 @@ namespace Service
             throw new NotImplementedException();
         }
 
-        public Task<IEnumerable<Category>> GetAllAsync() => _repo.GetAllAsync();
+        public async Task<IEnumerable<Category>> GetAllAsync() => await _repo.GetAllAsync();
+        public async Task<IEnumerable<Category>> GetAllAsync(int warehouseId) => await _repo.GetAllAsync(warehouseId);
 
-        public Task<Category> GetByIdAsync(int id)
-        {
-            throw new NotImplementedException();
-        }
+        public async Task<Category> GetByIdAsync(int id) => await _repo.GetByIdAsync(id);
     }
 }

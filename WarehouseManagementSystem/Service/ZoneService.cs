@@ -38,9 +38,8 @@ namespace Service
         }
 
         public Task<IEnumerable<Zone>> GetAllAsync() => _repo.GetAllAsync();
-        public Task<Zone> GetByIdAsync(int id)
-        {
-            throw new NotImplementedException();
-        }
+        public async Task<IEnumerable<Zone>> GetAllAsync(int warehouseId) => await _repo.GetAllAsync(warehouseId);
+
+        public async Task<Zone> GetByIdAsync(int id) => await _repo.GetByIdAsync(id);
     }
 }
