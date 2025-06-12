@@ -3,6 +3,8 @@ using DAL.Interfaces;
 using DAL.Utility;
 using Microsoft.Extensions.DependencyInjection;
 using Service.Interfaces;
+using Service.Strategies.Pricing;
+using Service.Strategies.Pricing.Implementations;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,7 +23,9 @@ namespace Service
             services.AddScoped<IProductService, ProductService>();
             services.AddScoped<ICategoryService, CategoryService>();
             services.AddScoped<IZoneService, ZoneService>();
-            services.AddScoped<IInventoryService, InventoryService>();
+            services.AddScoped<IInventoryService, InventoryService>(); 
+            services.AddScoped<IPricingStrategy, StandardPricingStrategy>();
+
 
             services.AddScoped<IEmployeeRepository, EmployeeRepository>();
             services.AddScoped<IAddressRepository, AddressRepository>();

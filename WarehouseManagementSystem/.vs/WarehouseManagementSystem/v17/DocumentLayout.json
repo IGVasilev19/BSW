@@ -1,12 +1,156 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "D:\\Fontys work\\Semester2\\Individual project\\warehouse-management-system\\WarehouseManagementSystem\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{731F945C-30BF-430B-A6B4-2B7148F22DE9}|Service\\Service.csproj|d:\\fontys work\\semester2\\individual project\\warehouse-management-system\\warehousemanagementsystem\\service\\interfaces\\service.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{731F945C-30BF-430B-A6B4-2B7148F22DE9}|Service\\Service.csproj|solutionrelative:service\\interfaces\\service.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{731F945C-30BF-430B-A6B4-2B7148F22DE9}|Service\\Service.csproj|d:\\fontys work\\semester2\\individual project\\warehouse-management-system\\warehousemanagementsystem\\service\\serviceregistration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{731F945C-30BF-430B-A6B4-2B7148F22DE9}|Service\\Service.csproj|solutionrelative:service\\serviceregistration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{731F945C-30BF-430B-A6B4-2B7148F22DE9}|Service\\Service.csproj|d:\\fontys work\\semester2\\individual project\\warehouse-management-system\\warehousemanagementsystem\\service\\productservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{731F945C-30BF-430B-A6B4-2B7148F22DE9}|Service\\Service.csproj|solutionrelative:service\\productservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{731F945C-30BF-430B-A6B4-2B7148F22DE9}|Service\\Service.csproj|d:\\fontys work\\semester2\\individual project\\warehouse-management-system\\warehousemanagementsystem\\service\\strategies\\pricing\\implementations\\onsalepricingstrategy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{731F945C-30BF-430B-A6B4-2B7148F22DE9}|Service\\Service.csproj|solutionrelative:service\\strategies\\pricing\\implementations\\onsalepricingstrategy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{731F945C-30BF-430B-A6B4-2B7148F22DE9}|Service\\Service.csproj|d:\\fontys work\\semester2\\individual project\\warehouse-management-system\\warehousemanagementsystem\\service\\strategies\\pricing\\ipricingstrategy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{731F945C-30BF-430B-A6B4-2B7148F22DE9}|Service\\Service.csproj|solutionrelative:service\\strategies\\pricing\\ipricingstrategy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{731F945C-30BF-430B-A6B4-2B7148F22DE9}|Service\\Service.csproj|d:\\fontys work\\semester2\\individual project\\warehouse-management-system\\warehousemanagementsystem\\service\\strategies\\pricing\\implementations\\standardpricingstrategy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{731F945C-30BF-430B-A6B4-2B7148F22DE9}|Service\\Service.csproj|solutionrelative:service\\strategies\\pricing\\implementations\\standardpricingstrategy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{731F945C-30BF-430B-A6B4-2B7148F22DE9}|Service\\Service.csproj|d:\\fontys work\\semester2\\individual project\\warehouse-management-system\\warehousemanagementsystem\\service\\interfaces\\iaddressservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{731F945C-30BF-430B-A6B4-2B7148F22DE9}|Service\\Service.csproj|solutionrelative:service\\interfaces\\iaddressservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{24C74F25-3A58-4D70-8508-6B671E5FFE08}|WarehouseManagementSystem\\WarehouseManagementSystem.csproj|d:\\fontys work\\semester2\\individual project\\warehouse-management-system\\warehousemanagementsystem\\warehousemanagementsystem\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{24C74F25-3A58-4D70-8508-6B671E5FFE08}|WarehouseManagementSystem\\WarehouseManagementSystem.csproj|solutionrelative:warehousemanagementsystem\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
       "VerticalTabListWidth": 256,
-      "DocumentGroups": []
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Service.cs",
+              "DocumentMoniker": "D:\\Fontys work\\Semester2\\Individual project\\warehouse-management-system\\WarehouseManagementSystem\\Service\\Interfaces\\Service.cs",
+              "RelativeDocumentMoniker": "Service\\Interfaces\\Service.cs",
+              "ToolTip": "D:\\Fontys work\\Semester2\\Individual project\\warehouse-management-system\\WarehouseManagementSystem\\Service\\Interfaces\\Service.cs",
+              "RelativeToolTip": "Service\\Interfaces\\Service.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-12T12:53:02.464Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ServiceRegistration.cs",
+              "DocumentMoniker": "D:\\Fontys work\\Semester2\\Individual project\\warehouse-management-system\\WarehouseManagementSystem\\Service\\ServiceRegistration.cs",
+              "RelativeDocumentMoniker": "Service\\ServiceRegistration.cs",
+              "ToolTip": "D:\\Fontys work\\Semester2\\Individual project\\warehouse-management-system\\WarehouseManagementSystem\\Service\\ServiceRegistration.cs",
+              "RelativeToolTip": "Service\\ServiceRegistration.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-12T09:35:36.931Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "OnSalePricingStrategy.cs",
+              "DocumentMoniker": "D:\\Fontys work\\Semester2\\Individual project\\warehouse-management-system\\WarehouseManagementSystem\\Service\\Strategies\\Pricing\\Implementations\\OnSalePricingStrategy.cs",
+              "RelativeDocumentMoniker": "Service\\Strategies\\Pricing\\Implementations\\OnSalePricingStrategy.cs",
+              "ToolTip": "D:\\Fontys work\\Semester2\\Individual project\\warehouse-management-system\\WarehouseManagementSystem\\Service\\Strategies\\Pricing\\Implementations\\OnSalePricingStrategy.cs",
+              "RelativeToolTip": "Service\\Strategies\\Pricing\\Implementations\\OnSalePricingStrategy.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-12T09:30:03.597Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "StandardPricingStrategy.cs",
+              "DocumentMoniker": "D:\\Fontys work\\Semester2\\Individual project\\warehouse-management-system\\WarehouseManagementSystem\\Service\\Strategies\\Pricing\\Implementations\\StandardPricingStrategy.cs",
+              "RelativeDocumentMoniker": "Service\\Strategies\\Pricing\\Implementations\\StandardPricingStrategy.cs",
+              "ToolTip": "D:\\Fontys work\\Semester2\\Individual project\\warehouse-management-system\\WarehouseManagementSystem\\Service\\Strategies\\Pricing\\Implementations\\StandardPricingStrategy.cs",
+              "RelativeToolTip": "Service\\Strategies\\Pricing\\Implementations\\StandardPricingStrategy.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-12T08:59:29.266Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "IPricingStrategy.cs",
+              "DocumentMoniker": "D:\\Fontys work\\Semester2\\Individual project\\warehouse-management-system\\WarehouseManagementSystem\\Service\\Strategies\\Pricing\\IPricingStrategy.cs",
+              "RelativeDocumentMoniker": "Service\\Strategies\\Pricing\\IPricingStrategy.cs",
+              "ToolTip": "D:\\Fontys work\\Semester2\\Individual project\\warehouse-management-system\\WarehouseManagementSystem\\Service\\Strategies\\Pricing\\IPricingStrategy.cs",
+              "RelativeToolTip": "Service\\Strategies\\Pricing\\IPricingStrategy.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-12T08:59:22.286Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "IAddressService.cs",
+              "DocumentMoniker": "D:\\Fontys work\\Semester2\\Individual project\\warehouse-management-system\\WarehouseManagementSystem\\Service\\Interfaces\\IAddressService.cs",
+              "RelativeDocumentMoniker": "Service\\Interfaces\\IAddressService.cs",
+              "ToolTip": "D:\\Fontys work\\Semester2\\Individual project\\warehouse-management-system\\WarehouseManagementSystem\\Service\\Interfaces\\IAddressService.cs",
+              "RelativeToolTip": "Service\\Interfaces\\IAddressService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-12T08:59:14.058Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\Fontys work\\Semester2\\Individual project\\warehouse-management-system\\WarehouseManagementSystem\\WarehouseManagementSystem\\Program.cs",
+              "RelativeDocumentMoniker": "WarehouseManagementSystem\\Program.cs",
+              "ToolTip": "D:\\Fontys work\\Semester2\\Individual project\\warehouse-management-system\\WarehouseManagementSystem\\WarehouseManagementSystem\\Program.cs",
+              "RelativeToolTip": "WarehouseManagementSystem\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-12T08:34:07.746Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ProductService.cs",
+              "DocumentMoniker": "D:\\Fontys work\\Semester2\\Individual project\\warehouse-management-system\\WarehouseManagementSystem\\Service\\ProductService.cs",
+              "RelativeDocumentMoniker": "Service\\ProductService.cs",
+              "ToolTip": "D:\\Fontys work\\Semester2\\Individual project\\warehouse-management-system\\WarehouseManagementSystem\\Service\\ProductService.cs",
+              "RelativeToolTip": "Service\\ProductService.cs",
+              "ViewState": "AgIAAB8AAAAAAAAAAAAUwDIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-12T08:30:54.381Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
     }
   ]
 }
