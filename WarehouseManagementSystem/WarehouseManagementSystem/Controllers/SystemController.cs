@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
-using Service;
+using Service.Interfaces;
 using System.Reflection;
 using System.Security.Claims;
 using WarehouseManagementSystem.Models;

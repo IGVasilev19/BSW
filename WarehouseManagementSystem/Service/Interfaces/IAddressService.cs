@@ -6,10 +6,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Service
+namespace Service.Interfaces
 {
-    public interface IWarehouseService : Service<Warehouse>
+    public interface IAddressService : Service<Address>
     {
-        Task<int> CreateAsync(Warehouse warehouse, SqlConnection conn, SqlTransaction tran);
+        public Task<int> CreateAsync(Address address, SqlConnection conn, SqlTransaction tran);
     }
 }

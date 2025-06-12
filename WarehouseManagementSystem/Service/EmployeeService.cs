@@ -1,7 +1,9 @@
 ﻿using Domain;
-using DAL;
 using Exceptions;
 using System.Data;
+using Service.Interfaces;
+using Service.Utility;
+using DAL.Interfaces;
 
 namespace Service
 {

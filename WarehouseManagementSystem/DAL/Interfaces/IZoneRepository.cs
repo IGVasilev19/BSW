@@ -5,10 +5,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Service
+namespace DAL.Interfaces
 {
-    public interface ICategoryService : Service<Category>
+    public interface IZoneRepository : Repository<Zone>
     {
-        public Task<IEnumerable<Category>> GetAllAsync(int warehouseId);
+        public Task<IEnumerable<Zone>> GetAllAsync(int warehouseId);
     }
 }

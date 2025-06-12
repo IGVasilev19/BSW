@@ -1,7 +1,8 @@
-﻿using DAL;
+﻿using DAL.Interfaces;
 using Domain;
 using Exceptions;
 using Microsoft.Data.SqlClient;
+using Service.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;

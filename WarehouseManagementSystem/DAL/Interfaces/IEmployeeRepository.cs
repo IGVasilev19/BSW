@@ -6,13 +6,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DAL
+namespace DAL.Interfaces
 {
     public interface IEmployeeRepository : Repository<Employee>
     {
-        public Task UpdateRoleAsync (int id, Role role);
+        public Task UpdateRoleAsync(int id, Role role);
         public Task AddAsync(Employee employee, SqlConnection conn, SqlTransaction tran);
-        public Task<Employee> GetByEmailAsync (string email);
+        public Task<Employee> GetByEmailAsync(string email);
         public Task UpdateActivityAsync(string email, bool activity);
         public Task<IEnumerable<Employee>> GetAllAsync(int employeeId, int warehouseId);
         public Task RegisterWithWarehouseTransactionAsync(Address address, Warehouse warehouse, Employee employee);

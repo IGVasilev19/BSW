@@ -6,10 +6,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DAL
+namespace Service.Interfaces
 {
-    public interface IWarehouseRepository : Repository<Warehouse>
+    public interface IWarehouseService : Service<Warehouse>
     {
-        public Task<int> AddAsync (Warehouse warehouse, SqlConnection conn, SqlTransaction tran);
+        Task<int> CreateAsync(Warehouse warehouse, SqlConnection conn, SqlTransaction tran);
     }
 }

@@ -5,7 +5,7 @@ using Exceptions;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
-using Service;
+using Service.Interfaces;
 using WarehouseManagementSystem.Models;
 
 namespace WarehouseManagementSystem.Controllers

@@ -1,10 +1,12 @@
-﻿using DAL;
+﻿using DAL.Interfaces;
 using Domain;
 using Exceptions;
 using Microsoft.Extensions.Configuration;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
 using Service;
+using Service.Interfaces;
+using Service.Utility;
 using System.Threading.Tasks;
 
 namespace Tests

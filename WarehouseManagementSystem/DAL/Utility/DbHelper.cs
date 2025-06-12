@@ -1,7 +1,7 @@
 ﻿using Microsoft.Data.SqlClient;
 using Microsoft.Extensions.Configuration;
 
-namespace DAL
+namespace DAL.Utility
 {
     public class DbHelper
     {

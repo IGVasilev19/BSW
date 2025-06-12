@@ -5,9 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DAL
+namespace Service.Interfaces
 {
-    public interface ICategoryRepository : Repository<Category>
+    public interface ICategoryService : Service<Category>
     {
         public Task<IEnumerable<Category>> GetAllAsync(int warehouseId);
     }

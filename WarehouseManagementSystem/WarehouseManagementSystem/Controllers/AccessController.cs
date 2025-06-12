@@ -3,7 +3,7 @@ using System.Security.Claims;
 using Domain;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Mvc;
-using Service;
+using Service.Interfaces;
 using WarehouseManagementSystem.Models;
 
 public class AccessController : Controller

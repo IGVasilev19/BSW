@@ -1,6 +1,6 @@
 ﻿using Domain;
 
-namespace Service
+namespace Service.Interfaces
 {
     public interface Service<T>
     {
