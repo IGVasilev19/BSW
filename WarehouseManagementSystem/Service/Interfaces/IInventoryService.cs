@@ -11,5 +11,6 @@ namespace Service.Interfaces
     {
         public Task AddNewProductTransactionAsync(Product product, Inventory inventory);
         public Task<IEnumerable<Inventory>> GetAllAsync(int warehouseId);
+        public Task AddStockAsync(Inventory inventory);
     }
 }

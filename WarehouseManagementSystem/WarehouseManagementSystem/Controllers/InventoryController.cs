@@ -244,34 +244,43 @@ namespace WarehouseManagementSystem.Controllers
 
 
         [Authorize]
-        public async Task<IActionResult> AddStockView()
+        public async Task<IActionResult> AddStockView(int id)
         {
-            List<Product> products = (List<Product>)await _productService.GetAllAsync();
-            var unassignedProducts = new List<ProductViewModel>();
+            
+            var selectedInventory = await _inventoryService.GetByIdAsync(id);
 
-            foreach (var product in products)
-            {
-                var unassignedProduct = new ProductViewModel
-                {
-                    ProductId = product.ProductId,
-                    Name = product.Name
-                };
+            var selectedProduct = await _productService.GetByIdAsync(selectedInventory.ProductId);
 
-                unassignedProducts.Add(unassignedProduct);
-            }
+            var selectedProductCategory = await _categoryService.GetByIdAsync(selectedProduct.CategoryId);
 
-            var vm = new AddStockViewModel
-            {
-                Products = unassignedProducts,
+            var selectedZone = await _zoneService.GetByIdAsync(selectedInventory.ZoneId);
+
+            var vm = new InventoryViewModel{
+                InventoryId = selectedInventory.InventoryId,
+                ProductId = selectedProduct.ProductId,
+                ProductName = selectedProduct.Name,
+                ProductPrice = selectedProduct.Price,
+                ZoneName = selectedZone.Name,
+                ZoneId = selectedZone.ZoneId,
+                Quantity = selectedInventory.Quantity,
+                Category = selectedProductCategory.Name
             };
 
-            return View("AddStock");
+            return View("AddStock",vm);
         }
 
         [HttpPost]
-        public async Task<IActionResult> AddStock()
+        public async Task<IActionResult> AddStock(InventoryViewModel model)
         {
-            return View("Inventory");
+            var updatedInventory = new Inventory(
+                model.InventoryId,
+                model.Quantity,
+                DateTime.Now
+            );
+
+            _inventoryService.AddStockAsync(updatedInventory);
+
+            return RedirectToAction("Inventory");
         }
     }
 }

@@ -84,9 +84,27 @@ namespace DAL
             return list;
         }
 
-        public Task<Inventory> GetByIdAsync(int id)
+        public async Task<Inventory> GetByIdAsync(int id)
         {
-            throw new NotImplementedException();
+            using var conn = _db.GetConnection();
+            await conn.OpenAsync();
+
+            var cmd = _db.CreateCommand("SELECT * FROM Inventory WHERE InventoryId = @Id", conn);
+            cmd.Parameters.AddWithValue("@Id", id);
+
+            using var reader = await cmd.ExecuteReaderAsync();
+            if (await reader.ReadAsync())
+            {
+                return new Inventory(
+                    (int)reader["InventoryId"],
+                    (int)reader["ProductId"],
+                    (int)reader["ZoneId"],
+                    (int)reader["Quantity"],
+                    (DateTime)reader["LastUpdate"]
+                );
+            }
+
+            return null;
         }
 
         public Task UpdateAsync(Inventory obj)
@@ -115,6 +133,20 @@ namespace DAL
                 await transaction.RollbackAsync();
                 throw new QueryFailedException("Failed to add a new product to the system", ex);
             }
+        }
+
+        public async Task AddStockAsync(Inventory inventory)
+        {
+            using var conn = _db.GetConnection();
+            await conn.OpenAsync();
+
+            var cmd = _db.CreateCommand(@"UPDATE Inventory SET Quantity = Quantity + @Quantity, LastUpdate = @LastUpdate WHERE InventoryId = @InventoryId", conn);
+
+            cmd.Parameters.AddWithValue("@InventoryId", inventory.InventoryId);
+            cmd.Parameters.AddWithValue("@Quantity", inventory.Quantity);
+            cmd.Parameters.AddWithValue("@LastUpdate", DateTime.Now);
+
+            await cmd.ExecuteNonQueryAsync();
         }
     }
 }

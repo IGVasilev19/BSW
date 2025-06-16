@@ -156,3 +156,7 @@ ALTER TABLE Category
 ADD CONSTRAINT FK_Category_Warehouse
 FOREIGN KEY (WarehouseId)
 REFERENCES Warehouse(WarehouseId);
+
+ALTER TABLE Employee
+ADD CONSTRAINT UQ_Employee_Email UNIQUE (Email);
+
