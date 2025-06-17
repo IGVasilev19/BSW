@@ -1,0 +1,92 @@
+@{
+	ViewData["Title"] = "Orders";
+}
+@using WarehouseManagementSystem.Models
+
+<div class="w-full h-full flex">
+	@Html.Partial("_Sidebar", "Orders")
+	<div class="w-full h-full flex flex-col items-center gap-4 bg-gray-100">
+		<div class="w-[96%] h-fit flex justify-between items-center mt-8">
+			<p class="text-[#2C3E50] font-semibold font-poppins text-5xl">Orders</p>
+			<div class="flex gap-2">
+				<div class="relative inline-block text-left">
+					<a asp-action="CreateOrder" asp-controller="Orders" class="flex gap-3 bg-[#2C3E50] justify-center items-center px-10 py-2 rounded hover:bg-gray-600 select-none cursor-pointer">
+						<p class="text-white text-xl font-semibold font-poppins tracking-wider m-0">CREATE</p>
+					</a>
+				</div>
+			</div>
+		</div>
+		<div class="w-[96%] h-fit flex justify-between gap-3">
+			<div class="w-[800px] flex items-center rounded-lg drop-shadow-2xl overflow-hidden">
+				<input type="text" class="h-full w-full px-4 py-2 outline-none bg-white caret-[#76b5c5b4] text-[#2C3E50]"/>
+				<button class="bg-[#76b5c5] px-4 py-2 text-white">
+					<img src="../images/search.svg" class="h-[40px]" />
+				</button>
+			</div>
+			<a class="flex items-center justify-center drop-shadow-2xl bg-[#76b5c5] px-10 py-2 rounded cursor-pointer select-none">
+				<p class="text-white text-xl font-semibold font-poppins tracking-wider m-0">SORT</p>
+			</a>
+		</div>
+		<div class="w-[96%] h-[700px] bg-white drop-shadow-2xl rounded-t-lg">
+			<table class="w-full text-[#2C3E50] font-poppins">
+				<thead class="bg-[#76bc554] sticky top-0 z-10">
+				<tr class="w-full bg-[#76b5c554]">
+					<th class="w-[100px] tracking-wide py-3 pl-4 rounded-tl-lg">
+						<p class="tracking-wide text-[#2C3E50] text-xl font-bold m-0">Customer</p>
+					</th>
+					<th class="w-[30px] py-3">
+						<div class="h-full flex gap-2">
+							<div class="border-2 border-[#76b5c577] rounded">
+							</div>
+							<p class="tracking-wide text-[#2C3E50] text-xl font-bold m-0">Items</p>
+						</div>
+					</th>
+					<th class="w-[100px] tracking-wide py-3 pl-4">
+						<div class="h-full flex gap-2">
+							<div class="border-2 border-[#76b5c577] rounded">
+							</div>
+							<p class="tracking-wide text-[#2C3E50] text-xl font-bold m-0">Total Price</p>
+						</div>
+					</th>
+					<th class="w-[50px] tracking-wide py-3 pl-4">
+						<div class="h-full flex gap-2">
+							<div class="border-2 border-[#76b5c577] rounded">
+							</div>
+							<p class="tracking-wide text-[#2C3E50] text-xl font-bold m-0">Status</p>
+						</div>
+					</th>
+					<th class="w-[50px] tracking-wide py-3 pr-2 rounded-tr-lg">
+						<div class="h-full flex gap-2">
+							<div class="border-2 border-[#76b5c577] rounded">
+							</div>
+							<p class="tracking-wide text-[#2C3E50] text-xl font-bold m-0">Date</p>
+						</div>
+					</th>
+				</thead>
+			</table>
+			<div class="w-full max-h-[570px] overflow-y-auto scrollbar-hide">
+				<table class="w-full text-[#2C3E50] font-poppins">
+					<!-- <tbody>
+						@if (Model != null && Model.Inventories.Count != 0)
+						{
+							@foreach (var inventory in Model.Inventories)
+							{
+								<tr onclick="window.location.href='@Url.Action("AddStockView", "Inventory", new { id = inventory.InventoryId })'" class="border-b cursor-pointer hover:bg-gray-100">
+								<td class="select-none w-[300px] tracking-wide py-3 pl-4 text-[#2C3E50] font-semibold font-poppins text-xl">@inventory.ProductName</td>
+								<td class="select-none w-[270px] py-3 text-[#2C3E50] font-semibold font-poppins text-xl">@inventory.ZoneName</td>
+								<td class="select-none w-[270px] tracking-wide py-3 pl-4 text-[#2C3E50] font-semibold font-poppins text-xl">@inventory.Category</td>
+								<td class="select-none w-[150px] tracking-wide py-3 pl-4 text-[#2C3E50] font-semibold font-poppins text-xl">@inventory.ProductPrice</td>
+								<td class="select-none w-[50px] tracking-wide py-3 text-[#2C3E50] font-semibold font-poppins text-xl">@inventory.Quantity</td>
+							</tr>
+							}
+						}
+						else
+						{
+							<tr><td colspan="5" class="text-[#2C3E50] text-2xl font-semibold font-poppins">No data available.</td></tr>
+						}
+					</tbody> -->
+				</table>
+			</div>
+		</div>
+	</div>
+</div>

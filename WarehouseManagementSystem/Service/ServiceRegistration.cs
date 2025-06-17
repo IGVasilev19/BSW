@@ -24,7 +24,10 @@ namespace Service
             services.AddScoped<ICategoryService, CategoryService>();
             services.AddScoped<IZoneService, ZoneService>();
             services.AddScoped<IInventoryService, InventoryService>(); 
-            services.AddScoped<IPricingStrategy, StandardPricingStrategy>();
+            services.AddScoped<StandardPricingStrategy>();
+            services.AddScoped<OnSalePricingStrategy>();
+            services.AddScoped<PricingStrategyFactory>();
+
 
 
             services.AddScoped<IEmployeeRepository, EmployeeRepository>();
