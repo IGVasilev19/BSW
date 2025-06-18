@@ -9,9 +9,12 @@ namespace Service.Strategies.Pricing.Implementations
 {
     public class OnSalePricingStrategy : IPricingStrategy
     {
-        public decimal CalculatePrice(Product product)
+        public string Key => PricingStrategyKeys.OnSale;
+
+        public decimal CalculatePrice(decimal price, int quantity)
         {
-            return product.Price * 0.8m;
+
+            return price * quantity * 0.8m;
         }
     }
 }

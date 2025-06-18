@@ -1,37 +1,12 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "D:\\Fontys work\\Semester2\\Individual project\\warehouse-management-system\\WarehouseManagementSystem\\",
-  "Documents": [
-    {
-      "AbsoluteMoniker": "D:0:0:{6BC041AD-B69C-43BD-A16F-C22C701BE3EE}|DAL\\DAL.csproj|d:\\fontys work\\semester2\\individual project\\warehouse-management-system\\warehousemanagementsystem\\dal\\orderproductrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6BC041AD-B69C-43BD-A16F-C22C701BE3EE}|DAL\\DAL.csproj|solutionrelative:dal\\orderproductrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    }
-  ],
+  "Documents": [],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
       "VerticalTabListWidth": 256,
-      "DocumentGroups": [
-        {
-          "DockedWidth": 200,
-          "SelectedChildIndex": 0,
-          "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "OrderProductRepository.cs",
-              "DocumentMoniker": "D:\\Fontys work\\Semester2\\Individual project\\warehouse-management-system\\WarehouseManagementSystem\\DAL\\OrderProductRepository.cs",
-              "RelativeDocumentMoniker": "DAL\\OrderProductRepository.cs",
-              "ToolTip": "D:\\Fontys work\\Semester2\\Individual project\\warehouse-management-system\\WarehouseManagementSystem\\DAL\\OrderProductRepository.cs",
-              "RelativeToolTip": "DAL\\OrderProductRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAADwvwoAAABAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-17T09:33:16.879Z",
-              "EditorCaption": ""
-            }
-          ]
-        }
-      ]
+      "DocumentGroups": []
     }
   ]
 }

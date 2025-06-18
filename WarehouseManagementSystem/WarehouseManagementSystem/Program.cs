@@ -1,7 +1,18 @@
 using Domain;
 using Service;
+using Serilog;
+using Serilog.Formatting.Compact;
+
+
+Log.Logger = new LoggerConfiguration()
+    .Enrich.FromLogContext()
+    .WriteTo.File(new CompactJsonFormatter(), "Logs/log.json", rollingInterval: RollingInterval.Day)
+    .CreateLogger();
+
 
 var builder = WebApplication.CreateBuilder(args);
+builder.Host.UseSerilog(); // <-- Hook Serilog into ASP.NET Core logging
+
 
 builder.Services.AddBusinessServices();
 
@@ -19,6 +30,7 @@ builder.Services.AddAuthentication("WarehouseCookie")
 
 builder.Services.AddAuthorization();
 builder.Services.AddControllersWithViews();
+builder.Configuration.AddUserSecrets<Program>();
 
 
 

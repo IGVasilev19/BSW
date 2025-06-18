@@ -34,6 +34,7 @@ project.assets.json
 project.nuget.cache
 *.dbmdl
 *.sdf
+appsettings.json
 
 ###################
 # VS Upgrade stuff #

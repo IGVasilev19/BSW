@@ -23,10 +23,12 @@ namespace Service
             services.AddScoped<IProductService, ProductService>();
             services.AddScoped<ICategoryService, CategoryService>();
             services.AddScoped<IZoneService, ZoneService>();
-            services.AddScoped<IInventoryService, InventoryService>(); 
-            services.AddScoped<StandardPricingStrategy>();
-            services.AddScoped<OnSalePricingStrategy>();
+            services.AddScoped<IInventoryService, InventoryService>();
+            services.AddScoped<IOrderService, OrderService>();
+            services.AddScoped<IOrderProductService, OrderProductService>();
             services.AddScoped<PricingStrategyFactory>();
+            services.AddScoped<IPricingStrategy, StandardPricingStrategy>();
+            services.AddScoped<IPricingStrategy, OnSalePricingStrategy>();
 
 
 

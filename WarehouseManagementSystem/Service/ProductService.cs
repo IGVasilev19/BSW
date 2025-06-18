@@ -15,12 +15,10 @@ namespace Service
     public class ProductService : IProductService
     {
         private readonly IProductRepository _repo;
-        private readonly IPricingStrategy _strategy;
 
-        public ProductService (IProductRepository repo, IPricingStrategy strategy)
+        public ProductService (IProductRepository repo)
         {
             _repo = repo;
-            _strategy = strategy;
         }
 
         public Task CreateAsync(Product product)
@@ -42,11 +40,6 @@ namespace Service
         public Task DeleteByIdAsync(int id)
         {
             throw new NotImplementedException();
-        }
-
-        public decimal GetFinalProductPrice(Product product)
-        {
-            return _strategy.CalculatePrice(product);
         }
 
         public Task<IEnumerable<Product>> GetAllAsync() => _repo.GetAllAsync();

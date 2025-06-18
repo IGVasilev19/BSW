@@ -14,10 +14,12 @@ namespace WarehouseManagementSystem.Controllers
     public class SystemController : Controller
     {
         private readonly IEmployeeService _employeeService;
+        private readonly ILogger<SystemController> _logger;
 
-        public SystemController (IEmployeeService service)
+        public SystemController (IEmployeeService service, ILogger<SystemController> logger)
         {
             _employeeService = service;
+            _logger = logger;
         }
 
         [Authorize]
@@ -145,6 +147,8 @@ namespace WarehouseManagementSystem.Controllers
             try
             {
                 await _employeeService.CreateAsync(employee);
+
+                _logger.LogInformation($"Admin {loggedEmployee.Email} created new employee {model.Email}");
             }
             catch (QueryFailedException ex)
             { 
@@ -156,6 +160,8 @@ namespace WarehouseManagementSystem.Controllers
                         .Select(r => new { Value = (int)r, Text = r.ToString() }),
                     "Value", "Text"
                 );
+
+                _logger.LogError(ex, "Failed to cteate a new employee");
 
                 return View("CreateEmployee", model);
             }

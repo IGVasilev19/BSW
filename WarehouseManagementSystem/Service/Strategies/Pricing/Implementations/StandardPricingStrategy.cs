@@ -9,6 +9,7 @@ namespace Service.Strategies.Pricing.Implementations
 {
     public class StandardPricingStrategy : IPricingStrategy
     {
-        public decimal CalculatePrice(Product product) => product.Price;
+        public string Key => PricingStrategyKeys.Standard;
+        public decimal CalculatePrice(decimal price, int quantity) => price * quantity;
     }
 }

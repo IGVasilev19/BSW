@@ -4,15 +4,18 @@ using Domain;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Mvc;
 using Service.Interfaces;
+using WarehouseManagementSystem.Controllers;
 using WarehouseManagementSystem.Models;
 
 public class AccessController : Controller
 {
     private readonly IEmployeeService _employeeService;
+    private readonly ILogger<AccessController> _logger;
 
-    public AccessController(IEmployeeService employeeService)
+    public AccessController(IEmployeeService employeeService, ILogger<AccessController> logger)
     {
         _employeeService = employeeService;
+        _logger = logger;
     }
 
     [HttpPost]
@@ -82,6 +85,8 @@ public class AccessController : Controller
         await HttpContext.SignInAsync("WarehouseCookie", principal);
 
         _employeeService.UpdateActivityAsync(employee.Email, true);
+
+        _logger.LogInformation("Employee {Email} signed in at {Time}", employee.Email, DateTime.UtcNow);
 
         return RedirectToAction("Dashboard", "System");
     }

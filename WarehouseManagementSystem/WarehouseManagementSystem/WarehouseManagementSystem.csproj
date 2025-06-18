@@ -4,6 +4,7 @@
     <TargetFramework>net9.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
+    <UserSecretsId>c400d694-58fc-4847-9044-3c15a90fd6ba</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>
@@ -15,6 +16,9 @@
     <PackageReference Include="MSTest" Version="3.9.0" />
     <PackageReference Include="MSTest.TestAdapter" Version="3.9.0" />
     <PackageReference Include="MSTest.TestFramework" Version="3.9.0" />
+    <PackageReference Include="Serilog.AspNetCore" Version="9.0.0" />
+    <PackageReference Include="Serilog.Formatting.Compact" Version="3.0.0" />
+    <PackageReference Include="Serilog.Sinks.File" Version="7.0.0" />
   </ItemGroup>
 
   <ItemGroup>

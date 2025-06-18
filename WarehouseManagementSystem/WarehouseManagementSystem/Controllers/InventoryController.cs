@@ -17,14 +17,16 @@ namespace WarehouseManagementSystem.Controllers
         private readonly IZoneService _zoneService;
         private readonly IEmployeeService _employeeService;
         private readonly IInventoryService _inventoryService;
+        private readonly ILogger<InventoryController> _logger;
 
-        public InventoryController (IProductService productService, ICategoryService categoryService, IZoneService zoneService, IEmployeeService employeeService, IInventoryService inventoryService)
+        public InventoryController (IProductService productService, ICategoryService categoryService, IZoneService zoneService, IEmployeeService employeeService, IInventoryService inventoryService, ILogger<InventoryController> logger)
         {
             _productService = productService;
             _categoryService = categoryService;
             _zoneService = zoneService;
             _employeeService = employeeService;
             _inventoryService = inventoryService;
+            _logger = logger;
         }
 
         [Authorize]
@@ -161,6 +163,7 @@ namespace WarehouseManagementSystem.Controllers
             try
             {
                 _inventoryService.AddNewProductTransactionAsync(newProduct, newInventory);
+                _logger.LogInformation($"Product {newProduct.ProductId} created: {newProduct.Name}");
             }
             catch (Exception ex)
             {
@@ -279,6 +282,7 @@ namespace WarehouseManagementSystem.Controllers
             );
 
             _inventoryService.AddStockAsync(updatedInventory);
+            _logger.LogInformation($"Inventory {updatedInventory.InventoryId} updated. Added {model.Quantity}");
 
             return RedirectToAction("Inventory");
         }
