@@ -61,15 +61,29 @@ namespace Service
 
         public async Task CreateAsync(Employee employee)
         {
+            if (employee == null)
+                throw new ArgumentNullException(nameof(employee), "Employee object cannot be null.");
+
+            if (string.IsNullOrWhiteSpace(employee.Email))
+                throw new ArgumentNullException(nameof(employee.Email), "Email cannot be null or empty.");
+
             try
             {
-                var secureEmployee = new Employee(employee.Name,employee.Email,PasswordHasher.Hash(employee.Password),employee.PhoneNumber, employee.Role, employee.IsActive, employee.WarehouseId);
+                var secureEmployee = new Employee(
+                    employee.Name,
+                    employee.Email,
+                    PasswordHasher.Hash(employee.Password),
+                    employee.PhoneNumber,
+                    employee.Role,
+                    employee.IsActive,
+                    employee.WarehouseId
+                );
 
                 await _repo.AddAsync(secureEmployee);
             }
             catch (QueryFailedException ex)
             {
-                throw ex;
+                throw;
             }
         }
 

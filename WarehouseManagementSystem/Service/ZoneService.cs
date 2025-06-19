@@ -19,18 +19,16 @@ namespace Service
             _repo = repo;
         }
 
-        public Task CreateAsync(Zone zone)
+        public async Task CreateAsync(Zone zone)
         {
             try
             {
-                _repo.AddAsync(zone);
+                await _repo.AddAsync(zone);
             }
-            catch(QueryFailedException ex)
+            catch (QueryFailedException ex)
             {
-                throw ex;
+                throw;
             }
-
-            return null;
         }
 
         public Task DeleteByIdAsync(int id)

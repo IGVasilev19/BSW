@@ -21,18 +21,16 @@ namespace Service
             _repo = repo;
         }
 
-        public Task CreateAsync(Product product)
+        public async Task CreateAsync(Product product)
         {
             try
             {
-                _repo.AddAsync(product);
+                await _repo.AddAsync(product);
             }
-            catch(QueryFailedException ex) 
+            catch (QueryFailedException ex)
             {
                 throw ex;
             }
-
-            return null;
         }
 
         public async Task<int> CreateAsync(Product product, SqlConnection connection, SqlTransaction transaction) => await _repo.AddAsync(product, connection, transaction);
