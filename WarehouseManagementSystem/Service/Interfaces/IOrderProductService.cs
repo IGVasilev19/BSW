@@ -9,6 +9,6 @@ namespace Service.Interfaces
 {
     public interface IOrderProductService : Service<OrderProduct>
     {
-        decimal CalculateTotalPrice(decimal unitPrice, int quantity, string strategyKey);
+        public decimal CalculateTotalPrice(decimal unitPrice, int quantity, string strategyKey);
     }
 }

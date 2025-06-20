@@ -9,7 +9,7 @@ namespace Service.Strategies.Pricing
 {
     public interface IPricingStrategy
     {
-        string Key { get; }
-        decimal CalculatePrice(decimal price, int quantity);
+        public string Key { get; }
+        public decimal CalculatePrice(decimal price, int quantity);
     }
 }

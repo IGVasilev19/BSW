@@ -10,7 +10,6 @@ namespace WarehouseManagementSystem.Models
         [Required(ErrorMessage = "This field is required")]
         public int ZoneId { get; set; }
         public string Name { get; set; }
-
         public int WarehouseId { get; set; }
     }
 }
